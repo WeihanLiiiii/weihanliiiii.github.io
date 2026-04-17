@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weihan Li — About</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════
+   DESIGN TOKENS — Warm magazine paper
+   ═══════════════════════════════════════════════ */
+:root {
+  --paper:       #1c1814;
+  --paper-soft:  #231e18;
+  --paper-hi:    #2a231c;
+  
+  --ink:         #f5ecd8;
+  --ink-soft:    #e2d5b8;
+  --ink-mute:    #c0b294;
+  --ink-faint:   #897c64;
+  
+  --gold:        #c9a15a;
+  --gold-hi:     #e3c07c;
+  --gold-deep:   #8a6f3c;
+  
+  --rule:        rgba(201, 161, 90, 0.18);
+  --rule-soft:   rgba(240, 230, 210, 0.08);
+  
+  --serif:   "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 1.65;
+  font-feature-settings: "kern", "liga", "onum";
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Paper grain overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: 
+    radial-gradient(ellipse at top, rgba(201, 161, 90, 0.04), transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(201, 161, 90, 0.025), transparent 55%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: 
+    radial-gradient(rgba(240, 230, 210, 0.022) 1px, transparent 1px),
+    radial-gradient(rgba(240, 230, 210, 0.018) 1px, transparent 1px);
+  background-size: 3px 3px, 5px 5px;
+  background-position: 0 0, 1px 1px;
+  mix-blend-mode: overlay;
+}
+
+::selection { background: var(--gold); color: var(--paper); }
+
+/* ═══════════════════════════════════════════════
+   MAIN CONTAINER
+   ═══════════════════════════════════════════════ */
+main {
+  position: relative;
+  z-index: 2;
+  max-width: min(1120px, calc(100vw - 40px));
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem) 6rem;
+}
+
+/* ═══════════════════════════════════════════════
+   MASTHEAD — No wrapping, compact nav
+   ═══════════════════════════════════════════════ */
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.2rem;
+  margin-bottom: 3.5rem;
+  border-bottom: 2px solid var(--gold);
+  position: relative;
+  gap: 2rem;
+  flex-wrap: nowrap;
+}
+
+.masthead::before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+.masthead-mark {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.masthead-mark strong {
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  margin-right: 0.5rem;
+  color: var(--ink-mute);
+}
+
+/* Compact nav: just roman numerals + names, inline */
+.masthead-nav {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.masthead-nav .active {
+  color: var(--gold);
+}
+
+.masthead-nav .sep {
+  color: var(--gold-deep);
+  margin: 0 0.6rem;
+  opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════════
+   ISSUE HEADER
+   ═══════════════════════════════════════════════ */
+.issue-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2.5rem;
+  align-items: end;
+  margin-bottom: 5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+.issue-roman {
+  font-family: var(--serif);
+  font-size: clamp(5rem, 12vw, 9rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 0.8;
+  color: var(--gold);
+  letter-spacing: -0.02em;
+}
+
+.issue-title {
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-weight: 300;
+  line-height: 0.85;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  padding-bottom: 0.3rem;
+  font-style: italic;
+}
+
+.issue-meta {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-align: right;
+  line-height: 1.8;
+  padding-bottom: 0.9rem;
+  white-space: nowrap;
+}
+
+.issue-meta .label { color: var(--gold-deep); }
+
+/* ═══════════════════════════════════════════════
+   BIO — Two-column
+   ═══════════════════════════════════════════════ */
+.bio {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 5rem;
+  align-items: start;
+}
+
+.bio-kicker {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.bio-kicker::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.bio-lede {
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  line-height: 1.35;
+  color: var(--ink);
+  font-weight: 300;
+  font-style: italic;
+  padding-top: 0.3rem;
+}
+
+.bio-body p {
+  font-family: var(--serif);
+  font-size: 1.22rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin-bottom: 1.1rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.bio-body p:last-child { margin-bottom: 0; }
+
+.bio-body p:first-child::first-letter {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 5.2rem;
+  float: left;
+  line-height: 0.82;
+  margin: 0.35rem 0.7rem -0.3rem 0;
+  color: var(--gold);
+}
+
+/* ═══════════════════════════════════════════════
+   PULL QUOTE — smaller, no wrap
+   ═══════════════════════════════════════════════ */
+.pullquote {
+  text-align: center;
+  padding: 4rem 0 4.5rem;
+  margin: 2rem 0 4rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+.pullquote::before,
+.pullquote::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  transform: translateX(-50%);
+}
+.pullquote::before { top: -1px; }
+.pullquote::after { bottom: -1px; }
+
+.pullquote-label {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.pullquote-text {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3vw, 2.6rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.2;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+  overflow-x: auto;
+  padding: 0 1rem;
+}
+
+.pullquote-text .dot {
+  color: var(--gold);
+  font-style: normal;
+  margin: 0 0.5rem;
+  display: inline-block;
+  transform: translateY(-0.08em);
+}
+
+/* Responsive fallback for narrow screens */
+
+/* ═══════════════════════════════════════════════
+   SUBSECTION HEAD
+   ═══════════════════════════════════════════════ */
+.subsection {
+  margin-bottom: 4.5rem;
+}
+
+.subsection:last-child { margin-bottom: 0; }
+
+.sub-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.8rem;
+  align-items: baseline;
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.sub-num {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+
+.sub-title {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: -0.005em;
+}
+
+.sub-badge {
+  grid-column: 2;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 0.35rem;
+}
+
+.sub-badge .sep {
+  color: var(--gold-deep);
+  margin: 0 0.5rem;
+  opacity: 0.6;
+}
+
+/* ═══════════════════════════════════════════════
+   EDUCATION ENTRIES
+   ═══════════════════════════════════════════════ */
+.edu-entry {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 2.5rem;
+  padding: 1.8rem 0 2rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.edu-entry:last-child { border-bottom: none; }
+
+.edu-date {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--gold-deep);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding-top: 0.55rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.edu-body { font-family: var(--serif); }
+
+.edu-degree {
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 0.25rem;
+}
+
+.edu-school {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+  margin-bottom: 0.9rem;
+}
+
+.edu-line {
+  font-size: 1.05rem;
+  color: var(--ink-mute);
+  line-height: 1.6;
+  margin-bottom: 0.35rem;
+}
+
+.edu-line .tag {
+  color: var(--gold-deep);
+  font-size: 0.64rem;
+  font-family: var(--mono);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-right: 0.7rem;
+  vertical-align: 0.14em;
+}
+
+.edu-honours {
+  list-style: none;
+  margin-top: 0.95rem;
+  padding-left: 0;
+}
+
+.edu-honours li {
+  font-size: 1.02rem;
+  color: var(--ink-mute);
+  line-height: 1.55;
+  padding-left: 1.4rem;
+  position: relative;
+  margin-bottom: 0.35rem;
+}
+
+.edu-honours li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  color: var(--gold);
+  font-size: 0.65rem;
+}
+
+/* ═══════════════════════════════════════════════
+   SERVICE ENTRIES
+   ═══════════════════════════════════════════════ */
+.service-entry {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 2.5rem;
+  padding: 1.3rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.service-entry:last-child { border-bottom: none; }
+
+.service-date {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--gold-deep);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding-top: 0.4rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.service-body { font-family: var(--serif); }
+
+.service-role {
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 0.15rem;
+}
+
+.service-org {
+  font-size: 1.05rem;
+  color: var(--ink-mute);
+  line-height: 1.55;
+}
+
+/* ═══════════════════════════════════════════════
+   COLOPHON
+   ═══════════════════════════════════════════════ */
+.colophon {
+  margin-top: 6rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.colophon .star { color: var(--gold); }
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .masthead-nav { font-size: 0.52rem; }
+}
+
+@media (max-width: 720px) {
+  .masthead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+  
+  .issue-header {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  .issue-meta { text-align: left; }
+  
+  .bio {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .edu-entry,
+  .service-entry {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .edu-date, .service-date { padding-top: 0; }
+  
+  .colophon { flex-direction: column; gap: 0.5rem; }
+}
+
+/* ═══════════════════════════════════════════════
+   REVEAL ANIMATION
+   ═══════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: rise 1s cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+}
+.r1 { animation-delay: 0.08s; }
+.r2 { animation-delay: 0.22s; }
+.r3 { animation-delay: 0.38s; }
+.r4 { animation-delay: 0.54s; }
+.r5 { animation-delay: 0.68s; }
+.r6 { animation-delay: 0.82s; }
+
+@keyframes rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; animation: none; }
+  .floater { animation: none; }
+}
+
+/* ═══════════════════════════════════════════════
+   FIXED MASTHEAD — Site-wide guide bar
+   Pinned to top of screen, always visible
+   ═══════════════════════════════════════════════ */
+.site-masthead {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(28, 24, 20, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201, 161, 90, 0.4);
+  padding: 1.35rem clamp(1.5rem, 5vw, 4rem) 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.site-masthead::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(201, 161, 90, 0.45);
+}
+
+/* The "Weihan Li" home logo — big and obvious */
+.site-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: var(--serif);
+  white-space: nowrap;
+  position: relative;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.site-logo .pre {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  transition: color 0.3s ease;
+}
+
+.site-logo .name {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: 0.005em;
+  transition: all 0.3s ease;
+}
+
+.site-logo .arrow {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--gold-deep);
+  margin-left: 0.3rem;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.3s ease;
+}
+
+.site-logo:hover .pre {
+  color: var(--gold);
+}
+.site-logo:hover .name {
+  color: var(--gold-hi);
+  text-shadow: 0 0 12px rgba(227, 192, 124, 0.35);
+}
+.site-logo:hover .arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--gold);
+}
+
+/* Always-visible "click me" hint below the logo name */
+.site-logo::after {
+  content: "← Click to return home";
+  position: absolute;
+  bottom: -0.85rem;
+  left: 0;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  opacity: 0.85;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.site-logo:hover::after {
+  color: var(--gold);
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+/* Right side: section navigation */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.site-nav a,
+.site-nav .current {
+  color: var(--ink-faint);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.4rem 0;
+}
+
+.site-nav a:hover {
+  color: var(--gold-hi);
+}
+
+.site-nav .current {
+  color: var(--gold);
+  pointer-events: none;
+}
+
+.site-nav .current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.site-nav .disabled {
+  color: var(--ink-faint);
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  position: relative;
+}
+
+.site-nav .disabled::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+/* Push main content down to clear the fixed masthead */
+body.has-fixed-masthead main {
+  padding-top: 7.2rem;
+}
+
+/* Responsive: collapse nav on narrow screens */
+@media (max-width: 900px) {
+  .site-nav { font-size: 0.58rem; gap: 1.2rem; }
+  .site-logo .name { font-size: 1.3rem; }
+  .site-logo .pre { font-size: 0.46rem; }
+}
+
+@media (max-width: 720px) {
+  .site-masthead {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .pullquote-text {
+    white-space: normal;
+    font-size: 1.4rem;
+    line-height: 1.4;
+  }
+
+  body.has-fixed-masthead main {
+    padding-top: 10.2rem;
+  }
+
+  .site-logo .pre { display: none; }
+
+  .site-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 1rem;
+    font-size: 0.5rem;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav a,
+  .site-nav .current,
+  .site-nav .disabled {
+    flex: 0 0 auto;
+  }
+}
+</style>
+</head>
+<body class="has-fixed-masthead">
+
+  <!-- ═══════════════ FIXED SITE MASTHEAD ═══════════════ -->
+  <header class="site-masthead">
+    <a class="site-logo" href="../index.html#main" title="Return to main">
+      <span class="pre">The Personal Site of</span>
+      <span class="name">Weihan Li</span>
+    </a>
+    <nav class="site-nav">
+      <span class="current">I · About</span>
+      <a href="../research/index.html">II · Research</a>
+      <a href="../skills/index.html">III · Applied Skills</a>
+      <a href="../experience/index.html">IV · Experience</a>
+      <a href="../contact/index.html">V · Contact</a>
+    </nav>
+  </header>
+
+  <div class="floater f1"></div>
+  <div class="floater f2"></div>
+  <div class="floater f3"></div>
+
+<main>
+
+  <!-- ═══════════════ ISSUE HEADER ═══════════════ -->
+  <section class="issue-header reveal r2">
+    <div class="issue-roman">I.</div>
+    <h1 class="issue-title">About</h1>
+    <div class="issue-meta">
+      <div><span class="label">Vol.</span> MMXXVI</div>
+      <div><span class="label">Est.</span> MMXXV</div>
+      <div><span class="label">Page</span> i</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ BIO ═══════════════ -->
+  <section class="bio reveal r3">
+    <div class="bio-left">
+      <p class="bio-kicker">Editorial Note</p>
+      <p class="bio-lede">
+        Three years of research, three semesters of teaching, and three summers of practice — all grounded in financial econometrics, derivatives, and the risks embedded in their prices.
+      </p>
+    </div>
+    <div class="bio-body">
+      <p>
+        I hold a PhD in Finance from the University of Otago, New Zealand, supervised by Prof. Jin E. Zhang, A/Prof. Xinfeng Ruan, and Dr. Pakorn Aschakulporn. My research applies financial econometrics to derivatives markets, with a focus on option-implied risk measures, tail risk, and volatility modelling.
+      </p>
+      <p>
+        I have published in three ABDC A-ranked finance journals and presented at the New Zealand Finance Meeting and the Derivative Markets Conference. Before my doctoral studies, I worked in M&amp;A advisory at KPMG and trained in audit practice, and I hold a Master of Finance (Distinction) from Durham University.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PULL QUOTE ═══════════════ -->
+  <section class="pullquote reveal r4">
+    <span class="pullquote-label">The Focus</span>
+    <p class="pullquote-text">
+      Financial Econometrics<span class="dot">·</span>Derivatives<span class="dot">·</span>Quantitative Modelling
+    </p>
+  </section>
+
+  <!-- ═══════════════ EDUCATION ═══════════════ -->
+  <section class="subsection reveal r5">
+    <div class="sub-head">
+      <span class="sub-num">§ 1</span>
+      <h2 class="sub-title">Education</h2>
+      <p class="sub-badge">Three degrees<span class="sep">·</span>Three countries</p>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-date">Oct 2021 — Dec 2025</div>
+      <div class="edu-body">
+        <div class="edu-degree">PhD in Finance</div>
+        <div class="edu-school">University of Otago, New Zealand</div>
+        <div class="edu-line">
+          <span class="tag">Thesis</span>Essays on Options
+        </div>
+        <div class="edu-line">
+          <span class="tag">Advisors</span>Prof. Jin E. Zhang (primary), A/Prof. Xinfeng Ruan, Dr. Pakorn Aschakulporn
+        </div>
+        <ul class="edu-honours">
+          <li>University of Otago Doctoral Scholarship (Oct 2021 – Jan 2025)</li>
+          <li>Outstanding Research Contribution, Department of Accountancy &amp; Finance (Oct 2024)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-date">Sep 2019 — Sep 2020</div>
+      <div class="edu-body">
+        <div class="edu-degree">Master of Finance, Distinction</div>
+        <div class="edu-school">Durham University, United Kingdom</div>
+        <div class="edu-line">
+          <span class="tag">Thesis</span>Systemic Risk of China's Stock Market — A Comparison Among Sectors Based on ΔCoVaR Approach
+        </div>
+        <div class="edu-line">
+          <span class="tag">Advisor</span>Dr. Hui Gao
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-date">Sep 2015 — Jun 2019</div>
+      <div class="edu-body">
+        <div class="edu-degree">Bachelor of Accounting</div>
+        <div class="edu-school">Tianjin University of Finance and Economics, China</div>
+        <div class="edu-line">
+          <span class="tag">Average</span>91%
+        </div>
+        <ul class="edu-honours">
+          <li>TJUFE Undergraduate Scholarship, awarded annually (2016 – 2019)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ACADEMIC SERVICE ═══════════════ -->
+  <section class="subsection reveal r6">
+    <div class="sub-head">
+      <span class="sub-num">§ 2</span>
+      <h2 class="sub-title">Academic Service</h2>
+      <p class="sub-badge">Research Group<span class="sep">·</span>Department<span class="sep">·</span>School<span class="sep">·</span>Peer Review</p>
+    </div>
+
+    <div class="service-entry">
+      <div class="service-date">Feb 2023 — Mar 2024</div>
+      <div class="service-body">
+        <div class="service-role">Research Group Coordinator</div>
+        <div class="service-org">Derivatives and Quantitative Finance Group, University of Otago</div>
+      </div>
+    </div>
+
+    <div class="service-entry">
+      <div class="service-date">Dec 2022 — Oct 2024</div>
+      <div class="service-body">
+        <div class="service-role">PhD Representative</div>
+        <div class="service-org">Department of Accountancy &amp; Finance, University of Otago</div>
+      </div>
+    </div>
+
+    <div class="service-entry">
+      <div class="service-date">Sep 2024</div>
+      <div class="service-body">
+        <div class="service-role">Organising Committee</div>
+        <div class="service-org">Inaugural Otago Business School Postgraduate Research Symposium</div>
+      </div>
+    </div>
+
+    <div class="service-entry">
+      <div class="service-date">Mar 2024</div>
+      <div class="service-body">
+        <div class="service-role">Ad hoc Reviewer</div>
+        <div class="service-org">Journal of Futures Markets</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ COLOPHON ═══════════════ -->
+  <footer class="colophon">
+    <span>Set in Cormorant Garamond</span>
+    <span class="star">✦</span>
+    <span>Weihan Li · MMXXVI</span>
+  </footer>
+
+</main>
+
+</body>
+</html>

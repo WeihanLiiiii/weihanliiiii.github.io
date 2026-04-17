@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weihan Li — Research</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════
+   DESIGN TOKENS — Academic faculty page
+   Light cream paper, deep navy + scholarly burgundy
+   ═══════════════════════════════════════════════ */
+:root {
+  /* Paper tones — light, almost white but slightly warm */
+  --paper:       #e3d6b8;
+  --paper-tint:  #d4c49f;
+  background: rgba(234, 223, 197, 0.94);
+  
+  /* Ink — high contrast on light bg */
+  --ink:         #2a2420;
+  --ink-soft:    #4a4238;
+  --ink-mute:    #6b6258;
+  --ink-faint:   #9a9088;
+  
+  /* Accents */
+  --navy:        #1a3a5c;       /* primary — names, masthead, key headings */
+  --navy-deep:   #0e2540;
+  --navy-soft:   #2d5681;
+  --burgundy:    #6b4423;       /* secondary — links, tags, accents */
+  --burgundy-hi: #8a5a30;
+  
+  /* Rules */
+  --rule:        #d8d4cc;
+  --rule-soft:   #e8e4da;
+  --rule-strong: #b8b4ac;
+  
+  /* Fonts */
+  --serif:   "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 1.6;
+  font-feature-settings: "kern", "liga", "onum";
+  min-height: 100vh;
+}
+
+::selection { background: var(--navy); color: var(--paper); }
+
+/* ═══════════════════════════════════════════════
+   FIXED MASTHEAD — academic header bar
+   ═══════════════════════════════════════════════ */
+.site-masthead {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(227, 214, 184, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--rule-strong);
+  padding: 1.35rem clamp(1.5rem, 5vw, 4rem) 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.site-masthead::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--navy);
+  opacity: 0.4;
+}
+
+.site-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.site-logo .pre {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  transition: color 0.3s ease;
+}
+
+.site-logo .name {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1;
+  letter-spacing: 0.005em;
+  transition: all 0.3s ease;
+}
+
+.site-logo:hover .pre { color: var(--navy); }
+.site-logo:hover .name {
+  color: var(--navy-deep);
+}
+
+.site-logo::after {
+  content: "← Click to return home";
+  position: absolute;
+  bottom: -0.85rem;
+  left: 0;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  opacity: 0.85;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.site-logo:hover::after {
+  color: var(--navy);
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.site-nav a,
+.site-nav .current,
+.site-nav .disabled {
+  color: var(--ink-faint);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.4rem 0;
+}
+
+.site-nav a:hover { color: var(--navy); }
+
+.site-nav .current {
+  color: var(--navy);
+  pointer-events: none;
+}
+
+.site-nav .current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: var(--navy);
+}
+
+.site-nav .disabled {
+  color: var(--ink-faint);
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  position: relative;
+}
+
+.site-nav .disabled::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+body.has-fixed-masthead main {
+  padding-top: 7.2rem;
+}
+
+/* ═══════════════════════════════════════════════
+   MAIN CONTAINER
+   ═══════════════════════════════════════════════ */
+main {
+  max-width: min(880px, calc(100vw - 40px));
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 4rem) 8rem;
+}
+
+/* ═══════════════════════════════════════════════
+   PAGE HEADER
+   ═══════════════════════════════════════════════ */
+.page-header {
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--navy);
+  position: relative;
+}
+
+.page-header::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 80px;
+  height: 1px;
+  background: var(--burgundy);
+}
+
+.page-roman {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.page-title {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION HEADINGS
+   ═══════════════════════════════════════════════ */
+.section {
+  margin-bottom: 4rem;
+}
+
+.section:last-child { margin-bottom: 0; }
+
+.section-title {
+  font-family: var(--serif);
+  font-size: 1.65rem;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  letter-spacing: 0.005em;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 60px;
+  height: 1px;
+  background: var(--burgundy);
+}
+
+/* ═══════════════════════════════════════════════
+   RESEARCH INTERESTS — single line statement
+   ═══════════════════════════════════════════════ */
+.interests {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  font-style: italic;
+  padding: 0.5rem 0 0.5rem 1.25rem;
+  border-left: 3px solid var(--burgundy);
+  max-width: 720px;
+}
+
+/* ═══════════════════════════════════════════════
+   PUBLICATIONS — academic citation list
+   ═══════════════════════════════════════════════ */
+.pub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: pub-counter;
+}
+
+.pub-item {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.5rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+  counter-increment: pub-counter;
+}
+
+.pub-item:last-child { border-bottom: none; }
+
+.pub-item::before {
+  content: "[" counter(pub-counter) "]";
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--burgundy);
+  padding-top: 0.45rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.pub-content {
+  font-family: var(--serif);
+}
+
+.pub-authors {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin-bottom: 0.2rem;
+}
+
+.pub-authors .me {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.pub-title {
+  font-size: 1.18rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.4;
+  margin-bottom: 0.3rem;
+}
+
+.pub-venue {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.pub-venue .journal {
+  font-style: italic;
+  color: var(--ink);
+}
+
+.pub-venue .vol {
+  font-variant-numeric: tabular-nums;
+}
+
+.pub-meta {
+  margin-top: 0.55rem;
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.pub-tag {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  border: 1px solid var(--burgundy);
+  padding: 0.18rem 0.5rem 0.22rem;
+  border-radius: 1px;
+}
+
+.pub-link {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--burgundy);
+  text-decoration: none;
+  transition: color 0.25s ease;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+}
+
+.pub-link:hover {
+  color: var(--navy);
+  border-bottom-color: var(--navy);
+}
+
+.pub-link::before {
+  content: "→ ";
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════════════
+   CONFERENCES — venue + paper structure
+   ═══════════════════════════════════════════════ */
+.conf-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: conf-counter;
+}
+
+.conf-item {
+  position: relative;
+  padding: 1.4rem 0 1.4rem 2.7rem;
+  border-bottom: 1px solid var(--rule-soft);
+  counter-increment: conf-counter;
+}
+
+.conf-item:last-child { border-bottom: none; }
+
+.conf-item::before {
+  content: "[" counter(conf-counter) "]";
+  position: absolute;
+  left: 0;
+  top: 1.45rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--burgundy);
+  font-variant-numeric: tabular-nums;
+}
+
+.conf-venue {
+  font-family: var(--serif);
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+}
+
+.conf-where {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  color: var(--ink-mute);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.conf-paper {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.conf-paper .authors {
+  font-style: normal;
+}
+
+.conf-paper .authors .me {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.conf-meta {
+  margin-top: 0.5rem;
+}
+
+/* ═══════════════════════════════════════════════
+   METHODS — toolkit subsections
+   ═══════════════════════════════════════════════ */
+.methods-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.method-item {
+  padding: 0.2rem 0;
+}
+
+.method-name {
+  font-family: var(--serif);
+  font-size: 1.22rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 0.4rem;
+}
+
+.method-desc {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.method-desc em {
+  color: var(--burgundy);
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .site-nav { font-size: 0.58rem; gap: 1.2rem; }
+  .site-logo .name { font-size: 1.3rem; }
+  .site-logo .pre { font-size: 0.46rem; }
+}
+
+@media (max-width: 720px) {
+  .site-masthead {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    padding: 0.9rem 1rem;
+  }
+
+  body.has-fixed-masthead main {
+    padding-top: 10.2rem;
+  }
+
+  .site-logo .pre { display: none; }
+
+  .site-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 1rem;
+    font-size: 0.5rem;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav a,
+  .site-nav .current,
+  .site-nav .disabled {
+    flex: 0 0 auto;
+  }
+
+  .pub-item {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+  .pub-item::before {
+    padding-top: 0;
+  }
+
+  .conf-item {
+    padding-left: 2.2rem;
+  }
+
+  .conf-item::before {
+    top: 1.42rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   REVEAL ANIMATIONS (subtle, academic-appropriate)
+   ═══════════════════════════════════════════════ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: academic-rise 0.7s cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+}
+.fade-in-1 { animation-delay: 0.1s; }
+.fade-in-2 { animation-delay: 0.22s; }
+.fade-in-3 { animation-delay: 0.34s; }
+.fade-in-4 { animation-delay: 0.46s; }
+.fade-in-5 { animation-delay: 0.58s; }
+.fade-in-6 { animation-delay: 0.7s; }
+
+@keyframes academic-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { opacity: 1; transform: none; animation: none; }
+}
+</style>
+</head>
+<body class="has-fixed-masthead">
+
+<!-- ═══════════════ FIXED SITE MASTHEAD ═══════════════ -->
+<header class="site-masthead">
+  <a class="site-logo" href="../index.html#main" title="Return to main">
+    <span class="pre">The Personal Site of</span>
+    <span class="name">Weihan Li</span>
+  </a>
+  <nav class="site-nav">
+    <a href="../about/index.html">I · About</a>
+    <span class="current">II · Research</span>
+    <a href="../skills/index.html">III · Applied Skills</a>
+    <a href="../experience/index.html">IV · Experience</a>
+    <a href="../contact/index.html">V · Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ═══════════════ PAGE HEADER ═══════════════ -->
+  <header class="page-header fade-in fade-in-1">
+    <span class="page-roman">II · Section</span>
+    <h1 class="page-title">Research</h1>
+  </header>
+
+  <!-- ═══════════════ RESEARCH INTERESTS ═══════════════ -->
+  <section class="section fade-in fade-in-2">
+    <h2 class="section-title">Research Interests</h2>
+    <p class="interests">
+      Financial econometrics with a focus on derivatives markets, option-implied risk measures, tail risk, volatility modelling, and empirical asset pricing.
+    </p>
+  </section>
+
+  <!-- ═══════════════ PUBLICATIONS ═══════════════ -->
+  <section class="section fade-in fade-in-3">
+    <h2 class="section-title">Publications</h2>
+    <ol class="pub-list">
+
+      <li class="pub-item">
+        <div class="pub-content">
+          <p class="pub-authors">
+            <span class="me">Weihan Li</span>, Jin E. Zhang, Xinfeng Ruan, and Pakorn Aschakulporn (2026)
+          </p>
+          <p class="pub-title">
+            The rare disaster concern index: RIX
+          </p>
+          <p class="pub-venue">
+            <span class="journal">Global Finance Journal</span>, <span class="vol">69</span>, 101226.
+          </p>
+          <div class="pub-meta">
+            <span class="pub-tag">ABDC A</span>
+            <a class="pub-link" href="https://doi.org/10.1016/j.gfj.2025.101226" target="_blank" rel="noopener">
+              doi.org/10.1016/j.gfj.2025.101226
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-content">
+          <p class="pub-authors">
+            <span class="me">Weihan Li</span>, Jin E. Zhang, Xinfeng Ruan, and Pakorn Aschakulporn (2024)
+          </p>
+          <p class="pub-title">
+            An empirical study on the early exercise premium of American options: Evidence from OEX and XEO options
+          </p>
+          <p class="pub-venue">
+            <span class="journal">Journal of Futures Markets</span>, <span class="vol">44(7)</span>, 1117-1153.
+          </p>
+          <div class="pub-meta">
+            <span class="pub-tag">ABDC A</span>
+            <a class="pub-link" href="https://doi.org/10.1002/fut.22508" target="_blank" rel="noopener">
+              doi.org/10.1002/fut.22508
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-content">
+          <p class="pub-authors">
+            Haileslasie Tadele, Xinfeng Ruan, and <span class="me">Weihan Li</span> (2022)
+          </p>
+          <p class="pub-title">
+            Corporate governance and firm-level jump and volatility risks
+          </p>
+          <p class="pub-venue">
+            <span class="journal">Applied Economics</span>, <span class="vol">54(22)</span>, 2529-2553.
+          </p>
+          <div class="pub-meta">
+            <span class="pub-tag">ABDC A</span>
+            <a class="pub-link" href="https://doi.org/10.1080/00036846.2021.1998325" target="_blank" rel="noopener">
+              doi.org/10.1080/00036846.2021.1998325
+            </a>
+          </div>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- ═══════════════ WORKING PAPERS ═══════════════ -->
+  <section class="section fade-in fade-in-4">
+    <h2 class="section-title">Working Papers</h2>
+    <ol class="pub-list">
+
+      <li class="pub-item">
+        <div class="pub-content">
+          <p class="pub-authors">
+            <span class="me">Weihan Li</span>, Jin E. Zhang, Xinfeng Ruan, and Pakorn Aschakulporn (2025)
+          </p>
+          <p class="pub-title">
+            The rare disaster concern index (RIX) and cross-sectional equity returns: Evidence from the U.S. energy market
+          </p>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- ═══════════════ CONFERENCE PRESENTATIONS ═══════════════ -->
+  <section class="section fade-in fade-in-5">
+    <h2 class="section-title">Conference Presentations</h2>
+    <ul class="conf-list">
+
+      <li class="conf-item">
+        <p class="conf-venue">2024 New Zealand Finance Meeting (NZFM)</p>
+        <p class="conf-where">5-7 December 2024 · Auckland University of Technology, Auckland, New Zealand</p>
+        <p class="conf-paper">
+          <span class="authors"><span class="me">Weihan Li</span>, Jin E. Zhang, Xinfeng Ruan, and Pakorn Aschakulporn,</span>
+          “The rare disaster concern index: RIX”.
+        </p>
+        <div class="conf-meta">
+          <a class="pub-link" href="https://acfr.aut.ac.nz/conferences-and-events/2024-nzfm" target="_blank" rel="noopener">
+            conference website
+          </a>
+        </div>
+      </li>
+
+      <li class="conf-item">
+        <p class="conf-venue">2023 Derivative Markets Conference (DMC)</p>
+        <p class="conf-where">7-8 September 2023 · Auckland University of Technology, Auckland, New Zealand</p>
+        <p class="conf-paper">
+          <span class="authors"><span class="me">Weihan Li</span>, Jin E. Zhang, Xinfeng Ruan, and Pakorn Aschakulporn,</span>
+          “An empirical study on the early exercise premium of American options: Evidence from OEX and XEO options”.
+        </p>
+        <div class="conf-meta">
+          <a class="pub-link" href="https://acfr.aut.ac.nz/conferences-and-events/2023-derivative-markets-conference" target="_blank" rel="noopener">
+            conference website
+          </a>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ═══════════════ RESEARCH METHODS ═══════════════ -->
+  <section class="section fade-in fade-in-6">
+    <h2 class="section-title">Research Methods</h2>
+    <div class="methods-list">
+
+      <div class="method-item">
+        <h3 class="method-name">Option Pricing & Risk-Neutral Measures</h3>
+        <p class="method-desc">
+          Model-free extraction of option-implied risk measures via numerical integration (CBOE VIX methodology); RIX construction and term-structure estimation across 30-, 60-, and 90-day horizons, with analytical derivation under the Gram-Charlier density framework <em>(Global Finance Journal, 2026)</em>.
+        </p>
+      </div>
+
+      <div class="method-item">
+        <h3 class="method-name">Option Liquidity & Microstructure</h3>
+        <p class="method-desc">
+          Multiple liquidity proxies to explain the negative early exercise premium (NEEP) of American index options, with cross-sectional OLS robustness checks across moneyness-maturity subgroups <em>(Journal of Futures Markets, 2024)</em>.
+        </p>
+      </div>
+
+      <div class="method-item">
+        <h3 class="method-name">Cross-Sectional Asset Pricing & Event Studies</h3>
+        <p class="method-desc">
+          Fama-MacBeth regressions, quintile portfolio sorts, long-short strategy evaluation; CAR estimation around earnings announcements and political shocks using Fama-French three-, four-, and five-factor benchmarks.
+        </p>
+      </div>
+
+      <div class="method-item">
+        <h3 class="method-name">Volatility Modelling & Systemic Risk</h3>
+        <p class="method-desc">
+          Mimicking-portfolio construction of firm-level jump and volatility risk measures <em>(Applied Economics, 2022)</em>; GARCH-based volatility series as macroeconomic state variables; CoVaR and ΔCoVaR estimation via quantile regression; Forward-ΔCoVaR panel forecasting across one- to four-quarter horizons.
+        </p>
+      </div>
+
+      <div class="method-item">
+        <h3 class="method-name">Panel Data & Causal Inference</h3>
+        <p class="method-desc">
+          GLS, fixed-effects, and System GMM estimation; endogeneity diagnostics (Hausman, Durbin-Wu-Hausman); panel unit root testing (Fisher-ADF); Newey-West standard errors; bootstrap Kolmogorov-Smirnov inference.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>

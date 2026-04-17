@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weihan Li — Applied Skills</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #252d38;
+      --paper-soft: #313b49;
+      --paper-hi: #3e4b5d;
+      --ink: #f3eee5;
+      --ink-soft: #d8d0c4;
+      --ink-mute: #bdb5a8;
+      --ink-faint: #9e978b;
+      --blue: #8ea2cf;
+      --blue-hi: #b3c4ea;
+      --accent: #7a82ff;
+      --accent-soft: #eef0ff;
+      --rule: #46515f;
+      --rule-soft: #39424f;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.22), 0 1px 2px rgba(0, 0, 0, 0.26);
+      --shadow-md: 0 18px 40px -16px rgba(0, 0, 0, 0.38), 0 8px 20px -10px rgba(0, 0, 0, 0.30);
+      --shadow-lg: 0 34px 92px -24px rgba(0, 0, 0, 0.48), 0 14px 34px -12px rgba(0, 0, 0, 0.36);
+      --book-1: linear-gradient(180deg, #29446b 0%, #1c2f4a 100%);
+      --book-2: linear-gradient(180deg, #6573ff 0%, #4f59d6 100%);
+      --book-3: linear-gradient(180deg, #35567f 0%, #253c5a 100%);
+      --book-4: linear-gradient(180deg, #6f6258 0%, #544941 100%);
+      --book-5: linear-gradient(180deg, #4e698f 0%, #374d6c 100%);
+      --book-6: linear-gradient(180deg, #425b85 0%, #2d405d 100%);
+      --book-7: linear-gradient(180deg, #2d4a3a 0%, #1c3527 100%);
+      --book-8: linear-gradient(180deg, #4a5870 0%, #334055 100%);
+      --wood-light: #6e4a30;
+      --wood: #4a3422;
+      --wood-dark: #2a1a10;
+      --wood-deep: #1a0f08;
+      --brass: #c9a15a;
+      --brass-hi: #d4b074;
+      --brass-deep: #8a7340;
+      --serif: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 35% 70% at 0% 50%, rgba(201, 161, 90, 0.16), transparent 65%),
+        radial-gradient(ellipse 35% 70% at 100% 50%, rgba(185, 120, 69, 0.13), transparent 65%),
+        radial-gradient(ellipse 60% 30% at 50% 0%, rgba(201, 161, 90, 0.07), transparent 55%),
+        radial-gradient(ellipse 60% 30% at 50% 100%, rgba(185, 120, 69, 0.06), transparent 55%),
+        linear-gradient(180deg, #1a120a 0%, #0e0805 100%);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 28px;
+      line-height: 1.6;
+      font-feature-settings: "kern", "liga", "onum";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 0.6rem;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--brass); color: var(--wood-deep); }
+
+    /* ═══════════════════════════════════════════════
+       CABINET — Standing library bookcase frame
+       ═══════════════════════════════════════════════ */
+    html, body {
+      overflow-x: hidden;
+    }
+
+    .cabinet,
+    .cabinet-body,
+    .cabinet-main,
+    .bookshelf-panel,
+    .detail-panel,
+    .detail-head,
+    .detail-body,
+    .detail-copy,
+    .detail-evidence {
+      min-width: 0;
+    }
+
+    .detail-body > *,
+    .cabinet-main > *,
+    .cabinet-side > * {
+      min-width: 0;
+    }
+
+    .cubby-text,
+    .cubby-quote,
+    .panel-note,
+    .detail-title,
+    .detail-summary,
+    .detail-copy li,
+    .detail-evidence li,
+    .detailUsage {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      hyphens: auto;
+    }
+
+    .cabinet-stage {
+      position: relative;
+      z-index: 2;
+      width: min(calc(100vw - 1.4rem), calc((100vh - 3.2rem) * 8 / 5));
+    }
+
+    .cabinet {
+      position: relative;
+      aspect-ratio: 8 / 5;
+      width: 100%;
+      padding: 20px;
+      border-radius: 14px;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(0,0,0,0.06) 0px,
+          rgba(0,0,0,0.06) 1px,
+          transparent 1px,
+          transparent 7px
+        ),
+        linear-gradient(180deg, #4a3422 0%, #3a2818 50%, #4a3422 100%);
+      box-shadow:
+        0 50px 120px rgba(0, 0, 0, 0.6),
+        inset 0 2px 0 rgba(201, 161, 90, 0.18),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .cabinet::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 8px;
+      border: 1px solid rgba(201, 161, 90, 0.18);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ───── Cabinet top: masthead slot + plaque ───── */
+    .cabinet-masthead {
+      flex: 0 0 auto;
+      padding: 0.7rem 1.2rem 0.75rem;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.32), rgba(0,0,0,0.18)),
+        linear-gradient(180deg, var(--wood-dark), var(--wood-deep));
+      border-radius: 6px 6px 0 0;
+      border: 1px solid rgba(0, 0, 0, 0.45);
+      box-shadow:
+        inset 0 1px 0 rgba(201, 161, 90, 0.12),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .site-logo {
+      position: relative;
+      display: flex;
+      align-items: baseline;
+      gap: 0.85rem;
+      white-space: nowrap;
+      transition: color 0.28s ease;
+    }
+
+    .site-logo .pre {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(201, 161, 90, 0.6);
+    }
+
+    .site-logo .name {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--brass-hi);
+      line-height: 1;
+      letter-spacing: 0.01em;
+    }
+
+    .site-logo::after {
+      content: "← Click to return home";
+      position: absolute;
+      left: 0;
+      bottom: -0.85rem;
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass);
+      opacity: 0.78;
+      transition: 0.28s ease;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .site-logo:hover .pre,
+    .site-logo:hover .name { color: var(--brass-hi); }
+    .site-nav a:hover { color: var(--brass-hi); }
+    .site-logo:hover::after { opacity: 1; transform: translateX(3px); }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .site-nav a,
+    .site-nav .current {
+      position: relative;
+      padding: 0.4rem 0;
+      color: rgba(201, 161, 90, 0.55);
+      transition: color 0.28s ease;
+    }
+
+    .site-nav .current {
+      color: var(--brass-hi);
+      pointer-events: none;
+    }
+
+    .site-nav .current::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -2px;
+      height: 1px;
+      background: var(--brass);
+    }
+
+    /* ───── Cabinet plaque slot ───── */
+    .cabinet-plaque-row {
+      flex: 0 0 auto;
+      padding: 0.85rem 1.2rem 0.7rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    }
+
+    .cabinet-plaque-row::after {
+      content: "";
+      position: absolute;
+      left: 6%;
+      right: 6%;
+      bottom: -1px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201, 161, 90, 0.5), transparent);
+    }
+
+    .cabinet-section-mark {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(201, 161, 90, 0.55);
+      margin-bottom: 0.35rem;
+    }
+
+    .cabinet-plaque {
+      display: inline-block;
+      padding: 0.32rem 1.6rem;
+      border: 1px solid rgba(201, 161, 90, 0.55);
+      border-radius: 4px;
+      background: linear-gradient(180deg, rgba(201, 161, 90, 0.14), rgba(201, 161, 90, 0.04));
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--brass-hi);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 1px 3px rgba(0,0,0,0.4);
+    }
+
+    .cabinet-page-title {
+      margin-top: 0.6rem;
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.2vw, 2.8rem);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    /* ───── Cabinet body: main shelves ───── */
+    .cabinet-body {
+      flex: 1 1 0;
+      min-height: 0;
+      padding: 0.8rem 0.8rem 0.5rem;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 0.8rem;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .cabinet-side {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .cabinet-cubby {
+      flex: 1;
+      padding: 0.85rem 0.85rem;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(0, 0, 0, 0.45);
+      box-shadow:
+        inset 0 1px 0 rgba(201, 161, 90, 0.08),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+
+    .cubby-label {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(201, 161, 90, 0.65);
+      margin-bottom: 0.5rem;
+    }
+
+    .cubby-text {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      color: var(--ink-soft);
+    }
+
+    .cubby-text strong {
+      color: var(--brass-hi);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    .cubby-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      color: var(--ink-soft);
+    }
+
+    .cubby-quote::before {
+      content: "“";
+      font-size: 1.4rem;
+      line-height: 0;
+      color: var(--brass);
+      vertical-align: -0.3em;
+      margin-right: 0.1rem;
+    }
+
+    .cubby-quote::after {
+      content: "”";
+      font-size: 1.4rem;
+      line-height: 0;
+      color: var(--brass);
+      vertical-align: -0.3em;
+      margin-left: 0.05rem;
+    }
+
+    .cubby-attr {
+      display: block;
+      margin-top: 0.8rem;
+      font-family: var(--mono);
+      font-style: normal;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(201, 161, 90, 0.65);
+    }
+
+    /* ───── Main shelf area: bookshelf + detail ───── */
+    .cabinet-main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.88fr);
+      gap: 0.8rem;
+      align-items: stretch;
+      min-height: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .bookshelf-panel,
+    .detail-panel {
+      position: relative;
+      border-radius: 6px;
+      background: rgba(42, 30, 18, 0.45);
+      border: 1px solid rgba(201, 161, 90, 0.15);
+      box-shadow:
+        inset 0 1px 0 rgba(201, 161, 90, 0.08),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .bookshelf-panel {
+      padding: 0.85rem 0.85rem 0.7rem;
+      overflow: hidden;
+    }
+
+    .panel-kicker {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(201, 161, 90, 0.65);
+      margin-bottom: 0.5rem;
+    }
+
+    .panel-title {
+      font-size: 1.8rem;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .panel-note {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: var(--ink-mute);
+      margin-bottom: 0.7rem;
+    }
+
+    .bookshelf-stage {
+      flex: 1 1 auto;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0.25rem;
+      padding: 0.8rem 0.5rem 1rem;
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 50% 8%, rgba(201, 161, 90, 0.18), rgba(201, 161, 90, 0) 55%),
+        linear-gradient(180deg, var(--wood-dark) 0%, var(--wood-deep) 100%);
+      overflow: hidden;
+      min-height: 0;
+      height: 100%;
+    }
+
+    .bookshelf-stage::before {
+      content: "";
+      position: absolute;
+      left: 3%;
+      right: 3%;
+      bottom: 0.6rem;
+      height: 14px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.4);
+      filter: blur(8px);
+      pointer-events: none;
+    }
+
+    .shelf-board {
+      position: absolute;
+      left: 3%;
+      right: 3%;
+      bottom: 0.4rem;
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--wood-light) 0%, var(--wood) 100%);
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      box-shadow: inset 0 1px 0 rgba(201, 161, 90, 0.2);
+    }
+
+    .book {
+      position: relative;
+      align-self: flex-end;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      padding: 0;
+      flex: 0 0 auto;
+      transition: transform 0.28s ease, filter 0.28s ease, opacity 0.28s ease;
+      outline: none;
+    }
+
+    .book:focus-visible .book-spine {
+      box-shadow: 0 0 0 3px rgba(201, 161, 90, 0.35), var(--shadow-md);
+    }
+
+    .book:hover {
+      transform: translateY(-6px);
+    }
+
+    .book.is-active {
+      transform: translateY(-14px) scale(1.02);
+      z-index: 3;
+    }
+
+    .book.is-dim {
+      opacity: 0.78;
+      filter: saturate(0.88);
+    }
+
+    .book-spine {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: var(--book-height);
+      width: var(--book-width);
+      border-radius: 10px 10px 4px 4px;
+      background: var(--book-bg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(255,255,255,0.16);
+      overflow: hidden;
+    }
+
+    .book-spine::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255,255,255,0.22), rgba(255,255,255,0.02) 26%, rgba(0,0,0,0.12) 100%);
+      pointer-events: none;
+    }
+
+    .book-spine::after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: rgba(255,255,255,0.18);
+      pointer-events: none;
+    }
+
+    .book-label {
+      position: relative;
+      z-index: 1;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      text-align: center;
+      color: rgba(255,255,255,0.98);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .book-index {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .book-name {
+      font-size: 1.25rem;
+      line-height: 1.08;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      max-height: calc(var(--book-height) - 50px);
+    }
+
+    /* Book sizes — proportional to shelf height (uses container queries via clamp) */
+    .book-1 { --book-width: clamp(50px, 5.5vh, 120px); --book-height: clamp(300px, 46vh, 900px); --book-bg: var(--book-1); }
+    .book-2 { --book-width: clamp(48px, 5.2vh, 115px); --book-height: clamp(290px, 44vh, 870px); --book-bg: var(--book-2); }
+    .book-3 { --book-width: clamp(54px, 5.8vh, 130px); --book-height: clamp(310px, 48vh, 930px); --book-bg: var(--book-3); }
+    .book-4 { --book-width: clamp(48px, 5.2vh, 118px); --book-height: clamp(295px, 45vh, 880px); --book-bg: var(--book-4); }
+    .book-5 { --book-width: clamp(50px, 5.4vh, 122px); --book-height: clamp(285px, 43vh, 850px); --book-bg: var(--book-5); }
+    .book-6 { --book-width: clamp(46px, 5vh, 110px);   --book-height: clamp(280px, 42vh, 830px); --book-bg: var(--book-6); }
+    .book-7 { --book-width: clamp(52px, 5.6vh, 125px); --book-height: clamp(315px, 49vh, 950px); --book-bg: var(--book-7); }
+    .book-8 { --book-width: clamp(44px, 4.8vh, 105px); --book-height: clamp(320px, 50vh, 968px); --book-bg: var(--book-8); }
+    /* ───── Detail panel ───── */
+    .detail-panel {
+      padding: 0.9rem 1rem;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(201, 161, 90, 0.3) transparent;
+    }
+
+    .detail-panel::-webkit-scrollbar { width: 6px; }
+    .detail-panel::-webkit-scrollbar-thumb { background: rgba(201, 161, 90, 0.3); border-radius: 999px; }
+
+    .detail-head { margin-bottom: 0.6rem; }
+
+    .detail-index {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 0.4rem;
+    }
+
+    .detail-title {
+      font-size: clamp(1.4rem, 2.2vw, 2rem);
+      line-height: 0.96;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.55rem;
+    }
+
+    .detail-summary {
+      font-size: 1.3rem;
+      line-height: 1.5;
+      color: var(--ink-soft);
+    }
+
+    .detail-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(201, 161, 90, 0.35);
+      background: rgba(240, 232, 215, 0.92);
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #5a4a30;
+      white-space: nowrap;
+    }
+
+    .detail-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .detail-copy,
+    .detail-evidence {
+      border: 1px solid rgba(201, 161, 90, 0.22);
+      border-radius: 10px;
+      background: rgba(240, 232, 215, 0.88);
+      padding: 0.7rem 0.75rem;
+    }
+
+    .block-label {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8a7350;
+      margin-bottom: 0.55rem;
+    }
+
+    .detail-copy ul,
+    .detail-evidence ul {
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .detail-copy li,
+    .detail-evidence li {
+      position: relative;
+      padding-left: 1.15rem;
+      font-size: 1.12rem;
+      line-height: 1.5;
+      color: #2a2018;
+    }
+
+    .detail-copy li::before,
+    .detail-evidence li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+    }
+
+    .detail-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      padding-top: 0.4rem;
+      border-top: 1px solid rgba(201, 161, 90, 0.18);
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(201, 161, 90, 0.6);
+    }
+
+    .detail-footer .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.32rem 0.65rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .detail-footer .status::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    /* ───── Cabinet bottom: signature mark ───── */
+    .cabinet-bottom {
+      flex: 0 0 auto;
+      padding: 0.5rem 1.2rem 0.4rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid rgba(0, 0, 0, 0.4);
+    }
+
+    .cabinet-bottom::before {
+      content: "";
+      position: absolute;
+      left: 6%;
+      right: 6%;
+      top: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201, 161, 90, 0.4), transparent);
+    }
+
+    .cabinet-mark {
+      font-family: var(--mono);
+      font-size: 0.46rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(201, 161, 90, 0.5);
+    }
+
+    /* 1440px breakpoint removed — cabinet now auto-scales like iPad */
+    @media (max-width: 1360px) {
+      body {
+        overflow: auto;
+        display: block;
+        padding: 0.6rem;
+      }
+
+      .cabinet-stage {
+        width: 100%;
+        max-width: none;
+      }
+
+      .cabinet {
+        aspect-ratio: auto;
+        min-height: calc(100vh - 1.2rem);
+        overflow: visible;
+        padding: 16px;
+      }
+
+      .cabinet-masthead {
+        padding: 0.72rem 0.95rem;
+        gap: 0.9rem;
+      }
+
+      .site-logo .name {
+        font-size: 1.75rem;
+      }
+
+      .site-logo::after {
+        font-size: 0.46rem;
+      }
+
+      .site-nav {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 1.1rem;
+        font-size: 0.66rem;
+        padding-bottom: 0.2rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        white-space: nowrap;
+      }
+
+      .site-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .site-nav a,
+      .site-nav .current {
+        flex: 0 0 auto;
+      }
+
+      .cabinet-body {
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 0.7rem;
+        padding: 0.72rem;
+        overflow: visible;
+        min-height: auto;
+      }
+
+      .cabinet-main {
+        grid-template-columns: 1fr;
+        gap: 0.72rem;
+        height: auto;
+        min-height: auto;
+        overflow: visible;
+      }
+
+      .bookshelf-panel,
+      .detail-panel {
+        min-height: auto;
+        overflow: visible;
+      }
+
+      .bookshelf-stage {
+        flex: none;
+        height: min(420px, 42vw);
+        min-height: 360px;
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0.9rem 0.8rem 1.1rem;
+        gap: 0.32rem;
+      }
+
+      .bookshelf-stage::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .bookshelf-stage::-webkit-scrollbar-thumb {
+        background: rgba(201, 161, 90, 0.3);
+        border-radius: 999px;
+      }
+
+      .detail-panel {
+        padding: 0.9rem;
+      }
+
+      .detail-body {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cubby-text,
+      .cubby-quote {
+        font-size: 1rem;
+      }
+
+      .cabinet-bottom {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1180px) {
+      .cabinet-body {
+        grid-template-columns: 1fr;
+      }
+
+      .cabinet-side {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.62rem;
+      }
+    }
+    /* ═══════════════════════════════════════════════
+       RESPONSIVE — tablet cabinet
+       Keeps wood frame and top slots, but relaxes height lock
+       ═══════════════════════════════════════════════ */
+    @media (max-width: 980px) {
+      body {
+        overflow: auto;
+        display: block;
+        padding: 0.5rem;
+      }
+
+      .cabinet-stage {
+        width: 100%;
+        max-width: none;
+      }
+
+      .cabinet {
+        aspect-ratio: auto;
+        min-height: auto;
+        overflow: visible;
+        padding: 14px;
+      }
+
+      .cabinet-masthead {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.72rem 0.9rem;
+        gap: 0.65rem;
+      }
+
+      .site-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.18rem;
+      }
+
+      .site-logo .name { font-size: 1.55rem; }
+      .site-logo .pre { font-size: 0.46rem; }
+      .site-logo::after {
+        content: "← CLICK TO RETURN HOME";
+        position: static;
+        display: block;
+        margin-top: 0.08rem;
+        font-family: var(--mono);
+        font-size: 0.48rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--brass);
+        opacity: 0.82;
+        white-space: nowrap;
+        transform: none;
+      }
+
+      .site-nav {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 1rem;
+        font-size: 0.58rem;
+        padding-bottom: 0.25rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        white-space: nowrap;
+      }
+      .site-nav::-webkit-scrollbar { display: none; }
+      .site-nav a,
+      .site-nav .current { flex: 0 0 auto; }
+
+      .cabinet-plaque-row {
+        padding: 0.75rem 0.9rem 0.62rem;
+      }
+      .cabinet-section-mark { font-size: 0.64rem; }
+      .cabinet-plaque { font-size: 0.62rem; padding: 0.28rem 1rem; letter-spacing: 0.22em; }
+      .cabinet-page-title { font-size: 2rem; }
+
+      .cabinet-body {
+        grid-template-columns: 1fr;
+        grid-auto-rows: max-content;
+        padding: 0.72rem;
+        gap: 0.72rem;
+        overflow: visible;
+        min-height: auto;
+      }
+
+      .cabinet-side {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.62rem;
+      }
+
+      .cabinet-main {
+        grid-template-columns: 1fr;
+        grid-auto-rows: max-content;
+        gap: 0.72rem;
+        height: auto;
+        min-height: auto;
+        overflow: visible;
+      }
+
+      .bookshelf-panel,
+      .detail-panel {
+        min-height: auto;
+        overflow: visible;
+      }
+
+      .bookshelf-panel {
+        padding: 0.8rem;
+      }
+
+      .bookshelf-stage {
+        flex: none;
+        height: clamp(320px, 46vw, 420px);
+        min-height: clamp(320px, 46vw, 420px);
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0.9rem 0.8rem 1.1rem;
+        gap: 0.32rem;
+      }
+
+      .bookshelf-stage::-webkit-scrollbar { height: 8px; }
+      .bookshelf-stage::-webkit-scrollbar-thumb { background: rgba(201, 161, 90, 0.3); border-radius: 999px; }
+
+      .detail-panel {
+        padding: 0.9rem;
+      }
+
+      .detail-body {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cubby-text,
+      .cubby-quote { font-size: 0.96rem; }
+
+      .cabinet-bottom {
+        display: none;
+      }
+
+      .book-1 { --book-height: min(320px, 42vw); --book-width: min(60px, 5.5vw); }
+      .book-2 { --book-height: min(305px, 40vw); --book-width: min(56px, 5.1vw); }
+      .book-3 { --book-height: min(335px, 44vw); --book-width: min(64px, 5.8vw); }
+      .book-4 { --book-height: min(310px, 41vw); --book-width: min(58px, 5.3vw); }
+      .book-5 { --book-height: min(300px, 39vw); --book-width: min(60px, 5.5vw); }
+      .book-6 { --book-height: min(295px, 38vw); --book-width: min(54px, 4.9vw); }
+      .book-7 { --book-height: min(340px, 45vw); --book-width: min(62px, 5.7vw); }
+      .book-8 { --book-height: min(345px, 46vw); --book-width: min(52px, 4.8vw); }
+    }
+
+    /* ═══════════════════════════════════════════════
+       RESPONSIVE — phone
+       Same cabinet language, but single column and simpler top bar
+       ═══════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      body {
+        padding: 0;
+      }
+
+      .cabinet {
+        min-height: auto;
+        border-radius: 0;
+        padding: 10px;
+      }
+
+      .cabinet::before {
+        inset: 6px;
+        border-radius: 6px;
+      }
+
+      .cabinet-masthead {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.65rem;
+        padding: 0.8rem 0.8rem 0.72rem;
+      }
+
+      .site-logo .pre { display: none; }
+      
+      .site-nav {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 1rem;
+        font-size: 0.5rem;
+        padding-bottom: 0.25rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        white-space: nowrap;
+      }
+      .site-nav::-webkit-scrollbar { display: none; }
+      .site-nav a,
+      .site-nav .current { flex: 0 0 auto; }
+
+      .cabinet-side {
+        grid-template-columns: 1fr;
+      }
+
+      .cabinet-cubby {
+        padding: 0.7rem;
+      }
+
+      .cubby-text,
+      .cubby-quote { font-size: 0.84rem; }
+
+      .cabinet-main {
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
+      }
+
+      .bookshelf-panel,
+      .detail-panel {
+        border-radius: 8px;
+      }
+
+      .bookshelf-panel {
+        padding: 0.75rem;
+      }
+
+      .detail-panel {
+        padding: 0.8rem 0.85rem;
+      }
+
+      .bookshelf-stage {
+        flex: none;
+        height: 330px;
+        min-height: 330px;
+        padding: 0.8rem 0.7rem 1rem;
+      }
+
+      .panel-title { font-size: 1.45rem; }
+      .panel-note { font-size: 0.86rem; }
+
+      .detail-title { font-size: 1.42rem; }
+      .detail-summary { font-size: 0.9rem; line-height: 1.45; }
+
+      .detail-body {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-copy,
+      .detail-evidence {
+        padding: 0.7rem;
+      }
+
+      .detail-copy li,
+      .detail-evidence li { font-size: 0.88rem; }
+
+      .pill {
+        font-size: 0.58rem;
+        padding: 0.42rem 0.8rem;
+      }
+
+      .detail-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.45rem;
+      }
+
+      .cabinet-bottom {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .cabinet-plaque-row {
+        padding-left: 0.7rem;
+        padding-right: 0.7rem;
+      }
+      .cabinet-plaque {
+        font-size: 0.46rem;
+        padding: 0.28rem 0.72rem;
+        letter-spacing: 0.16em;
+      }
+      .cabinet-page-title { font-size: 1.34rem; }
+      .bookshelf-stage {
+        height: 300px;
+        min-height: 300px;
+        padding-left: 0.7rem;
+        padding-right: 0.7rem;
+      }
+      .book-1 { --book-height: 270px; --book-width: 54px; }
+      .book-2 { --book-height: 258px; --book-width: 50px; }
+      .book-3 { --book-height: 282px; --book-width: 58px; }
+      .book-4 { --book-height: 262px; --book-width: 52px; }
+      .book-5 { --book-height: 254px; --book-width: 54px; }
+      .book-6 { --book-height: 248px; --book-width: 48px; }
+      .book-7 { --book-height: 286px; --book-width: 56px; }
+      .book-8 { --book-height: 290px; --book-width: 46px; }
+      .book-name { font-size: 0.92rem; }
+      .book-index,
+      .detail-index,
+      .block-label,
+      .pill,
+      .detail-footer,
+      .cubby-label { font-size: 0.62rem; }
+    }
+
+    /* ═══════════════════════════════════════════════
+       FADE INTRO
+       ═══════════════════════════════════════════════ */
+    .fade {
+      opacity: 0;
+      transform: translateY(14px);
+      animation: page-fade 0.72s cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+    }
+
+    .fade-1 { animation-delay: 0.08s; }
+    .fade-2 { animation-delay: 0.18s; }
+
+    @keyframes page-fade {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .book, .site-logo::after { transition: none; }
+      .fade { opacity: 1; transform: none; animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cabinet-stage">
+  <section class="cabinet fade fade-1" aria-labelledby="library-title">
+
+    <!-- ───── TOP SLOT: MASTHEAD ───── -->
+    <header class="cabinet-masthead">
+      <a class="site-logo" href="../index.html#main" title="Return to main">
+        <span class="pre">The Personal Site of</span>
+        <span class="name">Weihan Li</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../about/index.html">I · About</a>
+        <a href="../research/index.html">II · Research</a>
+        <span class="current">III · Applied Skills</span>
+        <a href="../experience/index.html">IV · Experience</a>
+        <a href="../contact/index.html">V · Contact</a>
+      </nav>
+    </header>
+
+    <!-- ───── PLAQUE SLOT ───── -->
+    <div class="cabinet-plaque-row">
+      <span class="cabinet-section-mark">III · Section</span>
+      <div class="cabinet-plaque">Weihan Li · Applied Skills Library</div>
+      <h1 class="cabinet-page-title">Applied Skills</h1>
+    </div>
+
+    <!-- ───── MAIN BODY: side cubbies + bookshelf + detail ───── -->
+    <div class="cabinet-body">
+
+      <!-- Left side: two small cubbies -->
+      <aside class="cabinet-side">
+        <div class="cabinet-cubby">
+          <div class="cubby-label">How to read</div>
+          <p class="cubby-text">Click any <strong>book spine</strong> on the shelf to open the volume. Each book holds a single applied skill.</p>
+        </div>
+        <div class="cabinet-cubby">
+          <div class="cubby-label">Inscription</div>
+          <p class="cubby-quote">The mathematical expectation of the speculator is zero.<span class="cubby-attr">— Louis Bachelier, 1900</span></p>
+        </div>
+      </aside>
+
+      <!-- Right side: bookshelf + detail -->
+      <div class="cabinet-main">
+
+        <div class="bookshelf-panel">
+          <div class="panel-kicker">Navigation</div>
+          <h2 class="panel-title" id="library-title">The bookshelf</h2>
+          <p class="panel-note">Eight volumes. Select any spine.</p>
+
+          <div class="bookshelf-stage" id="bookshelfStage" aria-label="Applied skills bookshelf">
+            <div class="shelf-board" aria-hidden="true"></div>
+
+            <button class="book book-1 is-active" type="button" data-skill="0" aria-pressed="true">
+              <span class="book-spine">
+                <span class="book-label">
+                  <span class="book-index">01</span>
+                  <span class="book-name">Financial Econometrics</span>
+                </span>
+              </span>
+            </button>
+
+            <button class="book book-2 is-dim" type="button" data-skill="1" aria-pressed="false">
+              <span class="book-spine">
+                <span class="book-label">
+                  <span class="book-index">02</span>
+                  <span class="book-name">Research & Teaching</span>
+                </span>
+              </span>
+            </button>
+
+            <button class="book book-3 is-dim" type="button" data-skill="2" aria-pressed="false">
+              <span class="book-spine">
+                <span class="book-label">
+                  <span class="book-index">03</span>
+                  <span class="book-name">Quantitative Modelling</span>
+                </span>
+              </span>
+            </button>
+
+            <button class="book book-4 is-dim" type="button" data-skill="3" aria-pressed="false">
+              <span class="book-spine">
+                <span class="book-label">
+                  <span class="book-index">04</span>
+                  <span class="book-name">Pricing & Valuation</span>
+                </span>
+              </span>
+            </button>
+
+            <button class="book book-5 is-dim" type="button" data-skill="4" aria-pressed="false">
+              <span class="book-spine">
+                <span class="book-label">
+                  <span class="book-index">05</span>
+                  <span class="book-name">Risk Analytics</span>
+                </span>
+              </span>
+            </button>
+
+            <button class="book book-6 is-dim" type="button" data-skill="5" aria-pressed="false">
+              <span class="book-spine">
+                <span class="book-label">
+                  <span class="book-index">06</span>
+                  <span class="book-name">Strategic Communication</span>
+                </span>
+              </span>
+            </button>
+
+            <button class="book book-7 is-dim" type="button" data-skill="6" aria-pressed="false">
+              <span class="book-spine">
+                <span class="book-label">
+                  <span class="book-index">07</span>
+                  <span class="book-name">Machine Learning & Strategy</span>
+                </span>
+              </span>
+            </button>
+
+            <button class="book book-8 is-dim" type="button" data-skill="7" aria-pressed="false">
+              <span class="book-spine">
+                <span class="book-label">
+                  <span class="book-index">08</span>
+                  <span class="book-name">Software, Data & Platforms</span>
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <article class="detail-panel" id="detailPanel" aria-live="polite">
+          <div class="detail-head">
+            <div class="detail-index" id="detailIndex">01 / Applied Skill</div>
+            <h2 class="detail-title" id="detailTitle">Financial Econometrics</h2>
+            <p class="detail-summary" id="detailSummary"></p>
+          </div>
+
+          <div class="detail-meta" id="detailMeta"></div>
+
+          <div class="detail-body">
+            <div class="detail-copy">
+              <div class="block-label">What this skill lets me do</div>
+              <ul id="detailUse"></ul>
+            </div>
+            <div class="detail-evidence">
+              <div class="block-label">Where it shows up</div>
+              <ul id="detailEvidence"></ul>
+            </div>
+          </div>
+
+          <div class="detail-footer">
+            <span class="status" id="detailStatus">Core capability</span>
+            <span class="usage" id="detailUsage">Click another spine</span>
+          </div>
+        </article>
+
+      </div><!-- /cabinet-main -->
+
+    </div><!-- /cabinet-body -->
+
+    <!-- ───── BOTTOM MARK ───── -->
+    <div class="cabinet-bottom">
+      <span class="cabinet-mark">Est. MMXXVI · Otago</span>
+    </div>
+
+  </section>
+</div>
+
+<script>
+  const skillData = [
+    {
+      index: '01 / Applied Skill',
+      title: 'Financial Econometrics',
+      summary: 'Use econometric methods and financial data to produce robust empirical evidence in finance. This capability sits at the centre of my research training and supports both academic work and evidence-led analytical practice.',
+      tags: ['Panel Data', 'Event Studies', 'Inference', 'Empirical Finance'],
+      use: [
+        'Design and execute empirical tests for questions in asset pricing, derivatives, and financial markets.',
+        'Apply econometric methods with attention to identification, inference, and interpretation.',
+        'Produce findings that are methodologically sound and substantively meaningful.'
+      ],
+      evidence: [
+        'Developed through sustained research in derivatives, risk measures, and empirical finance.',
+        'Includes panel methods, event-based analysis, and model-based inference.',
+        'Equally relevant to research-intensive academic work and evidence-driven analytical practice.'
+      ],
+      status: 'Core research strength',
+      usage: 'Empirical analysis in finance.'
+    },
+    {
+      index: '02 / Applied Skill',
+      title: 'Research & Teaching',
+      summary: 'Combine research development with teaching, supervision, and scholarly communication. This capability reflects both subject knowledge and the ability to explain it clearly across undergraduate and postgraduate settings.',
+      tags: ['Teaching', 'Supervision', 'Presentations', 'Scholarly Writing'],
+      use: [
+        'Teach finance and quantitative material in a structured and accessible way.',
+        'Support student learning, postgraduate development, and research discussion.',
+        'Communicate research clearly in writing, presentations, and academic exchange.'
+      ],
+      evidence: [
+        'Grounded in university teaching, conference presentations, and academic writing.',
+        'Aligned with roles that value both research output and teaching commitment.',
+        'Useful wherever analytical depth must also be communicated with clarity.'
+      ],
+      status: 'Academic practice',
+      usage: 'Teaching, supervision, and scholarly communication.'
+    },
+    {
+      index: '03 / Applied Skill',
+      title: 'Quantitative Modelling',
+      summary: 'Develop and apply quantitative models to examine pricing, market behaviour, and decision-relevant financial questions. This capability combines formal modelling, empirical testing, and practical interpretation.',
+      tags: ['Modelling', 'Quantitative Analysis', 'MATLAB', 'Stata'],
+      use: [
+        'Build structured models for financial questions that require more than descriptive analysis.',
+        'Move between model specification, implementation, and interpretation with consistency.',
+        'Translate technical outputs into conclusions that remain useful beyond the model itself.'
+      ],
+      evidence: [
+        'Developed through derivatives research and other quantitatively intensive finance work.',
+        'Relevant to analytical settings that value rigour as much as usability.',
+        'Supports work where formal modelling underpins broader financial judgement.'
+      ],
+      status: 'Quantitative foundation',
+      usage: 'Model development and interpretation.'
+    },
+    {
+      index: '04 / Applied Skill',
+      title: 'Pricing & Valuation',
+      summary: 'Analyse how financial instruments are priced and valued under changing assumptions, market inputs, and institutional settings. This capability connects derivatives knowledge with broader valuation work.',
+      tags: ['Pricing', 'Valuation', 'Derivatives', 'Market Data'],
+      use: [
+        'Examine pricing relationships across derivative and non-derivative contexts.',
+        'Assess how valuation changes with alternative assumptions, data inputs, or contractual features.',
+        'Apply analytical finance in settings where accuracy, judgement, and interpretation matter together.'
+      ],
+      evidence: [
+        'Built on derivatives research and valuation-related analytical work.',
+        'Useful for projects involving financial instruments, pricing logic, or valuation review.',
+        'Bridges quantitative finance with practical valuation questions.'
+      ],
+      status: 'Applied finance capability',
+      usage: 'Instrument pricing and valuation analysis.'
+    },
+    {
+      index: '05 / Applied Skill',
+      title: 'Risk Analytics',
+      summary: 'Analyse volatility, tail risk, and market uncertainty using both econometric evidence and financial interpretation. The emphasis is on making risk measurable and intelligible.',
+      tags: ['Volatility', 'Tail Risk', 'Uncertainty', 'Market Signals'],
+      use: [
+        'Identify and interpret risk-sensitive signals in financial data.',
+        'Examine how markets respond to uncertainty, events, and changing conditions.',
+        'Bring analytical discipline to questions of risk without reducing them to a single metric.'
+      ],
+      evidence: [
+        'Supported by research on volatility, tail risk, and market-based measures of uncertainty.',
+        'Relevant where uncertainty must be measured as well as clearly interpreted.',
+        'Useful across research, risk, and market-facing analytical work.'
+      ],
+      status: 'Market perspective',
+      usage: 'Volatility, uncertainty, and market interpretation.'
+    },
+    {
+      index: '06 / Applied Skill',
+      title: 'Strategic Communication',
+      summary: 'Present analytical work with clarity, structure, and awareness of audience. This capability connects technical depth with professional communication in academic, analytical, and commercial settings.',
+      tags: ['Communication', 'Presentations', 'Writing', 'Stakeholder Awareness'],
+      use: [
+        'Explain complex ideas without losing precision.',
+        'Adjust structure and tone for technical and non-technical audiences.',
+        'Present evidence in a way that supports discussion, judgement, and decision-making.'
+      ],
+      evidence: [
+        'Strengthened through teaching, conference presentation, and research writing.',
+        'Useful where analytical substance must remain clear and persuasive.',
+        'Supports work across academic, professional, and stakeholder-facing contexts.'
+      ],
+      status: 'Communication strength',
+      usage: 'Clear presentation of technical work.'
+    },
+    {
+      index: '07 / Applied Skill',
+      title: 'Machine Learning & Quantitative Strategy',
+      summary: 'Build machine learning models in Python to forecast equity returns and inform quantitative strategy. This capability extends classical empirical finance into modern predictive modelling, where evaluation is judged by out-of-sample performance.',
+      tags: ['Python', 'XGBoost', 'LightGBM', 'CatBoost', 'Numerai'],
+      use: [
+        'Develop predictive models for stock returns using gradient boosting frameworks (XGBoost, LightGBM, CatBoost).',
+        'Engineer features and construct training pipelines suited to noisy, low-signal financial data.',
+        'Evaluate models under live competitive conditions where out-of-sample performance is the only metric that counts.'
+      ],
+      evidence: [
+        'Active participant in the Numerai tournament, submitting models across multiple rounds.',
+        'Hands-on experience with the modern ML toolkit used in systematic and quantitative investing.',
+        'Bridges classical financial econometrics with contemporary machine-learning practice in markets.'
+      ],
+      status: 'Active learning frontier',
+      usage: 'ML modelling for return prediction.'
+    },
+    {
+      index: '08 / Supporting Volume',
+      title: 'Software, Data & Platforms',
+      summary: 'Work fluently across statistical, numerical, and financial data environments to support modelling, empirical research, and applied analysis. This is the technical infrastructure that underpins the other volumes on the shelf.',
+      tags: ['Stata', 'MATLAB', 'Python', 'WRDS', 'Bloomberg'],
+      use: [
+        'Use Stata for panel econometrics, GMM, and event-based empirical work.',
+        'Use MATLAB for numerical integration, option pricing, and volatility modelling.',
+        'Work with R, Python, Mathematica, and LaTeX as part of a broader analytical workflow.'
+      ],
+      evidence: [
+        'Data experience includes OptionMetrics, CRSP, Compustat, I/B/E/S, WRDS, Bloomberg, Wind, CSMAR, RESSET, and Kenneth French Data Library.',
+        'Supports both research-intensive academic work and applied financial analysis.',
+        'Provides the software and data foundation behind modelling, econometrics, and valuation tasks.'
+      ],
+      status: 'Research infrastructure',
+      usage: 'Software fluency and financial data infrastructure.'
+    }
+  ];
+
+  const books = Array.from(document.querySelectorAll('.book'));
+  const detailIndex = document.getElementById('detailIndex');
+  const detailTitle = document.getElementById('detailTitle');
+  const detailSummary = document.getElementById('detailSummary');
+  const detailMeta = document.getElementById('detailMeta');
+  const detailUse = document.getElementById('detailUse');
+  const detailEvidence = document.getElementById('detailEvidence');
+  const detailStatus = document.getElementById('detailStatus');
+  const detailUsage = document.getElementById('detailUsage');
+
+  function renderSkill(index) {
+    const skill = skillData[index];
+    detailIndex.textContent = skill.index;
+    detailTitle.textContent = skill.title;
+    detailSummary.textContent = skill.summary;
+    detailStatus.textContent = skill.status;
+    detailUsage.textContent = skill.usage;
+
+    detailMeta.innerHTML = '';
+    skill.tags.forEach(tag => {
+      const span = document.createElement('span');
+      span.className = 'pill';
+      span.textContent = tag;
+      detailMeta.appendChild(span);
+    });
+
+    detailUse.innerHTML = '';
+    skill.use.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      detailUse.appendChild(li);
+    });
+
+    detailEvidence.innerHTML = '';
+    skill.evidence.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      detailEvidence.appendChild(li);
+    });
+
+    books.forEach((book, bookIndex) => {
+      const active = bookIndex === index;
+      book.classList.toggle('is-active', active);
+      book.classList.toggle('is-dim', !active);
+      book.setAttribute('aria-pressed', String(active));
+    });
+  }
+
+  books.forEach((book, index) => {
+    book.addEventListener('click', () => renderSkill(index));
+  });
+
+  renderSkill(0);
+</script>
+</body>
+</html>

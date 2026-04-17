@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weihan Li — Experience</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════
+   DESIGN TOKENS — Ship's Log / Old Chronicle
+   ═══════════════════════════════════════════════ */
+:root {
+  --leather:       #1a2a24;
+  --leather-soft:  #243530;
+  --leather-hi:    #2d4038;
+  --leather-glow:  #34483f;
+  
+  --vellum:        #ede4cc;
+  --vellum-soft:   #d4c9a8;
+  --vellum-mute:   #a89c7a;
+  --vellum-faint:  #6a6048;
+  
+  --brass:         #c9a15a;
+  --brass-hi:      #e3c07c;
+  --brass-deep:    #8a6f3c;
+  --copper:        #b97845;
+  --copper-soft:   #8a5a35;
+  
+  --rule:          rgba(201, 161, 90, 0.25);
+  --rule-soft:     rgba(237, 228, 204, 0.08);
+  --divider:       #3d4f47;
+  
+  --serif:   "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: #0d1412;
+  color: var(--vellum-soft);
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 1.6;
+  font-feature-settings: "kern", "liga", "onum";
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0.6rem;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: 
+    radial-gradient(ellipse 35% 70% at 0% 50%, rgba(201, 161, 90, 0.22), transparent 65%),
+    radial-gradient(ellipse 35% 70% at 100% 50%, rgba(185, 120, 69, 0.18), transparent 65%),
+    radial-gradient(ellipse 60% 30% at 50% 0%, rgba(201, 161, 90, 0.08), transparent 55%),
+    radial-gradient(ellipse 60% 30% at 50% 100%, rgba(185, 120, 69, 0.06), transparent 55%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: 
+    radial-gradient(rgba(237, 228, 204, 0.02) 1px, transparent 1px),
+    radial-gradient(rgba(237, 228, 204, 0.015) 1px, transparent 1px);
+  background-size: 3px 3px, 5px 5px;
+  background-position: 0 0, 1px 1px;
+  mix-blend-mode: overlay;
+}
+
+::selection { background: var(--brass); color: var(--leather); }
+
+/* ═══════════════════════════════════════════════
+   DEVICE SHELL — iPad frame
+   ═══════════════════════════════════════════════ */
+.ipad-stage {
+  position: relative;
+  z-index: 2;
+  width: min(calc(100vw - 1.4rem), calc((100vh - 3.2rem) * 8 / 5));
+}
+
+.ipad-device {
+  position: relative;
+  aspect-ratio: 8 / 5;
+  width: 100%;
+  padding: 20px;
+  border-radius: 44px;
+  background:
+    linear-gradient(145deg, #1c1f24 0%, #2b2f36 50%, #1b1f24 100%);
+  box-shadow:
+    0 40px 120px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.ipad-device::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.ipad-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  border-radius: 30px;
+  background: var(--leather);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    inset 0 20px 40px rgba(255, 255, 255, 0.015);
+  scrollbar-width: none;
+}
+
+.ipad-screen::-webkit-scrollbar {
+  display: none;
+}
+
+.ipad-camera {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #2e3744 0%, #11161b 70%);
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  z-index: 20;
+}
+
+.ipad-button {
+  position: absolute;
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #707882 0%, #40464d 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.ipad-power {
+  top: 120px;
+  right: -3px;
+  height: 70px;
+}
+
+.ipad-volume-up {
+  top: 160px;
+  left: -3px;
+  height: 54px;
+}
+
+.ipad-volume-down {
+  top: 225px;
+  left: -3px;
+  height: 54px;
+}
+
+.ipad-homebar {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+
+/* ═══════════════════════════════════════════════
+   FIXED MASTHEAD
+   ═══════════════════════════════════════════════ */
+.site-masthead {
+  position: sticky;
+  top: 0;
+  left: auto;
+  right: auto;
+  z-index: 100;
+  background: rgba(26, 42, 36, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201, 161, 90, 0.4);
+  padding: 1.35rem clamp(1.5rem, 5vw, 4rem) 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.site-masthead::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(201, 161, 90, 0.45);
+}
+
+.site-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.site-logo .pre {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vellum-mute);
+  transition: color 0.3s ease;
+}
+
+.site-logo .name {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--brass);
+  line-height: 1;
+  letter-spacing: 0.005em;
+  transition: all 0.3s ease;
+}
+
+.site-logo:hover .pre { color: var(--brass); }
+.site-logo:hover .name {
+  color: var(--brass-hi);
+  text-shadow: 0 0 12px rgba(227, 192, 124, 0.35);
+}
+
+.site-logo::after {
+  content: "← Click to return home";
+  position: absolute;
+  bottom: -0.85rem;
+  left: 0;
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass-deep);
+  opacity: 0.85;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.site-logo:hover::after {
+  color: var(--brass);
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.site-nav a,
+.site-nav .current,
+.site-nav .disabled {
+  color: var(--vellum-faint);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.4rem 0;
+}
+
+.site-nav a:hover { color: var(--brass-hi); }
+
+.site-nav .current {
+  color: var(--brass);
+  pointer-events: none;
+}
+
+.site-nav .current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: var(--brass);
+}
+
+.site-nav .disabled {
+  color: var(--vellum-faint);
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  position: relative;
+}
+
+.site-nav .disabled::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+body.has-fixed-masthead main {
+  padding-top: 1.8rem;
+}
+
+/* ═══════════════════════════════════════════════
+   MAIN
+   ═══════════════════════════════════════════════ */
+main {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 0.55rem 1.6rem;
+}
+
+/* ═══════════════════════════════════════════════
+   PAGE HEADER
+   ═══════════════════════════════════════════════ */
+.page-header {
+  text-align: center;
+  padding: 1.5rem 0 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.page-section-label {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.page-title {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--vellum);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.9rem;
+}
+
+.page-subtitle {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--vellum-mute);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.page-subtitle .ornament {
+  color: var(--brass);
+  margin: 0 0.55rem;
+  font-style: normal;
+}
+
+.page-hint {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass-deep);
+  margin-top: 1.3rem;
+}
+
+.page-hint::before,
+.page-hint::after {
+  content: "— ";
+  opacity: 0.7;
+}
+.page-hint::after { content: " —"; }
+
+/* ═══════════════════════════════════════════════
+   PYRAMID GRID — the iPad home screen
+   ═══════════════════════════════════════════════ */
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+  width: 100%;
+  padding: 0.6rem 0 1.8rem;
+  transition: filter 0.5s ease;
+}
+
+.grid.has-active {
+  pointer-events: none;
+}
+
+.grid-row {
+  display: flex;
+  gap: 1.6rem;
+  justify-content: center;
+  width: 100%;
+  max-width: none;
+  flex-wrap: nowrap;
+}
+
+/* ═══════════════════════════════════════════════
+   BUBBLE CARD (default compact state)
+   ═══════════════════════════════════════════════ */
+.bubble {
+  position: relative;
+  width: 360px;
+  height: 270px;
+  background: var(--leather-soft);
+  border: 1px solid var(--rule);
+  padding: 1.4rem 1.5rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 
+    transform 0.55s cubic-bezier(0.2, 0.6, 0.3, 1),
+    opacity 0.45s ease,
+    filter 0.45s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.bubble::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top left, rgba(201, 161, 90, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.bubble:hover {
+  border-color: var(--brass-deep);
+  background: var(--leather-hi);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 161, 90, 0.15);
+}
+
+.bubble:hover::before { opacity: 1; }
+
+/* Grid dims the non-active bubbles */
+.grid.has-active .bubble:not(.active) {
+  opacity: 0.2;
+  filter: blur(1px) grayscale(30%);
+  transform: scale(0.96);
+}
+
+/* Active bubble container — stays in DOM, but its content is replaced visually */
+.bubble.active {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Bubble type tag */
+.bubble-type {
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem 0.28rem;
+  border: 1px solid;
+  border-radius: 1px;
+  align-self: flex-start;
+  white-space: nowrap;
+}
+
+.bubble-type.teaching { color: var(--copper); border-color: var(--copper-soft); }
+.bubble-type.research { color: var(--brass); border-color: var(--brass-deep); }
+.bubble-type.industry { color: var(--vellum-mute); border-color: var(--vellum-faint); }
+
+.bubble-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.bubble-role {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--vellum);
+  line-height: 1.2;
+}
+
+.bubble-org {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--vellum-soft);
+  line-height: 1.35;
+}
+
+.bubble-date {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  color: var(--brass-deep);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--rule-soft);
+}
+
+/* ═══════════════════════════════════════════════
+   DETAIL OVERLAY — the expanded card
+   ═══════════════════════════════════════════════ */
+.detail-layer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7rem 2rem 2rem;
+  z-index: 500;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.detail-layer.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.detail-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 18, 14, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.detail-card {
+  position: relative;
+  max-width: 820px;
+  width: 100%;
+  max-height: 100%;
+  background: var(--leather-soft);
+  border: 1px solid var(--brass-deep);
+  box-shadow: 
+    0 30px 80px -20px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(201, 161, 90, 0.1),
+    0 0 60px -10px rgba(201, 161, 90, 0.15);
+  transform: scale(0.92) translateY(20px);
+  opacity: 0;
+  transition: all 0.55s cubic-bezier(0.2, 0.6, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.detail-layer.open .detail-card {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Detail close button */
+.detail-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--vellum-mute);
+  font-family: var(--mono);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 0;
+  line-height: 1;
+}
+
+.detail-close:hover {
+  color: var(--brass-hi);
+  border-color: var(--brass);
+  transform: rotate(90deg);
+}
+
+/* Detail content */
+.detail-content {
+  padding: 2.5rem 2.8rem 2.8rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 9rem);
+  scrollbar-width: thin;
+  scrollbar-color: var(--brass-deep) transparent;
+}
+
+.detail-content::-webkit-scrollbar { width: 6px; }
+.detail-content::-webkit-scrollbar-track { background: transparent; }
+.detail-content::-webkit-scrollbar-thumb { background: var(--brass-deep); border-radius: 3px; }
+
+.detail-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+  padding-right: 3rem;
+}
+
+.detail-type {
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.24rem 0.58rem 0.28rem;
+  border: 1px solid;
+  border-radius: 1px;
+}
+
+.detail-type.teaching { color: var(--copper); border-color: var(--copper-soft); }
+.detail-type.research { color: var(--brass); border-color: var(--brass-deep); }
+.detail-type.industry { color: var(--vellum-mute); border-color: var(--vellum-faint); }
+
+.detail-date {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  color: var(--vellum-mute);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+.detail-title {
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: var(--vellum);
+  line-height: 1.15;
+  margin-bottom: 0.2rem;
+}
+
+.detail-subtitle {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--vellum-soft);
+  line-height: 1.35;
+  margin-bottom: 0.3rem;
+}
+
+.detail-org {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--vellum-mute);
+  margin-bottom: 1.8rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.detail-org .sep {
+  color: var(--brass);
+  margin: 0 0.5rem;
+  font-style: normal;
+}
+
+/* Detail blocks */
+.detail-block {
+  margin-bottom: 1.6rem;
+}
+
+.detail-block:last-child { margin-bottom: 0; }
+
+.block-label {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass-deep);
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.block-label::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: var(--brass-deep);
+}
+
+.bullet-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.bullet-list li {
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  color: var(--vellum-soft);
+  line-height: 1.55;
+  padding-left: 1.4rem;
+  position: relative;
+  margin-bottom: 0.45rem;
+}
+
+.bullet-list li:last-child { margin-bottom: 0; }
+
+.bullet-list li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  color: var(--brass);
+  font-size: 0.62rem;
+}
+
+.bullet-list.achievements li::before {
+  content: "✦";
+  color: var(--brass-hi);
+  font-size: 0.78rem;
+  top: 0.08em;
+}
+
+/* Italic only used for company name — no colour change */
+.bullet-list em {
+  font-style: italic;
+  color: inherit;
+}
+
+/* ═══════════════════════════════════════════════
+   COURSE TABLE
+   ═══════════════════════════════════════════════ */
+.course-table {
+  margin: 0.5rem 0 0;
+  border: 1px solid var(--rule);
+  background: rgba(36, 53, 48, 0.4);
+}
+
+.course-table-head {
+  display: grid;
+  grid-template-columns: 3fr 1.3fr 0.9fr;
+  gap: 1.2rem;
+  padding: 0.55rem 1.2rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  background: rgba(45, 64, 56, 0.4);
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass-deep);
+}
+
+.course-table-row {
+  display: grid;
+  grid-template-columns: 3fr 1.3fr 0.9fr;
+  gap: 1.2rem;
+  padding: 0.85rem 1.2rem;
+  border-bottom: 1px solid var(--rule-soft);
+  align-items: center;
+  transition: background 0.25s ease;
+}
+
+.course-table-row:last-child { border-bottom: none; }
+
+.course-table-row:hover {
+  background: rgba(201, 161, 90, 0.04);
+}
+
+.course-name {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--vellum);
+  line-height: 1.3;
+}
+
+.course-name .code {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--brass);
+  margin-right: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.course-name .title {
+  font-style: italic;
+}
+
+.course-sem {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--vellum-mute);
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+.course-rating {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--vellum);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.course-rating.perfect {
+  color: var(--brass-hi);
+  font-weight: 600;
+  position: relative;
+}
+
+.course-rating.perfect::after {
+  content: "★";
+  color: var(--brass);
+  margin-left: 0.3rem;
+  font-size: 0.85em;
+}
+
+/* ═══════════════════════════════════════════════
+   REVEAL ANIMATIONS
+   ═══════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: rise 0.8s cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+}
+.r1 { animation-delay: 0.1s; }
+.r2 { animation-delay: 0.22s; }
+.r3 { animation-delay: 0.32s; }
+.r4 { animation-delay: 0.42s; }
+.r5 { animation-delay: 0.5s; }
+.r6 { animation-delay: 0.58s; }
+.r7 { animation-delay: 0.66s; }
+
+@keyframes rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; animation: none; }
+}
+
+
+@media (max-width: 980px) {
+  body {
+    padding: 0;
+    overflow: auto;
+    display: block;
+  }
+
+  .ipad-stage {
+    width: 100%;
+  }
+
+  .ipad-device {
+    aspect-ratio: auto;
+    min-height: 100vh;
+    max-height: none;
+    border-radius: 0;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .ipad-device::before,
+  .ipad-camera,
+  .ipad-button,
+  .ipad-homebar {
+    display: none;
+  }
+
+  .ipad-screen {
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .site-nav { font-size: 0.58rem; gap: 1.2rem; }
+  .site-logo .name { font-size: 1.3rem; }
+  .site-logo .pre { font-size: 0.46rem; }
+  
+  .bubble {
+    width: 260px;
+    height: 215px;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-masthead {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    padding: 0.9rem 1rem;
+  }
+
+  body.has-fixed-masthead main {
+    padding-top: 2rem;
+  }
+
+  .site-logo .pre { display: none; }
+
+  .site-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 1rem;
+    font-size: 0.5rem;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav a,
+  .site-nav .current,
+  .site-nav .disabled {
+    flex: 0 0 auto;
+  }
+  
+  .grid-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .bubble {
+    width: min(340px, 90vw);
+    height: auto;
+    min-height: 180px;
+  }
+  
+  .detail-content {
+    padding: 2rem 1.6rem 2rem;
+  }
+  
+  .detail-title { font-size: 1.5rem; }
+  .detail-subtitle { font-size: 1rem; }
+  
+  .course-table-head,
+  .course-table-row {
+    grid-template-columns: 2fr 1fr 0.7fr;
+    gap: 0.6rem;
+    padding: 0.7rem 0.8rem;
+  }
+  
+  .course-name { font-size: 0.8rem; }
+  .course-name .code { display: block; margin-bottom: 0.1rem; font-size: 0.55rem; }
+  .course-sem { font-size: 0.52rem; }
+  .course-rating { font-size: 0.9rem; }
+  
+  .detail-layer {
+    padding: 5.5rem 1rem 1rem;
+  }
+}
+</style>
+</head>
+<body class="has-fixed-masthead">
+
+<div class="ipad-stage">
+  <div class="ipad-device">
+    <span class="ipad-camera"></span>
+    <span class="ipad-button ipad-power"></span>
+    <span class="ipad-button ipad-volume-up"></span>
+    <span class="ipad-button ipad-volume-down"></span>
+
+    <div class="ipad-screen">
+
+
+<!-- ═══════════════ FIXED SITE MASTHEAD ═══════════════ -->
+<header class="site-masthead">
+  <a class="site-logo" href="../index.html#main" title="Return to main">
+    <span class="pre">The Personal Site of</span>
+    <span class="name">Weihan Li</span>
+  </a>
+  <nav class="site-nav">
+    <a href="../about/index.html">I · About</a>
+    <a href="../research/index.html">II · Research</a>
+    <a href="../skills/index.html">III · Applied Skills</a>
+    <span class="current">IV · Experience</span>
+    <a href="../contact/index.html">V · Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ═══════════════ PAGE HEADER ═══════════════ -->
+  <header class="page-header reveal r1">
+    <span class="page-section-label">IV · Section</span>
+    <h1 class="page-title">Experience</h1>
+    <p class="page-subtitle">
+      Teaching<span class="ornament">·</span>Research<span class="ornament">·</span>Industry
+    </p>
+    <p class="page-hint">Tap any card to open</p>
+  </header>
+
+  <!-- ═══════════════ PYRAMID GRID ═══════════════ -->
+  <div class="grid" id="grid">
+
+    <!-- Row 1: Academic (2 cards) -->
+    <div class="grid-row">
+
+      <!-- Teaching -->
+      <div class="bubble reveal r2" data-entry="teaching">
+        <span class="bubble-type teaching">Teaching</span>
+        <div class="bubble-body">
+          <p class="bubble-role">Teaching Assistant &amp; Tutor</p>
+          <p class="bubble-org">University of Otago</p>
+        </div>
+        <p class="bubble-date">Feb 2023 — Feb 2024</p>
+      </div>
+
+      <!-- Research -->
+      <div class="bubble reveal r3" data-entry="research">
+        <span class="bubble-type research">Research</span>
+        <div class="bubble-body">
+          <p class="bubble-role">Research Assistant</p>
+          <p class="bubble-org">University of Otago</p>
+        </div>
+        <p class="bubble-date">Mar — Jun 2023</p>
+      </div>
+
+    </div>
+
+    <!-- Row 2: Industry (3 cards) -->
+    <div class="grid-row">
+
+      <!-- APAG -->
+      <div class="bubble reveal r4" data-entry="apag">
+        <span class="bubble-type industry">Industry</span>
+        <div class="bubble-body">
+          <p class="bubble-role">Audit Intern</p>
+          <p class="bubble-org">APAG Certified Public Accountants</p>
+        </div>
+        <p class="bubble-date">Feb — Apr 2021</p>
+      </div>
+
+      <!-- JD.com -->
+      <div class="bubble reveal r5" data-entry="jd">
+        <span class="bubble-type industry">Industry</span>
+        <div class="bubble-body">
+          <p class="bubble-role">Business Intern</p>
+          <p class="bubble-org">JD.com, Sports Department</p>
+        </div>
+        <p class="bubble-date">Apr — Jun 2019</p>
+      </div>
+
+      <!-- KPMG -->
+      <div class="bubble reveal r6" data-entry="kpmg">
+        <span class="bubble-type industry">Industry</span>
+        <div class="bubble-body">
+          <p class="bubble-role">Deal Advisory Intern</p>
+          <p class="bubble-org">KPMG Advisory (China)</p>
+        </div>
+        <p class="bubble-date">Jul — Aug 2018</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ═══════════════ DETAIL OVERLAY ═══════════════ -->
+<div class="detail-layer" id="detailLayer">
+  <div class="detail-backdrop" id="detailBackdrop"></div>
+  <div class="detail-card">
+    <button class="detail-close" id="detailClose" aria-label="Close">×</button>
+    <div class="detail-content" id="detailContent">
+      <!-- content injected by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ DETAIL DATA (hidden templates) ═══════════════ -->
+    </div>
+
+    <div class="ipad-homebar"></div>
+  </div>
+</div>
+
+<div id="templates" style="display:none;">
+
+  <!-- TEACHING -->
+  <template data-key="teaching">
+    <div class="detail-meta">
+      <span class="detail-type teaching">Teaching</span>
+      <span class="detail-date">Feb 2023 — Feb 2024</span>
+    </div>
+    <h2 class="detail-title">Teaching Assistant &amp; Tutor</h2>
+    <p class="detail-subtitle">University of Otago</p>
+    <p class="detail-org">Department of Accountancy &amp; Finance</p>
+
+    <div class="detail-block">
+      <p class="block-label">Roles &amp; Responsibilities</p>
+      <ul class="bullet-list">
+        <li>Provided tutoring across two undergraduate finance courses and one postgraduate course, with coverage including derivatives pricing, mathematical finance, and personal finance fundamentals</li>
+        <li>Delivered tutorials, marked assessments, and conducted one-on-one student consultations</li>
+        <li>Developed teaching methodology and student engagement practices across diverse course topics</li>
+      </ul>
+    </div>
+
+    <div class="detail-block">
+      <p class="block-label">Course Evaluations</p>
+      <div class="course-table">
+        <div class="course-table-head">
+          <span>Course</span>
+          <span>Semester</span>
+          <span style="text-align:right">Rating</span>
+        </div>
+        <div class="course-table-row">
+          <div class="course-name">
+            <span class="code">FINC204</span><span class="title">Personal Finance</span>
+          </div>
+          <div class="course-sem">2024 · Summer</div>
+          <div class="course-rating">80%</div>
+        </div>
+        <div class="course-table-row">
+          <div class="course-name">
+            <span class="code">FINC405</span><span class="title">Mathematical Finance</span>
+          </div>
+          <div class="course-sem">2023 · S2</div>
+          <div class="course-rating perfect">100%</div>
+        </div>
+        <div class="course-table-row">
+          <div class="course-name">
+            <span class="code">FINC306</span><span class="title">Derivatives</span>
+          </div>
+          <div class="course-sem">2023 · S1</div>
+          <div class="course-rating">71%</div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- RESEARCH -->
+  <template data-key="research">
+    <div class="detail-meta">
+      <span class="detail-type research">Research</span>
+      <span class="detail-date">Mar — Jun 2023</span>
+    </div>
+    <h2 class="detail-title">Research Assistant</h2>
+    <p class="detail-subtitle">to A/Prof. Xinfeng Ruan</p>
+    <p class="detail-org">University of Otago<span class="sep">·</span>Department of Accountancy &amp; Finance</p>
+
+    <div class="detail-block">
+      <p class="block-label">Roles &amp; Responsibilities</p>
+      <ul class="bullet-list">
+        <li>Processed and analysed large-scale financial data using Python, MATLAB, and Stata</li>
+        <li>Conducted data preparation and validation pipelines to support financial analysis and reporting</li>
+        <li>Assisted with the analysis and testing of quantitative measures related to market risk</li>
+        <li>Reported analytical progress to the project supervisor on a regular basis</li>
+      </ul>
+    </div>
+
+    <div class="detail-block">
+      <p class="block-label">Highlights &amp; Achievements</p>
+      <ul class="bullet-list achievements">
+        <li>Delivered reliable data pipelines supporting research on market risk measures</li>
+        <li>Strengthened practical skills in large-scale financial data handling across multiple platforms</li>
+      </ul>
+    </div>
+  </template>
+
+  <!-- APAG -->
+  <template data-key="apag">
+    <div class="detail-meta">
+      <span class="detail-type industry">Industry</span>
+      <span class="detail-date">Feb — Apr 2021</span>
+    </div>
+    <h2 class="detail-title">Audit Intern</h2>
+    <p class="detail-subtitle">Asia-Pacific (Group) Certified Public Accountants</p>
+    <p class="detail-org">Beijing, China</p>
+
+    <div class="detail-block">
+      <p class="block-label">Roles &amp; Responsibilities</p>
+      <ul class="bullet-list">
+        <li>Participated in the annual audit of <em>Fangda International Engineering Consulting Co., Ltd.</em>, a large infrastructure group with 60+ subsidiaries</li>
+        <li>Assisted in project selection, drafting, and report preparation across parent and subsidiary entities</li>
+        <li>Supported the project manager in quality control testing and reconciliation</li>
+        <li>Prepared audit working papers and reviewed consolidated financial statements</li>
+      </ul>
+    </div>
+
+    <div class="detail-block">
+      <p class="block-label">Highlights &amp; Achievements</p>
+      <ul class="bullet-list achievements">
+        <li>Delivered high-quality audit working papers under tight deadlines</li>
+        <li>Strengthened understanding of auditing procedures, corporate structures, and financial reporting standards</li>
+      </ul>
+    </div>
+  </template>
+
+  <!-- JD.com -->
+  <template data-key="jd">
+    <div class="detail-meta">
+      <span class="detail-type industry">Industry</span>
+      <span class="detail-date">Apr — Jun 2019</span>
+    </div>
+    <h2 class="detail-title">Business Intern</h2>
+    <p class="detail-subtitle">Sports Department</p>
+    <p class="detail-org">JD.com<span class="sep">·</span>Beijing, China</p>
+
+    <div class="detail-block">
+      <p class="block-label">Roles &amp; Responsibilities</p>
+      <ul class="bullet-list">
+        <li>Coordinated with merchants to implement pricing strategies across the sports category</li>
+        <li>Supported planning and execution of major online marketing campaigns</li>
+        <li>Analysed pre- and post-promotion sales data to evaluate campaign performance</li>
+        <li>Conducted competitor benchmarking and sales trend analysis for pricing decisions</li>
+      </ul>
+    </div>
+
+    <div class="detail-block">
+      <p class="block-label">Highlights &amp; Achievements</p>
+      <ul class="bullet-list achievements">
+        <li>Contributed to high-impact e-commerce campaigns in a large-scale platform environment</li>
+        <li>Applied data-driven approaches to commercial decision-making and pricing optimisation</li>
+      </ul>
+    </div>
+  </template>
+
+  <!-- KPMG -->
+  <template data-key="kpmg">
+    <div class="detail-meta">
+      <span class="detail-type industry">Industry</span>
+      <span class="detail-date">Jul — Aug 2018</span>
+    </div>
+    <h2 class="detail-title">Deal Advisory Intern</h2>
+    <p class="detail-subtitle">Mergers &amp; Acquisitions Department</p>
+    <p class="detail-org">KPMG Advisory (China) Ltd<span class="sep">·</span>Beijing, China</p>
+
+    <div class="detail-block">
+      <p class="block-label">Roles &amp; Responsibilities</p>
+      <ul class="bullet-list">
+        <li>Researched comparable companies and comparable transactions to support valuation analysis</li>
+        <li>Built financial models for target company valuation and deal assessment across M&amp;A projects</li>
+        <li>Supported integration of cross-industry M&amp;A cases for deal structuring</li>
+      </ul>
+    </div>
+
+    <div class="detail-block">
+      <p class="block-label">Highlights &amp; Achievements</p>
+      <ul class="bullet-list achievements">
+        <li>Gained practical exposure to end-to-end M&amp;A processes from target identification to valuation</li>
+        <li>Recognised for accuracy and efficiency in financial modelling support across multiple transaction cases</li>
+      </ul>
+    </div>
+  </template>
+
+</div>
+
+<script>
+(function() {
+  const grid = document.getElementById('grid');
+  const detailLayer = document.getElementById('detailLayer');
+  const detailContent = document.getElementById('detailContent');
+  const detailClose = document.getElementById('detailClose');
+  const detailBackdrop = document.getElementById('detailBackdrop');
+  const templates = document.getElementById('templates');
+  let activeBubble = null;
+
+  function openDetail(key, bubble) {
+    const tpl = templates.querySelector('template[data-key="' + key + '"]');
+    if (!tpl) return;
+
+    // Clone template content into detail
+    detailContent.innerHTML = '';
+    detailContent.appendChild(tpl.content.cloneNode(true));
+
+    // Scroll detail back to top
+    detailContent.scrollTop = 0;
+
+    // Mark bubble as active, dim the grid
+    if (activeBubble) activeBubble.classList.remove('active');
+    bubble.classList.add('active');
+    activeBubble = bubble;
+    grid.classList.add('has-active');
+
+    // Show the detail layer
+    detailLayer.classList.add('open');
+
+    // Prevent background body scroll
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDetail() {
+    detailLayer.classList.remove('open');
+
+    if (activeBubble) {
+      activeBubble.classList.remove('active');
+      activeBubble = null;
+    }
+    grid.classList.remove('has-active');
+
+    document.body.style.overflow = '';
+  }
+
+  // Bubble click
+  document.querySelectorAll('.bubble').forEach(bubble => {
+    bubble.addEventListener('click', () => {
+      const key = bubble.getAttribute('data-entry');
+      openDetail(key, bubble);
+    });
+  });
+
+  // Close handlers
+  detailClose.addEventListener('click', closeDetail);
+  detailBackdrop.addEventListener('click', closeDetail);
+
+  // Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && detailLayer.classList.contains('open')) {
+      closeDetail();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

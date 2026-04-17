@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weihan Li — About</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#15100b;
+  --bg-soft:#201711;
+  --paper:#efe2c6;
+  --paper-soft:#e8d7b6;
+  --paper-deep:#dbc6a0;
+  --ink:#241b13;
+  --ink-soft:#4a3b2f;
+  --ink-mute:#776652;
+  --ink-faint:#98866e;
+  --gold:#b48a43;
+  --gold-hi:#c9a86b;
+  --gold-deep:#7c5f31;
+  --rule:rgba(110,82,44,0.23);
+  --rule-soft:rgba(110,82,44,0.12);
+  --shadow:0 50px 120px -30px rgba(0,0,0,0.58), 0 12px 30px -18px rgba(0,0,0,0.44);
+  --serif:"Cormorant Garamond","Times New Roman",Georgia,serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{
+  min-height:100vh;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(180,138,67,0.09), transparent 24%),
+    linear-gradient(180deg, #1c1410 0%, #0f0a07 100%);
+  color:var(--ink);
+  font-family:var(--serif);
+}
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none; z-index:0;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    radial-gradient(rgba(255,255,255,0.012) 1px, transparent 1px);
+  background-size:3px 3px, 5px 5px;
+  background-position:0 0, 1px 1px;
+  mix-blend-mode:overlay;
+  opacity:0.34;
+}
+::selection{background:var(--gold);color:#fff}
+a{color:inherit;text-decoration:none}
+
+.magazine-viewport{
+  position:relative;
+  z-index:1;
+  width:min(98vw, 1820px);
+  height:calc(100vh - 12px);
+  margin:6px auto;
+}
+.magazine-frame{
+  height:100%;
+  display:grid;
+  grid-template-rows:auto auto 1fr;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0) 14%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-soft) 100%);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  position:relative;
+}
+.magazine-frame::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    radial-gradient(rgba(77,64,50,0.038) 1px, transparent 1px),
+    radial-gradient(rgba(77,64,50,0.02) 1px, transparent 1px);
+  background-size:4px 4px, 6px 6px;
+  background-position:0 0, 1px 1px;
+  mix-blend-mode:multiply;
+  opacity:0.28;
+  pointer-events:none;
+}
+.magazine-frame::after{
+  content:"";
+  position:absolute; inset:0;
+  box-shadow:inset 0 0 0 1px rgba(96,72,41,0.14);
+  pointer-events:none;
+}
+
+.site-masthead{
+  position:relative;
+  z-index:3;
+  background:rgba(24,17,12,0.94);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(201,161,90,0.3);
+  padding:1rem 1.4rem 1.15rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.5rem;
+}
+.site-masthead::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-3px; height:1px;
+  background:rgba(201,161,90,0.35);
+}
+.site-logo{position:relative;display:flex;align-items:baseline;gap:0.85rem;white-space:nowrap}
+.site-logo .pre{
+  font-family:var(--mono);font-size:0.5rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#b39c75;
+}
+.site-logo .name{
+  font-family:var(--serif);font-size:1.55rem;font-style:italic;font-weight:400;line-height:1;color:var(--gold-hi);
+}
+.site-logo::after{
+  content:"← Click to return home";
+  position:absolute;left:0;bottom:-0.82rem;
+  font-family:var(--mono);font-size:0.5rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--gold);opacity:0.82;white-space:nowrap;transition:0.28s ease;
+}
+.site-logo:hover::after{transform:translateX(3px);opacity:1}
+.site-nav{display:flex;align-items:center;gap:1.45rem;font-family:var(--mono);font-size:0.62rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;white-space:nowrap}
+.site-nav a,.site-nav .current{position:relative;padding:0.35rem 0;color:#8f7d65;transition:color 0.28s ease}
+.site-nav a:hover{color:var(--gold-hi)}
+.site-nav .current{color:var(--gold-hi);pointer-events:none}
+.site-nav .current::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--gold-hi)}
+
+.spread-kicker{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  font-family:var(--mono);
+  font-size:0.54rem;
+  font-weight:500;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:rgba(213,184,134,0.7);
+  padding:0.95rem 1rem 0.6rem;
+}
+
+.magazine-spread{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:0;
+  height:100%;
+}
+.page{
+  position:relative;
+  z-index:2;
+  min-height:0;
+  padding:1.65rem 2rem 1.3rem;
+}
+.left-page{
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 14%),
+    linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0) 100%);
+  box-shadow:inset -1px 0 0 rgba(112,87,52,0.08);
+}
+.right-page{
+  background:
+    linear-gradient(270deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 14%),
+    linear-gradient(180deg, rgba(0,0,0,0.008) 0%, rgba(255,255,255,0.01) 100%);
+}
+.spread-gutter{
+  position:absolute;
+  top:0;bottom:0;left:50%;width:92px;transform:translateX(-50%);
+  background:linear-gradient(90deg,
+    rgba(0,0,0,0.17) 0%,
+    rgba(0,0,0,0.06) 20%,
+    rgba(255,255,255,0.085) 48%,
+    rgba(0,0,0,0.10) 52%,
+    rgba(0,0,0,0.18) 100%);
+  filter:blur(10px);opacity:0.42;pointer-events:none;
+}
+.page-folio{
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--mono);font-size:0.53rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--ink-mute);padding-bottom:0.65rem;margin-bottom:1.1rem;border-bottom:1px solid var(--rule);
+}
+.page-folio .accent{color:var(--gold-deep)}
+.page-title-block{margin-bottom:1.2rem}
+.issue-roman{font-family:var(--serif);font-size:4.2rem;font-style:italic;font-weight:400;line-height:0.82;color:var(--gold);margin-bottom:0.2rem}
+.issue-title{font-family:var(--serif);font-size:3.25rem;font-style:italic;font-weight:300;line-height:0.9;letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.45rem}
+.issue-submeta{font-family:var(--mono);font-size:0.56rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-faint)}
+.issue-submeta .sep{color:var(--gold-deep);margin:0 0.35rem}
+.kicker{display:flex;align-items:center;gap:0.7rem;font-family:var(--mono);font-size:0.52rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:0.7rem}
+.kicker::before{content:"";width:20px;height:1px;background:var(--gold)}
+.opening-note{margin-bottom:1rem}
+.opening-lede{font-size:1.22rem;line-height:1.38;font-style:italic;font-weight:300;color:var(--ink)}
+.fact-card{border:1px solid var(--rule);background:rgba(255,255,255,0.12);padding:0.8rem 0.95rem 0.78rem;margin-bottom:1rem}
+.fact-card ul{list-style:none;display:grid;gap:0.42rem}
+.fact-card li{font-size:0.9rem;line-height:1.42;color:var(--ink-soft);padding-left:0.9rem;position:relative}
+.fact-card li::before{content:"◆";position:absolute;left:0;top:0.12em;color:var(--gold);font-size:0.58rem}
+.pullquote{position:relative;text-align:center;padding:0.95rem 0.8rem 1rem;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:0.9rem}
+.pullquote-label{display:block;font-family:var(--mono);font-size:0.52rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:0.65rem}
+.pullquote-stack{display:grid;gap:0.12rem}
+.pullquote-line{font-size:1.5rem;line-height:1.02;font-style:italic;font-weight:300;color:var(--ink)}
+.spread-footer{display:flex;justify-content:space-between;align-items:center;margin-top:0.95rem;padding-top:0.65rem;border-top:1px solid var(--rule);font-family:var(--mono);font-size:0.52rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-faint)}
+.spread-footer .star{color:var(--gold)}
+
+.right-intro{margin-bottom:1rem}
+.right-intro p{font-size:1rem;line-height:1.62;color:var(--ink-soft);text-align:justify;hyphens:auto;margin-bottom:0.72rem}
+.right-intro p:last-child{margin-bottom:0}
+.right-intro p:first-child::first-letter{font-size:3.4rem;float:left;line-height:0.86;margin:0.24rem 0.42rem -0.08rem 0;color:var(--gold);font-style:italic;font-weight:300}
+.right-columns{display:grid;grid-template-columns:1.08fr 0.92fr;gap:1.3rem;align-items:start}
+.section-head{display:flex;align-items:baseline;gap:0.75rem;padding-bottom:0.45rem;border-bottom:1px solid var(--rule);margin-bottom:0.7rem}
+.section-num{font-family:var(--mono);font-size:0.54rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold)}
+.section-title{font-size:1.45rem;line-height:1;font-style:italic;font-weight:400;color:var(--ink)}
+.entry{padding:0.78rem 0 0.82rem;border-bottom:1px solid var(--rule-soft)}
+.entry:last-child{border-bottom:none}
+.entry-date{display:block;font-family:var(--mono);font-size:0.53rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:0.28rem}
+.entry-title{font-size:1.08rem;line-height:1.14;font-style:italic;color:var(--ink);margin-bottom:0.08rem}
+.entry-sub{font-size:0.82rem;color:var(--ink-soft);margin-bottom:0.34rem}
+.entry-line{font-size:0.74rem;line-height:1.4;color:var(--ink-mute);margin-bottom:0.15rem}
+.entry-line .tag{font-family:var(--mono);font-size:0.5rem;font-weight:500;letter-spacing:0.11em;text-transform:uppercase;color:var(--gold-deep);margin-right:0.45rem}
+.entry-list{list-style:none;margin-top:0.28rem;display:grid;gap:0.18rem}
+.entry-list li{font-size:0.73rem;line-height:1.38;color:var(--ink-mute);padding-left:0.8rem;position:relative}
+.entry-list li::before{content:"•";position:absolute;left:0;top:0;color:var(--gold)}
+.service-entries .entry-title{font-size:0.96rem}
+.service-entries .entry-sub{font-size:0.78rem}
+.service-entries .entry{padding:0.65rem 0 0.7rem}
+
+.reveal{opacity:0;transform:translateY(18px);animation:rise 0.9s cubic-bezier(0.2,0.6,0.3,1) forwards}
+.r1{animation-delay:0.08s}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+
+@media (max-width:1200px){
+  body{overflow:auto}
+  .magazine-viewport{height:auto;min-height:calc(100vh - 12px)}
+  .magazine-frame{grid-template-rows:auto auto auto}
+  .magazine-spread{grid-template-columns:1fr;height:auto}
+  .spread-gutter{display:none}
+  .page{padding:1.8rem 1.4rem}
+  .right-columns{grid-template-columns:1fr}
+}
+@media (max-width:900px){
+  .site-nav{font-size:0.56rem;gap:1rem}
+  .site-logo .name{font-size:1.28rem}
+  .site-logo .pre{font-size:0.44rem}
+}
+@media (max-width:720px){
+  body{overflow:auto}
+  .magazine-viewport{width:100%;height:auto;margin:0}
+  .magazine-frame{border-radius:0;min-height:100vh}
+  .site-masthead{flex-direction:column;align-items:stretch;gap:0.65rem;padding:0.9rem 1rem}
+  .site-logo .pre{display:none}
+  .site-nav{display:flex;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;gap:1rem;font-size:0.5rem;padding-bottom:0.25rem;-webkit-overflow-scrolling:touch;scrollbar-width:none;white-space:nowrap}
+  .site-nav::-webkit-scrollbar{display:none}
+  .site-nav a,.site-nav .current{flex:0 0 auto}
+  .page{padding:1.55rem 1rem}
+  .issue-title{font-size:2.6rem}
+  .issue-roman{font-size:3.6rem}
+  .opening-lede{font-size:1.08rem}
+  .pullquote-line{font-size:1.28rem}
+}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;animation:none}}
+</style>
+</head>
+<body>
+  <div class="magazine-viewport">
+    <div class="magazine-frame">
+      <header class="site-masthead">
+        <a class="site-logo" href="../index.html#main" title="Return to main">
+          <span class="pre">The Personal Site of</span>
+          <span class="name">Weihan Li</span>
+        </a>
+        <nav class="site-nav">
+          <span class="current">I · About</span>
+          <a href="../research/index.html">II · Research</a>
+          <a href="../skills/index.html">III · Applied Skills</a>
+          <a href="../experience/index.html">IV · Experience</a>
+          <a href="../contact/index.html">V · Contact</a>
+        </nav>
+      </header>
+
+      <div class="spread-kicker">Open spread · editorial profile</div>
+
+      <section class="magazine-spread reveal r1" aria-labelledby="about-spread-title">
+        <div class="spread-gutter" aria-hidden="true"></div>
+
+        <article class="page left-page">
+          <div class="page-folio">
+            <span class="accent">Vol. MMXXVI</span>
+            <span>Page i</span>
+          </div>
+
+          <div class="page-title-block">
+            <div class="issue-roman">I.</div>
+            <h1 class="issue-title" id="about-spread-title">About</h1>
+            <div class="issue-submeta">
+              Profile<span class="sep">·</span>Editorial Note<span class="sep">·</span>Opening Spread
+            </div>
+          </div>
+
+          <section class="opening-note">
+            <div class="kicker">Editorial note</div>
+            <p class="opening-lede">
+              Three years of research, three semesters of teaching, and three summers of practice — all grounded in financial econometrics, derivatives, and the risks embedded in their prices.
+            </p>
+          </section>
+
+          <section class="fact-card">
+            <div class="kicker">At a glance</div>
+            <ul>
+              <li>PhD in Finance, University of Otago</li>
+              <li>Three ABDC A-ranked finance journal publications</li>
+              <li>Research in financial econometrics, derivatives, and tail-risk measurement</li>
+              <li>Internship exposure to M&amp;A advisory and audit work</li>
+            </ul>
+          </section>
+
+          <section class="pullquote">
+            <span class="pullquote-label">The focus</span>
+            <div class="pullquote-stack">
+              <div class="pullquote-line">Financial Econometrics</div>
+              <div class="pullquote-line">Derivatives</div>
+              <div class="pullquote-line">Quantitative Modelling</div>
+            </div>
+          </section>
+
+          <div class="spread-footer">
+            <span>Set in Cormorant Garamond</span>
+            <span class="star">✦</span>
+            <span>Weihan Li · MMXXVI</span>
+          </div>
+        </article>
+
+        <article class="page right-page">
+          <div class="page-folio">
+            <span class="accent">Profile continued</span>
+            <span>Page ii</span>
+          </div>
+
+          <section class="right-intro">
+            <p>
+              I hold a PhD in Finance from the University of Otago, New Zealand, supervised by Prof. Jin E. Zhang, A/Prof. Xinfeng Ruan, and Dr. Pakorn Aschakulporn. My research applies financial econometrics to derivatives markets, with a focus on option-implied risk measures, tail risk, and volatility modelling.
+            </p>
+            <p>
+              I have published in three ABDC A-ranked finance journals and presented at the New Zealand Finance Meeting and the Derivative Markets Conference. Before my doctoral studies, I gained internship exposure to M&amp;A advisory and audit work, and I hold a Master of Finance (Distinction) from Durham University.
+            </p>
+          </section>
+
+          <div class="right-columns">
+            <section class="section-block">
+              <div class="section-head">
+                <span class="section-num">§ 1</span>
+                <h2 class="section-title">Education</h2>
+              </div>
+
+              <div class="entry">
+                <span class="entry-date">Oct 2021 — Dec 2025</span>
+                <div class="entry-title">PhD in Finance</div>
+                <div class="entry-sub">University of Otago, New Zealand</div>
+                <div class="entry-line"><span class="tag">Thesis</span>Essays on Options</div>
+                <div class="entry-line"><span class="tag">Advisors</span>Prof. Jin E. Zhang (primary), A/Prof. Xinfeng Ruan, Dr. Pakorn Aschakulporn</div>
+                <ul class="entry-list">
+                  <li>University of Otago Doctoral Scholarship (Oct 2021 – Jan 2025)</li>
+                  <li>Outstanding Research Contribution, Department of Accountancy &amp; Finance (Oct 2024)</li>
+                </ul>
+              </div>
+
+              <div class="entry">
+                <span class="entry-date">Sep 2019 — Sep 2020</span>
+                <div class="entry-title">Master of Finance, Distinction</div>
+                <div class="entry-sub">Durham University, United Kingdom</div>
+                <div class="entry-line"><span class="tag">Thesis</span>Systemic Risk of China's Stock Market — A Comparison Among Sectors Based on ΔCoVaR Approach</div>
+                <div class="entry-line"><span class="tag">Advisor</span>Dr. Hui Gao</div>
+              </div>
+
+              <div class="entry">
+                <span class="entry-date">Sep 2015 — Jun 2019</span>
+                <div class="entry-title">Bachelor of Accounting</div>
+                <div class="entry-sub">Tianjin University of Finance and Economics, China</div>
+                <div class="entry-line"><span class="tag">Average</span>91%</div>
+                <ul class="entry-list">
+                  <li>TJUFE Undergraduate Scholarship, awarded annually (2016 – 2019)</li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="section-block service-entries">
+              <div class="section-head">
+                <span class="section-num">§ 2</span>
+                <h2 class="section-title">Academic Service</h2>
+              </div>
+
+              <div class="entry">
+                <span class="entry-date">Feb 2023 — Mar 2024</span>
+                <div class="entry-title">Research Group Coordinator</div>
+                <div class="entry-sub">Derivatives and Quantitative Finance Group, University of Otago</div>
+              </div>
+
+              <div class="entry">
+                <span class="entry-date">Dec 2022 — Oct 2024</span>
+                <div class="entry-title">PhD Representative</div>
+                <div class="entry-sub">Department of Accountancy &amp; Finance, University of Otago</div>
+              </div>
+
+              <div class="entry">
+                <span class="entry-date">Sep 2024</span>
+                <div class="entry-title">Organising Committee</div>
+                <div class="entry-sub">Inaugural Otago Business School Postgraduate Research Symposium</div>
+              </div>
+
+              <div class="entry">
+                <span class="entry-date">Mar 2024</span>
+                <div class="entry-title">Ad hoc Reviewer</div>
+                <div class="entry-sub">Journal of Futures Markets</div>
+              </div>
+            </section>
+          </div>
+        </article>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
