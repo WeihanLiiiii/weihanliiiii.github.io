@@ -134,7 +134,11 @@ body::after{
 }
 .postit .q{ font-family:var(--hand); font-size:1.22rem; line-height:1.18; }
 .postit .by{ margin-top:.55rem; font-family:var(--mono); font-size:.5rem; letter-spacing:.08em; text-transform:uppercase; color:#6a5f24; }
-@media (max-width:900px){ .postit{ display:none; } }
+@media (max-width:900px){
+  .postit{ display:none; }
+  .site-nav{ font-size:0.58rem; gap:1.2rem; }
+  .site-logo .name{ font-size:1.4rem; }
+}
 
 /* A-share Chinese subline */
 .pc-zh{ font-family:var(--cjk); font-size:.92rem; color:var(--ink-soft); margin-top:.12rem; }
@@ -326,6 +330,12 @@ body::after{
 .viewer-frame{ flex:1; width:100%; border:1px solid rgba(167,139,250,.25); border-radius:6px; background:#fff; overflow:hidden; }
 .viewer-frame iframe{ width:100%; height:100%; border:0; display:block; }
 
+@media (max-width:720px){
+  .site-masthead{ flex-direction:column; align-items:stretch; gap:1.4rem; padding:0.9rem 1rem 1rem; }
+  .site-logo{ align-self:flex-start; }
+  .site-logo .pre{ display:none; }
+  .site-nav{ width:100%; flex-wrap:nowrap; overflow-x:auto; overflow-y:hidden; gap:1rem; font-size:0.52rem; padding-bottom:0.25rem; -webkit-overflow-scrolling:touch; white-space:nowrap; }
+}
 @media (max-width:560px){
   .pc-caption{ flex-direction:column; align-items:flex-start; }
   .pc-open{ align-self:flex-start; }
@@ -573,6 +583,13 @@ body::after{
   mountPreviews();
   layout();
   window.addEventListener('load',()=>{ scalePreviews(); layout(); });
+
+  // On narrow screens the nav scrolls horizontally — bring the current item into view
+  try{
+    const navEl=document.querySelector('.site-nav');
+    const cur=navEl && navEl.querySelector('.current');
+    if(navEl && cur) navEl.scrollLeft=Math.max(0, cur.offsetLeft-16);
+  }catch(_){ }
 })();
 </script>
 </body>
