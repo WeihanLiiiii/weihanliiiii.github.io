@@ -40,6 +40,10 @@ input{flex:1;min-width:140px}
 .leg{font-size:12px;font-family:ui-monospace,Menlo,Consolas,monospace;padding:2px 0;border-bottom:1px dashed #21262d}
 .leg.up{color:var(--up)} .leg.down{color:var(--dn)} .leg.now{color:#e3b341}
 .btcwrap{padding:16px}
+.btcchart{position:relative;width:100%;margin:6px 0}
+.btccanvas{width:100%;height:360px;display:block;touch-action:none;cursor:crosshair}
+.btctip{position:absolute;pointer-events:none;background:#161b22;border:1px solid #30363d;border-radius:6px;padding:6px 8px;font-size:11px;line-height:1.5;color:#c9d1d9;display:none;z-index:5;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.btchint{font-size:11px;color:#8b949e;text-align:right;margin-top:2px}
 .banner{background:rgba(227,179,65,.12);border:1px solid #5a4a1f;color:#e3b341;border-radius:8px;padding:10px 12px;font-size:13px;margin-bottom:12px}
 .legendrow{display:flex;flex-wrap:wrap;gap:16px;font-size:12px;margin:8px 0}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle}
@@ -92,7 +96,7 @@ const L={
   macro:'宏观大波段(近3年)',micro:'近端小波段(近45日)',empty_stocks:'该分类暂无标的',
   btc_empty:'BTC/NDX/SPX 数据本次未取到(检查网络后重跑)。',
   btc_banner:'BTC 与美股近年高度同步,但<b>不是可交易的领先信号</b>(先转却确认滞后、统计上与随机无异)。本页仅供同步性观察,不作择时依据。',
-  btc_legend:'橙▼▲=BTC顶底 · 竖虚线=NDX顶(蓝)底(绿)带日期 · 归一化起点100 · 2025年初至今',
+  btc_legend:'橙▼▲=BTC顶底 · 竖虚线=NDX顶(蓝)底(绿)带日期 · 归一化起点100 · 2025年初至今',btc_ctrl:'滚轮缩放 · 拖动平移 · 双击复位',
   corr_ndx:'BTC–NDX 60日相关',corr_spx:'BTC–SPX 60日相关',
   tr_hint:'按成分股涨幅中位数排名。GICS口径每只票归一个行业(全覆盖);主题为自选标签(可重叠、剔除指数)。点击任意行查看成分股。',
   tr_dim:'板块口径: ',tr_dim_gics:'GICS行业(全覆盖)',tr_dim_sec:'GICS板块(粗)',tr_dim_theme:'主题(自选)',
@@ -103,7 +107,7 @@ const L={
   macro:'Macro swings (3y)',micro:'Recent swings (45d)',empty_stocks:'No stocks in this tab',
   btc_empty:'BTC/NDX/SPX data unavailable this run (check network and rerun).',
   btc_banner:'BTC and US equities are highly correlated lately, but it is <b>not a tradable leading signal</b> (turns first yet confirms late; statistically indistinguishable from noise). For co-movement only, not timing.',
-  btc_legend:'orange ▼▲ = BTC peaks/troughs · dashed = NDX peak(blue)/trough(green) w/ date · base 100 · since early 2025',
+  btc_legend:'orange ▼▲ = BTC peaks/troughs · dashed = NDX peak(blue)/trough(green) w/ date · base 100 · since early 2025',btc_ctrl:'Scroll: zoom · Drag: pan · Double-click: reset',
   corr_ndx:'BTC–NDX 60d corr',corr_spx:'BTC–SPX 60d corr',
   tr_hint:'Ranked by median member return. GICS basis maps each stock to one industry (full coverage); themes are custom, overlapping tags (index tags excluded). Click a row for members.',
   tr_dim:'Basis: ',tr_dim_gics:'GICS industry (all)',tr_dim_sec:'GICS sector',tr_dim_theme:'Theme (custom)',
@@ -193,31 +197,72 @@ function renderStocks(){
   v.querySelectorAll('.card').forEach(c=>c.onclick=()=>c.classList.toggle('open'));
 }
 
-function overlayChart(b,w,h){
-  const series=[b.btc,b.ndx,b.spx], colors=['#f7931a','#58a6ff','#2ebd85'];
-  const n=b.dates.length, padT=34, padB=26, padX=8;
+let _btcChart=null;
+function niceTicks(lo,hi,m){const span=(hi-lo)||1;let step=Math.pow(10,Math.floor(Math.log10(span/m)));const err=span/(m*step);if(err>5)step*=10;else if(err>2)step*=5;else if(err>1)step*=2;const start=Math.ceil(lo/step)*step;const out=[];for(let v=start;v<=hi+1e-9;v+=step)out.push(v);return out;}
+function initBTCChart(b){
+  const cv=document.getElementById('btccanvas'), tip=document.getElementById('btctip');
+  if(!cv) return;
+  if(_btcChart&&_btcChart.cleanup)_btcChart.cleanup();
+  const ctx=cv.getContext('2d');
+  const n=b.dates.length;
+  const series=[b.btc,b.ndx,b.spx], colors=['#f7931a','#58a6ff','#2ebd85'], names=['BTC','NDX','SPX'];
   const norm=series.map(s=>{const base=s[0];return s.map(v=>v/base*100);});
-  const all=[].concat(...norm,100); const y0=Math.min(...all), y1=Math.max(...all);
-  const sx=i=>padX+(n<2?0:i/(n-1))*(w-2*padX);
-  const sy=v=>padT+(1-(v-y0)/((y1-y0)||1))*(h-padT-padB);
-  let out='';
-  // 100 基准线
-  out+=`<line x1="${padX}" y1="${sy(100).toFixed(1)}" x2="${w-padX}" y2="${sy(100).toFixed(1)}" stroke="#30363d" stroke-dasharray="2 3"/>`;
-  // NDX 顶/底: 竖虚线(蓝顶/绿底) + 顶部旋转日期
-  (b.ndx_turns||[]).forEach(([idx,kind])=>{const x=sx(idx); const c=kind==='H'?'#58a6ff':'#2ebd85';
-    out+=`<line x1="${x.toFixed(1)}" y1="${padT}" x2="${x.toFixed(1)}" y2="${h-padB}" stroke="${c}" stroke-dasharray="3 3" opacity="0.5"/>`;
-    out+=`<text x="${x.toFixed(1)}" y="${padT-3}" fill="${c}" font-size="8" text-anchor="start" transform="rotate(-90 ${x.toFixed(1)} ${padT-3})">${b.dates[idx].slice(5)}</text>`;});
-  // BTC 自身 顶▼/底▲ 标在 BTC 线上(橙)
-  (b.btc_turns||[]).forEach(([idx,kind])=>{const x=sx(idx), y=sy(norm[0][idx]);
-    out+=`<text x="${x.toFixed(1)}" y="${(y+(kind==='H'?-4:11)).toFixed(1)}" fill="#f7931a" font-size="11" text-anchor="middle">${kind==='H'?'\u25bc':'\u25b2'}</text>`;});
-  // 时间横轴(年-月)
-  const ticks=Math.min(6,n);
-  for(let k=0;k<ticks;k++){const i=Math.round(k*(n-1)/((ticks-1)||1));const x=sx(i);
-    out+=`<text x="${x.toFixed(1)}" y="${h-8}" fill="#8b949e" font-size="9" text-anchor="${k===0?'start':k===ticks-1?'end':'middle'}">${b.dates[i].slice(0,7)}</text>`;}
-  // 三条归一化走势
-  norm.forEach((s,k)=>{let d='';s.forEach((v,i)=>d+=(i?'L':'M')+sx(i).toFixed(1)+' '+sy(v).toFixed(1)+' ');
-    out+=`<path d="${d}" fill="none" stroke="${colors[k]}" stroke-width="1.5"/>`;});
-  return `<svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}" style="max-width:100%">${out}</svg>`;
+  let i0=0, i1=n-1, hover=null, drag=null, pinch=null;
+  const padT=30,padB=28,padL=46,padR=12; let W=900,H=360,dpr=1;
+  function clampView(){const minSpan=4;if(i1-i0<minSpan)i1=i0+minSpan;if(i0<0){i1-=i0;i0=0;}if(i1>n-1){i0-=(i1-(n-1));i1=n-1;if(i0<0)i0=0;}}
+  function sx(i){return padL+(i-i0)/((i1-i0)||1)*(W-padL-padR);}
+  function visY(){let lo=1e18,hi=-1e18;const a=Math.max(0,Math.floor(i0)),z=Math.min(n-1,Math.ceil(i1));for(let k=0;k<3;k++)for(let i=a;i<=z;i++){const v=norm[k][i];if(v<lo)lo=v;if(v>hi)hi=v;}if(lo>hi){lo=90;hi=110;}const p=(hi-lo)*0.08||1;return [lo-p,hi+p];}
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const yr=visY(),y0=yr[0],y1=yr[1];
+    const sy=v=>padT+(1-(v-y0)/((y1-y0)||1))*(H-padT-padB);
+    ctx.font='10px -apple-system,Segoe UI,sans-serif';ctx.textBaseline='middle';
+    niceTicks(y0,y1,5).forEach(t=>{const y=sy(t);ctx.strokeStyle='#21262d';ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();ctx.fillStyle='#8b949e';ctx.textAlign='right';ctx.fillText(t.toFixed(0),padL-5,y);});
+    if(100>=y0&&100<=y1){const y=sy(100);ctx.strokeStyle='#30363d';ctx.setLineDash([2,3]);ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();ctx.setLineDash([]);}
+    const xt=6;ctx.fillStyle='#8b949e';
+    for(let k=0;k<xt;k++){const i=Math.round(i0+k*(i1-i0)/(xt-1));if(i<0||i>=n)continue;const x=sx(i);ctx.textAlign=k===0?'left':k===xt-1?'right':'center';ctx.fillText(b.dates[i].slice(0,7),x,H-10);}
+    (b.ndx_turns||[]).forEach(t=>{const idx=t[0],kind=t[1];if(idx<i0||idx>i1)return;const x=sx(idx),c=kind==='H'?'#58a6ff':'#2ebd85';ctx.strokeStyle=c;ctx.globalAlpha=0.5;ctx.setLineDash([3,3]);ctx.beginPath();ctx.moveTo(x,padT);ctx.lineTo(x,H-padB);ctx.stroke();ctx.setLineDash([]);ctx.globalAlpha=1;ctx.save();ctx.translate(x,padT-2);ctx.rotate(-Math.PI/2);ctx.fillStyle=c;ctx.textAlign='left';ctx.fillText(b.dates[idx].slice(5),0,0);ctx.restore();});
+    const a=Math.max(0,Math.floor(i0)),z=Math.min(n-1,Math.ceil(i1));
+    norm.forEach((s,k)=>{ctx.strokeStyle=colors[k];ctx.lineWidth=1.5;ctx.beginPath();for(let i=a;i<=z;i++){const x=sx(i),y=sy(s[i]);if(i===a)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.stroke();});
+    ctx.fillStyle='#f7931a';ctx.textAlign='center';ctx.font='11px sans-serif';
+    (b.btc_turns||[]).forEach(t=>{const idx=t[0],kind=t[1];if(idx<i0||idx>i1)return;const x=sx(idx),y=sy(norm[0][idx]);ctx.fillText(kind==='H'?'\u25bc':'\u25b2',x,y+(kind==='H'?-6:10));});
+    if(hover!=null&&hover>=i0&&hover<=i1){
+      const x=sx(hover);ctx.strokeStyle='#8b949e';ctx.globalAlpha=0.6;ctx.beginPath();ctx.moveTo(x,padT);ctx.lineTo(x,H-padB);ctx.stroke();ctx.globalAlpha=1;
+      norm.forEach((s,k)=>{const y=sy(s[hover]);ctx.fillStyle=colors[k];ctx.beginPath();ctx.arc(x,y,3,0,7);ctx.fill();});
+      let html='<b>'+b.dates[hover]+'</b>';
+      for(let k=0;k<3;k++){const real=series[k][hover],chg=norm[k][hover]-100;html+='<br><span style="color:'+colors[k]+'">\u25cf</span> '+names[k]+' '+real.toLocaleString('en',{maximumFractionDigits:2})+' ('+(chg>=0?'+':'')+chg.toFixed(1)+'%)';}
+      tip.innerHTML=html;tip.style.display='block';
+      const tw=tip.offsetWidth;let tx=x+12;if(tx+tw>W)tx=x-tw-12;if(tx<0)tx=0;
+      tip.style.left=tx+'px';tip.style.top=padT+'px';
+    }else{tip.style.display='none';}
+  }
+  function resize(){dpr=window.devicePixelRatio||1;W=cv.clientWidth||900;cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+  function ci(clientX){const r=cv.getBoundingClientRect();return i0+((clientX-r.left)-padL)/((W-padL-padR)||1)*(i1-i0);}
+  const onWheel=e=>{e.preventDefault();const c=ci(e.clientX),f=e.deltaY<0?0.85:1/0.85;i0=c-(c-i0)*f;i1=c+(i1-c)*f;clampView();hover=Math.round(c);draw();};
+  const onDown=e=>{drag={x:e.clientX,i0,i1};};
+  const onMove=e=>{if(drag){const dpx=e.clientX-drag.x,di=-dpx/((W-padL-padR)||1)*(drag.i1-drag.i0);i0=drag.i0+di;i1=drag.i1+di;clampView();draw();}};
+  const onUp=()=>{drag=null;};
+  const onHover=e=>{if(drag)return;const c=ci(e.clientX);hover=(c>=i0&&c<=i1)?Math.round(c):null;draw();};
+  const onLeave=()=>{if(!drag){hover=null;draw();}};
+  const onDbl=()=>{i0=0;i1=n-1;hover=null;draw();};
+  const onTStart=e=>{if(e.touches.length===1)drag={x:e.touches[0].clientX,i0,i1};else if(e.touches.length===2){pinch={d:Math.abs(e.touches[0].clientX-e.touches[1].clientX),i0,i1,cx:(e.touches[0].clientX+e.touches[1].clientX)/2};}};
+  const onTMove=e=>{e.preventDefault();
+    if(e.touches.length===1&&drag){const dpx=e.touches[0].clientX-drag.x,di=-dpx/((W-padL-padR)||1)*(drag.i1-drag.i0);i0=drag.i0+di;i1=drag.i1+di;clampView();hover=Math.round(ci(e.touches[0].clientX));draw();}
+    else if(e.touches.length===2&&pinch){const d=Math.abs(e.touches[0].clientX-e.touches[1].clientX)||1,f=pinch.d/d,r=cv.getBoundingClientRect(),c=pinch.i0+(pinch.cx-r.left-padL)/((W-padL-padR)||1)*(pinch.i1-pinch.i0);i0=c-(c-pinch.i0)*f;i1=c+(pinch.i1-c)*f;clampView();draw();}};
+  const onTEnd=e=>{if(e.touches.length===0){drag=null;pinch=null;}};
+  cv.addEventListener('wheel',onWheel,{passive:false});
+  cv.addEventListener('mousedown',onDown);
+  cv.addEventListener('mousemove',onHover);
+  cv.addEventListener('mouseleave',onLeave);
+  cv.addEventListener('dblclick',onDbl);
+  cv.addEventListener('touchstart',onTStart,{passive:false});
+  cv.addEventListener('touchmove',onTMove,{passive:false});
+  cv.addEventListener('touchend',onTEnd);
+  window.addEventListener('mousemove',onMove);
+  window.addEventListener('mouseup',onUp);
+  window.addEventListener('resize',resize);
+  _btcChart={resize,cleanup(){window.removeEventListener('mousemove',onMove);window.removeEventListener('mouseup',onUp);window.removeEventListener('resize',resize);}};
+  resize();requestAnimationFrame(resize);
 }
 
 function renderBTC(){
@@ -231,11 +276,12 @@ function renderBTC(){
       <span><span class="dot" style="background:#2ebd85"></span>SPX</span>
       <span class="muted">${LT('btc_legend')}</span>
     </div>
-    ${overlayChart(b,900,360)}
+    <div class="btcchart"><canvas class="btccanvas" id="btccanvas"></canvas><div class="btctip" id="btctip"></div><div class="btchint">${LT('btc_ctrl')}</div></div>
     <div class="corrbox">
       <div>${LT('corr_ndx')}<br><span class="v">${num(b.corr_btc_ndx)}</span></div>
       <div>${LT('corr_spx')}<br><span class="v">${num(b.corr_btc_spx)}</span></div>
     </div></div>`;
+  initBTCChart(b);
 }
 
 function _med(arr,k){const xs=arr.map(s=>s[k]).filter(x=>x!=null).sort((x,y)=>x-y);return xs.length?xs[Math.floor((xs.length-1)/2)]:null;}
