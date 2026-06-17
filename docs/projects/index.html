@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weihan Li — Projects</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════
+   PROJECTS — "Dispatches" / Postcard Deck
+   A distinct identity: cream postcards on a dark
+   desk, swiped like a stack. Each card's photo is
+   a live miniature of a dashboard (iframe).
+   ═══════════════════════════════════════════════ */
+:root{
+  --desk:      #0f0a17;
+  --desk-hi:   #1a1228;
+  --desk-edge: #0a0712;
+
+  /* signal-lab ambiance */
+  --lab-line:  rgba(150,130,210,0.07);
+  --lab-glow:  rgba(120,90,200,0.20);
+  --violet:    #a78bfa;
+  --cyan:      #5fe3d0;
+  --up:        #36d399;
+  --down:      #ff6b6b;
+
+  --paper:     #f4ecd8;
+  --paper-2:   #eadfc2;
+  --paper-edge:#d8c69d;
+  --ink:       #2b251c;
+  --ink-soft:  #5d5341;
+  --ink-faint: #8a7c61;
+
+  --gold:      #a78bfa;
+  --gold-hi:   #c4b5fd;
+  --gold-deep: #7c5cdb;
+
+  --us:        #2f5d7e;   /* 美股 — US blue */
+  --cn:        #b5462f;   /* A股  — China red */
+
+  --serif: "Cormorant Garamond","Times New Roman",Georgia,serif;
+  --hand:  "Caveat", "Segoe Script", cursive;
+  --mono:  "JetBrains Mono", ui-monospace, monospace;
+  --cjk:   "Songti SC","STSong","Noto Serif SC","Source Han Serif SC", var(--serif);
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% -8%, var(--lab-glow), transparent 60%),
+    radial-gradient(ellipse 50% 45% at 14% 10%, rgba(95,227,208,0.06), transparent 60%),
+    radial-gradient(ellipse 50% 45% at 86% 88%, rgba(167,139,250,0.08), transparent 60%),
+    linear-gradient(165deg, var(--desk-hi), var(--desk) 58%, var(--desk-edge));
+  color:var(--paper);
+  font-family:var(--serif);
+  display:flex;
+  flex-direction:column;
+  overflow-x:hidden;
+}
+/* faint desk grain */
+body::after{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    radial-gradient(rgba(244,236,216,0.018) 1px, transparent 1px),
+    radial-gradient(rgba(244,236,216,0.012) 1px, transparent 1px);
+  background-size:3px 3px, 5px 5px; background-position:0 0,1px 1px;
+}
+::selection{ background:var(--gold); color:var(--desk); }
+
+/* ── SIGNAL-LAB BACKDROP ── */
+.market-bg{ position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+.chart-grid{
+  position:absolute; inset:-1px;
+  background-image:
+    linear-gradient(var(--lab-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--lab-line) 1px, transparent 1px);
+  background-size:40px 40px;
+  -webkit-mask:radial-gradient(ellipse 80% 80% at 50% 44%, #000 30%, transparent 84%);
+          mask:radial-gradient(ellipse 80% 80% at 50% 44%, #000 30%, transparent 84%);
+}
+.scope{ position:absolute; left:0; width:200%; height:240px; }
+.scope svg{ width:100%; height:100%; display:block; }
+.scope-a{ top:14%; opacity:.13; animation:scopeA 26s linear infinite; }
+.scope-b{ bottom:11%; opacity:.10; animation:scopeB 38s linear infinite; }
+@keyframes scopeA{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@keyframes scopeB{ from{transform:translateX(-50%)} to{transform:translateX(0)} }
+@media (prefers-reduced-motion:reduce){
+  .scope-a,.scope-b{ animation:none; }
+}
+
+/* market tape (ambient) */
+.ticker{
+  position:absolute; left:0; right:0; overflow:hidden;
+  -webkit-mask:linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+          mask:linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.tk-a{ top:24%; opacity:.15; }
+.tk-b{ bottom:22%; opacity:.12; }
+.ticker-row{ display:inline-flex; white-space:nowrap; will-change:transform; }
+.tk-a .ticker-row{ animation:tickA 85s linear infinite; }
+.tk-b .ticker-row{ animation:tickB 120s linear infinite; }
+@keyframes tickA{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@keyframes tickB{ from{transform:translateX(-50%)} to{transform:translateX(0)} }
+.tk-seq{ display:inline-flex; gap:2.4rem; padding-right:2.4rem; font-family:var(--mono); font-size:.82rem; letter-spacing:.05em; color:var(--cyan); }
+.tk{ display:inline-flex; gap:.45rem; align-items:center; }
+.tk i{ font-style:normal; font-size:.74rem; }
+.tk .up{ color:var(--up); }
+.tk .down{ color:var(--down); }
+@media (prefers-reduced-motion:reduce){
+  .tk-a .ticker-row,.tk-b .ticker-row{ animation:none; }
+}
+
+/* sticky note */
+.postit{
+  position:absolute; left:clamp(1rem,4vw,3.4rem); bottom:7%; z-index:0;
+  width:172px; padding:1.15rem 1rem .95rem;
+  background:linear-gradient(160deg,#ecdf86,#e1d164);
+  color:#3a3518; transform:rotate(-5deg);
+  box-shadow:0 16px 30px -12px rgba(0,0,0,.62);
+}
+.postit::before{
+  content:""; position:absolute; top:-9px; left:50%;
+  transform:translateX(-50%) rotate(-3deg);
+  width:78px; height:22px; background:rgba(255,255,255,.22);
+  border-left:1px dashed rgba(255,255,255,.35); border-right:1px dashed rgba(255,255,255,.35);
+}
+.postit .q{ font-family:var(--hand); font-size:1.22rem; line-height:1.18; }
+.postit .by{ margin-top:.55rem; font-family:var(--mono); font-size:.5rem; letter-spacing:.08em; text-transform:uppercase; color:#6a5f24; }
+@media (max-width:900px){ .postit{ display:none; } }
+
+/* A-share Chinese subline */
+.pc-zh{ font-family:var(--cjk); font-size:.92rem; color:var(--ink-soft); margin-top:.12rem; }
+
+/* ── MASTHEAD (shared chrome, themed) ── */
+.site-masthead{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between; gap:2rem;
+  padding:1.35rem clamp(1.2rem,5vw,3.5rem) 1.55rem;
+  background:rgba(15,10,23,0.86); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(167,139,250,0.26);
+}
+.site-masthead::after{ content:""; position:absolute; left:0; right:0; bottom:-3px; height:1px; background:var(--violet); opacity:.32; }
+.site-logo{ position:relative; display:flex; align-items:baseline; gap:.7rem; text-decoration:none; white-space:nowrap; }
+.site-logo .pre{ font-family:var(--mono); font-size:.5rem; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-faint); transition:color .3s ease; }
+.site-logo .name{ font-family:var(--serif); font-style:italic; font-size:1.55rem; color:var(--violet); line-height:1; transition:all .3s ease; }
+.site-logo:hover .pre{ color:var(--violet); }
+.site-logo:hover .name{ color:var(--gold-hi); text-shadow:0 0 12px rgba(167,139,250,.4); }
+.site-logo::after{
+  content:"\2190 Click to return home";
+  position:absolute; left:0; bottom:-0.85rem;
+  font-family:var(--mono); font-size:.58rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--gold-deep); opacity:.85; transition:all .3s ease; pointer-events:none; white-space:nowrap;
+}
+.site-logo:hover::after{ color:var(--violet); opacity:1; transform:translateX(3px); }
+.site-nav{ display:flex; gap:1.6rem; align-items:center; overflow-x:auto; scrollbar-width:none; }
+.site-nav::-webkit-scrollbar{ display:none; }
+.site-nav a,.site-nav .current{
+  font-family:var(--mono); font-size:.6rem; letter-spacing:.13em; text-transform:uppercase;
+  white-space:nowrap; text-decoration:none; color:var(--ink-faint); transition:color .25s ease;
+}
+.site-nav a:hover{ color:var(--gold-hi); }
+.site-nav .current{ color:var(--gold); position:relative; }
+.site-nav .current::after{ content:""; position:absolute; left:0; right:0; bottom:-.5rem; height:1px; background:var(--gold); }
+
+/* ── PAGE INTRO ── */
+.intro{ position:relative; z-index:2; text-align:center; padding:2.2rem 1rem .4rem; }
+.intro .eyebrow{ font-family:var(--mono); font-size:.56rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); }
+.intro h1{ font-family:var(--serif); font-style:italic; font-weight:300; font-size:clamp(2.6rem,6vw,4rem); color:var(--paper); line-height:.95; margin:.5rem 0 .2rem; }
+.intro .hand{ font-family:var(--hand); font-size:clamp(1.3rem,3.2vw,1.8rem); color:var(--gold-hi); transform:rotate(-1.5deg); display:inline-block; }
+
+/* ═══════════════════════════════════════════════
+   DECK
+   ═══════════════════════════════════════════════ */
+.deck{ position:relative; z-index:2; flex:1; display:flex; flex-direction:column; justify-content:center; padding:1rem 0 1.6rem; }
+.deck-viewport{ position:relative; width:100%; overflow:hidden; padding:2.2rem 0; }
+.deck-track{
+  display:flex; align-items:center; gap:clamp(20px,4vw,56px);
+  width:max-content; will-change:transform;
+  transition:transform .6s cubic-bezier(.22,.61,.31,1);
+}
+.deck-track.dragging{ transition:none; }
+
+/* ── POSTCARD ── */
+.postcard{
+  --accent:var(--gold);
+  flex:0 0 auto;
+  width:clamp(280px,78vw,640px);
+  transform:scale(.84) rotate(-1deg);
+  opacity:.42; filter:saturate(.7);
+  transition:transform .6s cubic-bezier(.22,.61,.31,1), opacity .5s ease, filter .5s ease;
+  cursor:pointer;
+}
+.postcard:nth-child(even){ transform:scale(.84) rotate(1.2deg); }
+.postcard.is-active{ transform:scale(1) rotate(0); opacity:1; filter:none; cursor:default; }
+
+.pc-frame{
+  position:relative;
+  background:linear-gradient(160deg, var(--paper), var(--paper-2));
+  border:1px solid var(--paper-edge);
+  border-radius:4px;
+  padding:14px 14px 0;
+  box-shadow:
+    0 30px 60px -24px rgba(0,0,0,.7),
+    0 2px 0 rgba(255,255,255,.25) inset;
+}
+.postcard.is-active .pc-frame{ box-shadow:0 44px 90px -28px rgba(0,0,0,.78), 0 0 0 1px rgba(167,139,250,.2); }
+
+/* photo = live dashboard miniature */
+.pc-photo{
+  position:relative; overflow:hidden;
+  aspect-ratio:16/10;
+  background:
+    repeating-linear-gradient(135deg, rgba(43,37,28,.05) 0 12px, rgba(43,37,28,.02) 12px 24px),
+    #e9dcbd;
+  border:1px solid rgba(43,37,28,.18);
+}
+.pc-photo iframe{
+  position:absolute; top:0; left:0; border:0;
+  transform-origin:top left; pointer-events:none; background:#fff;
+}
+.pc-poster{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:.4rem; text-align:center;
+  color:var(--ink-soft); font-family:var(--mono); font-size:.6rem; letter-spacing:.12em;
+  padding:1rem;
+}
+.pc-poster .big{ font-family:var(--serif); font-style:italic; font-size:1.1rem; color:var(--ink); letter-spacing:0; }
+.pc-photo.loaded .pc-poster{ display:none; }
+
+/* hover affordance on active card photo */
+.postcard.is-active .pc-photo::after{
+  content:"OPEN ↗"; position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.2em; color:#fff;
+  background:rgba(23,18,13,.0); opacity:0; transition:.3s ease;
+}
+.postcard.is-active .pc-photo:hover::after{ background:rgba(23,18,13,.42); opacity:1; }
+
+/* stamp */
+.pc-stamp{
+  position:absolute; top:-8px; right:14px; width:54px; height:64px;
+  background:#fbf7ec; border-radius:2px; padding:4px;
+  box-shadow:0 4px 10px -4px rgba(0,0,0,.5);
+  transform:rotate(4deg);
+  display:flex;
+}
+.pc-stamp .ink{
+  flex:1; border:1px dashed rgba(0,0,0,.25);
+  background:
+    radial-gradient(circle at 50% 38%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%),
+    var(--paper);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px;
+}
+.pc-stamp .glyph{ font-family:var(--serif); font-weight:600; font-size:1.5rem; color:var(--accent); line-height:1; }
+.pc-stamp .den{ font-family:var(--mono); font-size:.34rem; letter-spacing:.08em; color:var(--ink-soft); }
+/* postmark */
+.pc-postmark{
+  position:absolute; top:36px; right:2px; width:62px; height:62px; border-radius:50%;
+  border:1.5px solid rgba(43,37,28,.45); color:rgba(43,37,28,.55);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  font-family:var(--mono); transform:rotate(-9deg); pointer-events:none;
+  mix-blend-mode:multiply;
+}
+.pc-postmark::before{ content:""; position:absolute; inset:5px; border-radius:50%; border:1px solid rgba(43,37,28,.35); }
+.pc-postmark .pm-top{ font-size:.32rem; letter-spacing:.1em; }
+.pc-postmark .pm-mid{ font-size:.4rem; letter-spacing:.04em; font-weight:500; }
+.pc-postmark .pm-bot{ font-size:.3rem; letter-spacing:.16em; }
+
+/* caption strip */
+.pc-caption{
+  padding:.95rem 1.1rem 1.15rem; display:flex; align-items:flex-end;
+  justify-content:space-between; gap:1rem;
+}
+.pc-caption .from{ font-family:var(--hand); font-size:1.15rem; color:var(--ink-soft); transform:rotate(-1.5deg); display:block; margin-bottom:.1rem; }
+.pc-caption h2{ font-family:var(--cjk); font-weight:600; font-size:1.45rem; color:var(--ink); line-height:1.15; }
+.pc-caption .meta{ font-family:var(--mono); font-size:.56rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-top:.35rem; }
+.pc-open{
+  flex:0 0 auto; align-self:center;
+  font-family:var(--mono); font-size:.58rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink); background:transparent; border:1px solid var(--accent); border-radius:2px;
+  padding:.55rem .8rem; cursor:pointer; transition:.25s ease; white-space:nowrap;
+}
+.pc-open:hover{ background:var(--accent); color:#fff; }
+
+/* ── CONTROLS ── */
+.deck-controls{ display:flex; align-items:center; justify-content:center; gap:1.4rem; margin-top:.4rem; }
+.deck-arrow{
+  width:2.8rem; height:2.8rem; border-radius:50%;
+  background:transparent; border:1px solid rgba(167,139,250,.4); color:var(--gold);
+  font-family:var(--serif); font-size:1.3rem; cursor:pointer; transition:.25s ease;
+  display:flex; align-items:center; justify-content:center; line-height:1;
+}
+.deck-arrow:hover:not(:disabled){ background:var(--gold); color:var(--desk); border-color:var(--gold); }
+.deck-arrow:disabled{ opacity:.3; cursor:default; }
+.deck-dots{ display:flex; gap:.55rem; }
+.deck-dots button{
+  width:8px; height:8px; border-radius:50%; padding:0; cursor:pointer;
+  background:rgba(167,139,250,.3); border:none; transition:.25s ease;
+}
+.deck-dots button.on{ background:var(--gold); transform:scale(1.3); }
+
+/* ═══════════════════════════════════════════════
+   FULL VIEWER OVERLAY
+   ═══════════════════════════════════════════════ */
+.viewer{
+  position:fixed; inset:0; z-index:50; display:none;
+  background:rgba(8,6,4,.86); backdrop-filter:blur(6px);
+  padding:clamp(.6rem,3vw,2rem);
+}
+.viewer.open{ display:flex; flex-direction:column; }
+.viewer-bar{ display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.2rem .2rem .8rem; }
+.viewer-title{ font-family:var(--cjk); font-weight:600; font-size:1.1rem; color:var(--paper); }
+.viewer-close{
+  width:2.4rem; height:2.4rem; border:1px solid rgba(167,139,250,.45); background:transparent;
+  color:var(--gold); font-family:var(--mono); font-size:1.1rem; cursor:pointer; transition:.25s ease;
+}
+.viewer-close:hover{ color:var(--gold-hi); border-color:var(--gold); transform:rotate(90deg); }
+.viewer-frame{ flex:1; width:100%; border:1px solid rgba(167,139,250,.25); border-radius:6px; background:#fff; overflow:hidden; }
+.viewer-frame iframe{ width:100%; height:100%; border:0; display:block; }
+
+@media (max-width:560px){
+  .pc-caption{ flex-direction:column; align-items:flex-start; }
+  .pc-open{ align-self:flex-start; }
+  .site-logo .pre{ display:none; }
+  .site-logo .name{ font-size:1.3rem; }
+}
+@media (prefers-reduced-motion:reduce){
+  .deck-track,.postcard{ transition:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="market-bg" aria-hidden="true">
+  <div class="chart-grid"></div>
+  <div class="scope scope-a"><svg viewBox="0 0 2880 240" preserveAspectRatio="none"><polyline fill="none" stroke="#5fe3d0" stroke-width="2" stroke-opacity="0.85" points="0,120.0 6,134.1 12,147.7 18,160.0 24,170.5 30,178.9 36,184.7 42,187.6 48,187.6 54,184.7 60,178.9 66,170.5 72,160.0 78,147.7 84,134.1 90,120.0 96,105.9 102,92.3 108,80.0 114,69.5 120,61.1 126,55.3 132,52.4 138,52.4 144,55.3 150,61.1 156,69.5 162,80.0 168,92.3 174,105.9 180,120.0 186,134.1 192,147.7 198,160.0 204,170.5 210,178.9 216,184.7 222,187.6 228,187.6 234,184.7 240,178.9 246,170.5 252,160.0 258,147.7 264,134.1 270,120.0 276,105.9 282,92.3 288,80.0 294,69.5 300,61.1 306,55.3 312,52.4 318,52.4 324,55.3 330,61.1 336,69.5 342,80.0 348,92.3 354,105.9 360,120.0 366,134.1 372,147.7 378,160.0 384,170.5 390,178.9 396,184.7 402,187.6 408,187.6 414,184.7 420,178.9 426,170.5 432,160.0 438,147.7 444,134.1 450,120.0 456,105.9 462,92.3 468,80.0 474,69.5 480,61.1 486,55.3 492,52.4 498,52.4 504,55.3 510,61.1 516,69.5 522,80.0 528,92.3 534,105.9 540,120.0 546,134.1 552,147.7 558,160.0 564,170.5 570,178.9 576,184.7 582,187.6 588,187.6 594,184.7 600,178.9 606,170.5 612,160.0 618,147.7 624,134.1 630,120.0 636,105.9 642,92.3 648,80.0 654,69.5 660,61.1 666,55.3 672,52.4 678,52.4 684,55.3 690,61.1 696,69.5 702,80.0 708,92.3 714,105.9 720,120.0 726,134.1 732,147.7 738,160.0 744,170.5 750,178.9 756,184.7 762,187.6 768,187.6 774,184.7 780,178.9 786,170.5 792,160.0 798,147.7 804,134.1 810,120.0 816,105.9 822,92.3 828,80.0 834,69.5 840,61.1 846,55.3 852,52.4 858,52.4 864,55.3 870,61.1 876,69.5 882,80.0 888,92.3 894,105.9 900,120.0 906,134.1 912,147.7 918,160.0 924,170.5 930,178.9 936,184.7 942,187.6 948,187.6 954,184.7 960,178.9 966,170.5 972,160.0 978,147.7 984,134.1 990,120.0 996,105.9 1002,92.3 1008,80.0 1014,69.5 1020,61.1 1026,55.3 1032,52.4 1038,52.4 1044,55.3 1050,61.1 1056,69.5 1062,80.0 1068,92.3 1074,105.9 1080,120.0 1086,134.1 1092,147.7 1098,160.0 1104,170.5 1110,178.9 1116,184.7 1122,187.6 1128,187.6 1134,184.7 1140,178.9 1146,170.5 1152,160.0 1158,147.7 1164,134.1 1170,120.0 1176,105.9 1182,92.3 1188,80.0 1194,69.5 1200,61.1 1206,55.3 1212,52.4 1218,52.4 1224,55.3 1230,61.1 1236,69.5 1242,80.0 1248,92.3 1254,105.9 1260,120.0 1266,134.1 1272,147.7 1278,160.0 1284,170.5 1290,178.9 1296,184.7 1302,187.6 1308,187.6 1314,184.7 1320,178.9 1326,170.5 1332,160.0 1338,147.7 1344,134.1 1350,120.0 1356,105.9 1362,92.3 1368,80.0 1374,69.5 1380,61.1 1386,55.3 1392,52.4 1398,52.4 1404,55.3 1410,61.1 1416,69.5 1422,80.0 1428,92.3 1434,105.9 1440,120.0 1446,134.1 1452,147.7 1458,160.0 1464,170.5 1470,178.9 1476,184.7 1482,187.6 1488,187.6 1494,184.7 1500,178.9 1506,170.5 1512,160.0 1518,147.7 1524,134.1 1530,120.0 1536,105.9 1542,92.3 1548,80.0 1554,69.5 1560,61.1 1566,55.3 1572,52.4 1578,52.4 1584,55.3 1590,61.1 1596,69.5 1602,80.0 1608,92.3 1614,105.9 1620,120.0 1626,134.1 1632,147.7 1638,160.0 1644,170.5 1650,178.9 1656,184.7 1662,187.6 1668,187.6 1674,184.7 1680,178.9 1686,170.5 1692,160.0 1698,147.7 1704,134.1 1710,120.0 1716,105.9 1722,92.3 1728,80.0 1734,69.5 1740,61.1 1746,55.3 1752,52.4 1758,52.4 1764,55.3 1770,61.1 1776,69.5 1782,80.0 1788,92.3 1794,105.9 1800,120.0 1806,134.1 1812,147.7 1818,160.0 1824,170.5 1830,178.9 1836,184.7 1842,187.6 1848,187.6 1854,184.7 1860,178.9 1866,170.5 1872,160.0 1878,147.7 1884,134.1 1890,120.0 1896,105.9 1902,92.3 1908,80.0 1914,69.5 1920,61.1 1926,55.3 1932,52.4 1938,52.4 1944,55.3 1950,61.1 1956,69.5 1962,80.0 1968,92.3 1974,105.9 1980,120.0 1986,134.1 1992,147.7 1998,160.0 2004,170.5 2010,178.9 2016,184.7 2022,187.6 2028,187.6 2034,184.7 2040,178.9 2046,170.5 2052,160.0 2058,147.7 2064,134.1 2070,120.0 2076,105.9 2082,92.3 2088,80.0 2094,69.5 2100,61.1 2106,55.3 2112,52.4 2118,52.4 2124,55.3 2130,61.1 2136,69.5 2142,80.0 2148,92.3 2154,105.9 2160,120.0 2166,134.1 2172,147.7 2178,160.0 2184,170.5 2190,178.9 2196,184.7 2202,187.6 2208,187.6 2214,184.7 2220,178.9 2226,170.5 2232,160.0 2238,147.7 2244,134.1 2250,120.0 2256,105.9 2262,92.3 2268,80.0 2274,69.5 2280,61.1 2286,55.3 2292,52.4 2298,52.4 2304,55.3 2310,61.1 2316,69.5 2322,80.0 2328,92.3 2334,105.9 2340,120.0 2346,134.1 2352,147.7 2358,160.0 2364,170.5 2370,178.9 2376,184.7 2382,187.6 2388,187.6 2394,184.7 2400,178.9 2406,170.5 2412,160.0 2418,147.7 2424,134.1 2430,120.0 2436,105.9 2442,92.3 2448,80.0 2454,69.5 2460,61.1 2466,55.3 2472,52.4 2478,52.4 2484,55.3 2490,61.1 2496,69.5 2502,80.0 2508,92.3 2514,105.9 2520,120.0 2526,134.1 2532,147.7 2538,160.0 2544,170.5 2550,178.9 2556,184.7 2562,187.6 2568,187.6 2574,184.7 2580,178.9 2586,170.5 2592,160.0 2598,147.7 2604,134.1 2610,120.0 2616,105.9 2622,92.3 2628,80.0 2634,69.5 2640,61.1 2646,55.3 2652,52.4 2658,52.4 2664,55.3 2670,61.1 2676,69.5 2682,80.0 2688,92.3 2694,105.9 2700,120.0 2706,134.1 2712,147.7 2718,160.0 2724,170.5 2730,178.9 2736,184.7 2742,187.6 2748,187.6 2754,184.7 2760,178.9 2766,170.5 2772,160.0 2778,147.7 2784,134.1 2790,120.0 2796,105.9 2802,92.3 2808,80.0 2814,69.5 2820,61.1 2826,55.3 2832,52.4 2838,52.4 2844,55.3 2850,61.1 2856,69.5 2862,80.0 2868,92.3 2874,105.9 2880,120.0"/></svg></div>
+  <div class="scope scope-b"><svg viewBox="0 0 2880 240" preserveAspectRatio="none"><polyline fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-opacity="0.8" points="0,120.0 6,134.4 12,148.4 18,161.8 24,174.1 30,185.1 36,194.4 42,202.0 48,207.5 54,210.9 60,212.0 66,210.9 72,207.5 78,202.0 84,194.4 90,185.1 96,174.1 102,161.8 108,148.4 114,134.4 120,120.0 126,105.6 132,91.6 138,78.2 144,65.9 150,54.9 156,45.6 162,38.0 168,32.5 174,29.1 180,28.0 186,29.1 192,32.5 198,38.0 204,45.6 210,54.9 216,65.9 222,78.2 228,91.6 234,105.6 240,120.0 246,134.4 252,148.4 258,161.8 264,174.1 270,185.1 276,194.4 282,202.0 288,207.5 294,210.9 300,212.0 306,210.9 312,207.5 318,202.0 324,194.4 330,185.1 336,174.1 342,161.8 348,148.4 354,134.4 360,120.0 366,105.6 372,91.6 378,78.2 384,65.9 390,54.9 396,45.6 402,38.0 408,32.5 414,29.1 420,28.0 426,29.1 432,32.5 438,38.0 444,45.6 450,54.9 456,65.9 462,78.2 468,91.6 474,105.6 480,120.0 486,134.4 492,148.4 498,161.8 504,174.1 510,185.1 516,194.4 522,202.0 528,207.5 534,210.9 540,212.0 546,210.9 552,207.5 558,202.0 564,194.4 570,185.1 576,174.1 582,161.8 588,148.4 594,134.4 600,120.0 606,105.6 612,91.6 618,78.2 624,65.9 630,54.9 636,45.6 642,38.0 648,32.5 654,29.1 660,28.0 666,29.1 672,32.5 678,38.0 684,45.6 690,54.9 696,65.9 702,78.2 708,91.6 714,105.6 720,120.0 726,134.4 732,148.4 738,161.8 744,174.1 750,185.1 756,194.4 762,202.0 768,207.5 774,210.9 780,212.0 786,210.9 792,207.5 798,202.0 804,194.4 810,185.1 816,174.1 822,161.8 828,148.4 834,134.4 840,120.0 846,105.6 852,91.6 858,78.2 864,65.9 870,54.9 876,45.6 882,38.0 888,32.5 894,29.1 900,28.0 906,29.1 912,32.5 918,38.0 924,45.6 930,54.9 936,65.9 942,78.2 948,91.6 954,105.6 960,120.0 966,134.4 972,148.4 978,161.8 984,174.1 990,185.1 996,194.4 1002,202.0 1008,207.5 1014,210.9 1020,212.0 1026,210.9 1032,207.5 1038,202.0 1044,194.4 1050,185.1 1056,174.1 1062,161.8 1068,148.4 1074,134.4 1080,120.0 1086,105.6 1092,91.6 1098,78.2 1104,65.9 1110,54.9 1116,45.6 1122,38.0 1128,32.5 1134,29.1 1140,28.0 1146,29.1 1152,32.5 1158,38.0 1164,45.6 1170,54.9 1176,65.9 1182,78.2 1188,91.6 1194,105.6 1200,120.0 1206,134.4 1212,148.4 1218,161.8 1224,174.1 1230,185.1 1236,194.4 1242,202.0 1248,207.5 1254,210.9 1260,212.0 1266,210.9 1272,207.5 1278,202.0 1284,194.4 1290,185.1 1296,174.1 1302,161.8 1308,148.4 1314,134.4 1320,120.0 1326,105.6 1332,91.6 1338,78.2 1344,65.9 1350,54.9 1356,45.6 1362,38.0 1368,32.5 1374,29.1 1380,28.0 1386,29.1 1392,32.5 1398,38.0 1404,45.6 1410,54.9 1416,65.9 1422,78.2 1428,91.6 1434,105.6 1440,120.0 1446,134.4 1452,148.4 1458,161.8 1464,174.1 1470,185.1 1476,194.4 1482,202.0 1488,207.5 1494,210.9 1500,212.0 1506,210.9 1512,207.5 1518,202.0 1524,194.4 1530,185.1 1536,174.1 1542,161.8 1548,148.4 1554,134.4 1560,120.0 1566,105.6 1572,91.6 1578,78.2 1584,65.9 1590,54.9 1596,45.6 1602,38.0 1608,32.5 1614,29.1 1620,28.0 1626,29.1 1632,32.5 1638,38.0 1644,45.6 1650,54.9 1656,65.9 1662,78.2 1668,91.6 1674,105.6 1680,120.0 1686,134.4 1692,148.4 1698,161.8 1704,174.1 1710,185.1 1716,194.4 1722,202.0 1728,207.5 1734,210.9 1740,212.0 1746,210.9 1752,207.5 1758,202.0 1764,194.4 1770,185.1 1776,174.1 1782,161.8 1788,148.4 1794,134.4 1800,120.0 1806,105.6 1812,91.6 1818,78.2 1824,65.9 1830,54.9 1836,45.6 1842,38.0 1848,32.5 1854,29.1 1860,28.0 1866,29.1 1872,32.5 1878,38.0 1884,45.6 1890,54.9 1896,65.9 1902,78.2 1908,91.6 1914,105.6 1920,120.0 1926,134.4 1932,148.4 1938,161.8 1944,174.1 1950,185.1 1956,194.4 1962,202.0 1968,207.5 1974,210.9 1980,212.0 1986,210.9 1992,207.5 1998,202.0 2004,194.4 2010,185.1 2016,174.1 2022,161.8 2028,148.4 2034,134.4 2040,120.0 2046,105.6 2052,91.6 2058,78.2 2064,65.9 2070,54.9 2076,45.6 2082,38.0 2088,32.5 2094,29.1 2100,28.0 2106,29.1 2112,32.5 2118,38.0 2124,45.6 2130,54.9 2136,65.9 2142,78.2 2148,91.6 2154,105.6 2160,120.0 2166,134.4 2172,148.4 2178,161.8 2184,174.1 2190,185.1 2196,194.4 2202,202.0 2208,207.5 2214,210.9 2220,212.0 2226,210.9 2232,207.5 2238,202.0 2244,194.4 2250,185.1 2256,174.1 2262,161.8 2268,148.4 2274,134.4 2280,120.0 2286,105.6 2292,91.6 2298,78.2 2304,65.9 2310,54.9 2316,45.6 2322,38.0 2328,32.5 2334,29.1 2340,28.0 2346,29.1 2352,32.5 2358,38.0 2364,45.6 2370,54.9 2376,65.9 2382,78.2 2388,91.6 2394,105.6 2400,120.0 2406,134.4 2412,148.4 2418,161.8 2424,174.1 2430,185.1 2436,194.4 2442,202.0 2448,207.5 2454,210.9 2460,212.0 2466,210.9 2472,207.5 2478,202.0 2484,194.4 2490,185.1 2496,174.1 2502,161.8 2508,148.4 2514,134.4 2520,120.0 2526,105.6 2532,91.6 2538,78.2 2544,65.9 2550,54.9 2556,45.6 2562,38.0 2568,32.5 2574,29.1 2580,28.0 2586,29.1 2592,32.5 2598,38.0 2604,45.6 2610,54.9 2616,65.9 2622,78.2 2628,91.6 2634,105.6 2640,120.0 2646,134.4 2652,148.4 2658,161.8 2664,174.1 2670,185.1 2676,194.4 2682,202.0 2688,207.5 2694,210.9 2700,212.0 2706,210.9 2712,207.5 2718,202.0 2724,194.4 2730,185.1 2736,174.1 2742,161.8 2748,148.4 2754,134.4 2760,120.0 2766,105.6 2772,91.6 2778,78.2 2784,65.9 2790,54.9 2796,45.6 2802,38.0 2808,32.5 2814,29.1 2820,28.0 2826,29.1 2832,32.5 2838,38.0 2844,45.6 2850,54.9 2856,65.9 2862,78.2 2868,91.6 2874,105.6 2880,120.0"/></svg></div>
+  <div class="ticker tk-a"><div class="ticker-row"><span class="tk-seq"><span class="tk">AAPL <i class="up">▲0.82%</i></span><span class="tk">NVDA <i class="up">▲2.41%</i></span><span class="tk">MSFT <i class="up">▲0.37%</i></span><span class="tk">TSLA <i class="down">▼1.15%</i></span><span class="tk">AMD <i class="up">▲1.92%</i></span><span class="tk">META <i class="up">▲0.54%</i></span><span class="tk">GOOGL <i class="down">▼0.21%</i></span><span class="tk">AMZN <i class="up">▲0.68%</i></span><span class="tk">SPY <i class="up">▲0.79%</i></span><span class="tk">QQQ <i class="up">▲1.06%</i></span><span class="tk">AVGO <i class="up">▲1.33%</i></span><span class="tk">NFLX <i class="down">▼0.44%</i></span></span><span class="tk-seq"><span class="tk">AAPL <i class="up">▲0.82%</i></span><span class="tk">NVDA <i class="up">▲2.41%</i></span><span class="tk">MSFT <i class="up">▲0.37%</i></span><span class="tk">TSLA <i class="down">▼1.15%</i></span><span class="tk">AMD <i class="up">▲1.92%</i></span><span class="tk">META <i class="up">▲0.54%</i></span><span class="tk">GOOGL <i class="down">▼0.21%</i></span><span class="tk">AMZN <i class="up">▲0.68%</i></span><span class="tk">SPY <i class="up">▲0.79%</i></span><span class="tk">QQQ <i class="up">▲1.06%</i></span><span class="tk">AVGO <i class="up">▲1.33%</i></span><span class="tk">NFLX <i class="down">▼0.44%</i></span></span></div></div>
+  <div class="ticker tk-b"><div class="ticker-row"><span class="tk-seq"><span class="tk">600519 <i class="down">▼0.63%</i></span><span class="tk">300750 <i class="up">▲1.21%</i></span><span class="tk">000858 <i class="up">▲0.45%</i></span><span class="tk">601318 <i class="down">▼0.32%</i></span><span class="tk">000001 <i class="up">▲0.18%</i></span><span class="tk">002594 <i class="up">▲2.07%</i></span><span class="tk">601899 <i class="down">▼0.88%</i></span><span class="tk">600036 <i class="up">▲0.29%</i></span><span class="tk">HSI <i class="up">▲0.41%</i></span><span class="tk">CSI300 <i class="up">▲0.33%</i></span><span class="tk">SSE <i class="down">▼0.12%</i></span><span class="tk">STAR50 <i class="up">▲0.77%</i></span></span><span class="tk-seq"><span class="tk">600519 <i class="down">▼0.63%</i></span><span class="tk">300750 <i class="up">▲1.21%</i></span><span class="tk">000858 <i class="up">▲0.45%</i></span><span class="tk">601318 <i class="down">▼0.32%</i></span><span class="tk">000001 <i class="up">▲0.18%</i></span><span class="tk">002594 <i class="up">▲2.07%</i></span><span class="tk">601899 <i class="down">▼0.88%</i></span><span class="tk">600036 <i class="up">▲0.29%</i></span><span class="tk">HSI <i class="up">▲0.41%</i></span><span class="tk">CSI300 <i class="up">▲0.33%</i></span><span class="tk">SSE <i class="down">▼0.12%</i></span><span class="tk">STAR50 <i class="up">▲0.77%</i></span></span></div></div>
+</div>
+
+<header class="site-masthead">
+  <a class="site-logo" href="../index.html#main" title="Return to main">
+    <span class="pre">The Personal Site of</span>
+    <span class="name">Weihan Li</span>
+  </a>
+  <nav class="site-nav">
+    <a href="../about/index.html">I · About</a>
+    <a href="../research/index.html">II · Research</a>
+    <a href="../skills/index.html">III · Applied Skills</a>
+    <a href="../experience/index.html">IV · Experience</a>
+    <span class="current">V · Projects</span>
+    <a href="../contact/index.html">VI · Contact</a>
+  </nav>
+</header>
+
+<section class="intro">
+  <span class="eyebrow">V · Section</span>
+  <h1>Projects</h1>
+  <span class="hand">dispatches from the markets — swipe to browse</span>
+</section>
+
+<main class="deck">
+  <aside class="postit" aria-hidden="true">
+    <p class="q">All models are wrong,<br>but some are useful.</p>
+    <p class="by">— George E. P. Box</p>
+  </aside>
+  <div class="deck-viewport" id="viewport">
+    <div class="deck-track" id="track">
+
+      <!-- 美股 -->
+      <article class="postcard" style="--accent:var(--us)"
+               data-src="boards/us-daily.html" data-w="1280" data-h="800">
+        <div class="pc-frame">
+          <div class="pc-photo">
+            <div class="pc-poster">
+              <span class="big">US Daily Analytics</span>
+              <span>PREVIEW LOADS FROM boards/us-daily.html</span>
+            </div>
+            <div class="pc-stamp"><div class="ink"><span class="glyph">$</span><span class="den">US · DAILY</span></div></div>
+          </div>
+          <div class="pc-caption">
+            <div>
+              <span class="from">Greetings from —</span>
+              <h2>US Daily Analytics Dashboard</h2>
+              <p class="meta">US Equities · Daily Analytics</p>
+            </div>
+            <button class="pc-open">Open ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- A股 -->
+      <article class="postcard" style="--accent:var(--cn)"
+               data-src="boards/a-share-daily.html" data-w="1280" data-h="800">
+        <div class="pc-frame">
+          <div class="pc-photo">
+            <div class="pc-poster">
+              <span class="big">A-Share Daily Analytics</span>
+              <span>PREVIEW LOADS FROM boards/a-share-daily.html</span>
+            </div>
+            <div class="pc-stamp"><div class="ink"><span class="glyph">¥</span><span class="den">CN · DAILY</span></div></div>
+          </div>
+          <div class="pc-caption">
+            <div>
+              <span class="from">Greetings from —</span>
+              <h2>A-Share Daily Analytics Dashboard</h2>
+              <p class="pc-zh">A股日数据分析看板</p>
+              <p class="meta">China A-Shares · Daily Analytics</p>
+            </div>
+            <button class="pc-open">Open ↗</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="deck-controls">
+    <button class="deck-arrow" id="prev" aria-label="Previous">‹</button>
+    <div class="deck-dots" id="dots"></div>
+    <button class="deck-arrow" id="next" aria-label="Next">›</button>
+  </div>
+</main>
+
+<!-- Full viewer -->
+<div class="viewer" id="viewer">
+  <div class="viewer-bar">
+    <span class="viewer-title" id="viewerTitle"></span>
+    <button class="viewer-close" id="viewerClose" aria-label="Close">×</button>
+  </div>
+  <div class="viewer-frame"><iframe id="viewerFrame" title="Dashboard"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe></div>
+</div>
+
+<script>
+(function(){
+  const track = document.getElementById('track');
+  const viewport = document.getElementById('viewport');
+  const cards = [...track.querySelectorAll('.postcard')];
+  const dotsBox = document.getElementById('dots');
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+  const viewer = document.getElementById('viewer');
+  const vFrame = document.getElementById('viewerFrame');
+  const vTitle = document.getElementById('viewerTitle');
+  const vClose = document.getElementById('viewerClose');
+  let idx = 0;
+
+  // Build dots
+  cards.forEach((c,i)=>{
+    const b=document.createElement('button');
+    b.setAttribute('aria-label','Go to card '+(i+1));
+    b.addEventListener('click',()=>{ idx=i; layout(); });
+    dotsBox.appendChild(b);
+  });
+  const dots=[...dotsBox.children];
+
+  // Lazy-load the preview iframes (as scaled miniatures)
+  function mountPreviews(){
+    cards.forEach(c=>{
+      const photo=c.querySelector('.pc-photo');
+      if(photo.dataset.mounted) return;
+      const src=c.dataset.src; if(!src) return;
+      const w=+c.dataset.w||1280, h=+c.dataset.h||800;
+      const f=document.createElement('iframe');
+      f.setAttribute('scrolling','no');
+      f.setAttribute('tabindex','-1');
+      f.setAttribute('aria-hidden','true');
+      f.setAttribute('sandbox','allow-scripts allow-same-origin');
+      f.width=w; f.height=h; f.src=src;
+      photo.style.setProperty('aspect-ratio', w+'/'+h);
+      f.addEventListener('load',()=>photo.classList.add('loaded'));
+      photo.insertBefore(f, photo.firstChild);
+      photo.dataset.mounted='1';
+    });
+    scalePreviews();
+  }
+  function scalePreviews(){
+    cards.forEach(c=>{
+      const photo=c.querySelector('.pc-photo');
+      const f=photo.querySelector('iframe');
+      if(!f) return;
+      const w=+c.dataset.w||1280;
+      const s=photo.clientWidth / w;
+      f.style.transform='scale('+s+')';
+    });
+  }
+
+  function layout(){
+    const vpW=viewport.clientWidth;
+    const card=cards[idx];
+    const center=card.offsetLeft + card.offsetWidth/2;
+    const tx=Math.round(vpW/2 - center);
+    track.style.transform='translateX('+tx+'px)';
+    cards.forEach((c,i)=>c.classList.toggle('is-active', i===idx));
+    dots.forEach((d,i)=>d.classList.toggle('on', i===idx));
+    prev.disabled = idx===0;
+    next.disabled = idx===cards.length-1;
+    scalePreviews();
+  }
+  function go(d){ idx=Math.max(0,Math.min(cards.length-1, idx+d)); layout(); }
+
+  prev.addEventListener('click',()=>go(-1));
+  next.addEventListener('click',()=>go(1));
+  document.addEventListener('keydown',e=>{
+    if(viewer.classList.contains('open')){ if(e.key==='Escape') closeViewer(); return; }
+    if(e.key==='ArrowLeft') go(-1);
+    if(e.key==='ArrowRight') go(1);
+  });
+
+  // Open viewer on active card click / Open button
+  function openCard(c){
+    vFrame.src=c.dataset.src;
+    vTitle.textContent=c.querySelector('h2').textContent;
+    viewer.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function closeViewer(){
+    viewer.classList.remove('open');
+    vFrame.src='about:blank';
+    document.body.style.overflow='';
+  }
+  vClose.addEventListener('click',closeViewer);
+  viewer.addEventListener('click',e=>{ if(e.target===viewer) closeViewer(); });
+  cards.forEach((c,i)=>{
+    c.querySelector('.pc-open').addEventListener('click',e=>{ e.stopPropagation(); idx=i; layout(); openCard(c); });
+    c.querySelector('.pc-photo').addEventListener('click',()=>{ if(i!==idx){ idx=i; layout(); } else if(!dragged) openCard(c); });
+    c.addEventListener('click',()=>{ if(i!==idx){ idx=i; layout(); } });
+  });
+
+  // Swipe / drag — capture only after real movement so taps reach the buttons
+  let startX=0, startY=0, baseTx=0, dragging=false, dragged=false, captured=false, pid=null;
+  function curTx(){ const m=/translateX\((-?\d+(?:\.\d+)?)px\)/.exec(track.style.transform); return m?parseFloat(m[1]):0; }
+  viewport.addEventListener('pointerdown',e=>{
+    if(e.button!==undefined && e.button!==0) return;
+    dragging=true; dragged=false; captured=false;
+    startX=e.clientX; startY=e.clientY; baseTx=curTx(); pid=e.pointerId;
+  });
+  viewport.addEventListener('pointermove',e=>{
+    if(!dragging) return;
+    const dx=e.clientX-startX, dy=e.clientY-startY;
+    if(!dragged && Math.abs(dx)>8 && Math.abs(dx)>Math.abs(dy)){
+      dragged=true; track.classList.add('dragging');
+      try{ viewport.setPointerCapture(pid); captured=true; }catch(_){ }
+    }
+    if(dragged) track.style.transform='translateX('+(baseTx+dx)+'px)';
+  });
+  function endDrag(e){
+    if(!dragging) return;
+    dragging=false;
+    if(!dragged) return;                 // a tap: let click handlers fire
+    track.classList.remove('dragging');
+    if(captured){ try{ viewport.releasePointerCapture(pid); }catch(_){ } }
+    const dx=e.clientX-startX;
+    const thr=Math.min(120, viewport.clientWidth*0.12);
+    if(dx<-thr) go(1); else if(dx>thr) go(-1); else layout();
+    setTimeout(()=>{ dragged=false; }, 0);  // swallow the post-drag click, reset after
+  }
+  viewport.addEventListener('pointerup',endDrag);
+  viewport.addEventListener('pointercancel',endDrag);
+
+  window.addEventListener('resize',()=>layout());
+  // init
+  mountPreviews();
+  layout();
+  window.addEventListener('load',()=>{ scalePreviews(); layout(); });
+})();
+</script>
+</body>
+</html>
