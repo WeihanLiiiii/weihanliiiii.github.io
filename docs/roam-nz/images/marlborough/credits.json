@@ -1,0 +1,112 @@
+{
+  "vineyards": {
+    "src": "/images/marlborough/vineyards.jpg",
+    "title": "Wairau Valley vineyards in the Marlborough wine region, New Zealand.jpg",
+    "author": "Jonathan Harker",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Wairau_Valley_vineyards_in_the_Marlborough_wine_region,_New_Zealand.jpg",
+    "description": "Vineyards in the Wairau Valley, Marlborough wine region of New Zealand, January 2023. Looking south from Raupara Road, towards the Southern Valleys sub-region and the Wither Hills.",
+    "changes": "Resized by Wikimedia thumbnail service; displayed with responsive cropping.",
+    "checkedOn": "2026-10-03"
+  },
+  "valley": {
+    "src": "/images/marlborough/valley.jpg",
+    "title": "Wairau Valley vineyards in Marlborough, New Zealand.jpg",
+    "author": "Jonathan Harker",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Wairau_Valley_vineyards_in_Marlborough,_New_Zealand.jpg",
+    "description": "Vineyards in the Wairau Valley, Marlborough wine region of New Zealand, January 2023. Looking south from Raupara Road, towards the Southern Valleys sub-region and the Wither Hills.",
+    "changes": "Resized by Wikimedia thumbnail service; displayed with responsive cropping.",
+    "checkedOn": "2026-10-03"
+  },
+  "coast": {
+    "src": "/images/marlborough/coast.jpg",
+    "title": "Rarangi and Cloudy Bay.jpg",
+    "author": "Pseudopanax at English Wikipedia",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "url": "https://commons.wikimedia.org/wiki/File:Rarangi_and_Cloudy_Bay.jpg",
+    "description": "Rārangi and view out to Te Koko-o-Kupe / Cloudy Bay all the way to White Bluffs / Te Parinui o Whiti in the distance marking the southern end of the bay",
+    "changes": "Resized by Wikimedia thumbnail service; displayed with responsive cropping.",
+    "checkedOn": "2026-10-03"
+  },
+  "harbour": {
+    "src": "/images/marlborough/harbour.jpg",
+    "title": "View of the harbour in Picton 11.jpg",
+    "author": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:View_of_the_harbour_in_Picton_11.jpg",
+    "description": "View of Picton Harbour from the ferry, Marlborough Region, New Zealand",
+    "changes": "Resized by Wikimedia thumbnail service; displayed with responsive cropping.",
+    "checkedOn": "2026-10-03"
+  },
+  "waterfront": {
+    "src": "/images/marlborough/waterfront.jpg",
+    "title": "Picton Harbour 05.jpg",
+    "author": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Picton_Harbour_05.jpg",
+    "description": "Picton Harbour in Queen Charlotte Sound, Marlborough Region, New Zealand",
+    "changes": "Resized by Wikimedia thumbnail service; displayed with responsive cropping.",
+    "checkedOn": "2026-10-03"
+  },
+  "sounds": {
+    "src": "/images/marlborough/sounds.jpg",
+    "title": "Queen Charlotte Sound 02.jpg",
+    "author": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Queen_Charlotte_Sound_02.jpg",
+    "description": "Queen Charlotte Sound in Marlborough Region, South Island of New Zealand",
+    "changes": "Resized by Wikimedia thumbnail service; displayed with responsive cropping.",
+    "checkedOn": "2026-10-03"
+  },
+  "cruise": {
+    "src": "/images/marlborough/cruise.jpg",
+    "title": "Marlborough Sounds From Ferry.jpg",
+    "author": "Ingolfson at English Wikipedia\n\n(Original text: Uploader.)",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "url": "https://commons.wikimedia.org/wiki/File:Marlborough_Sounds_From_Ferry.jpg",
+    "description": "The Marlborough Sounds, New Zealand, as seen from the Wellington-Picton ferry sometime on a bright winter day.",
+    "changes": "Resized by Wikimedia thumbnail service; displayed with responsive cropping.",
+    "checkedOn": "2026-10-03"
+  },
+  "track": {
+    "src": "/images/marlborough/track.jpg",
+    "title": "Queen Charlotte Track (3380053425).jpg",
+    "author": "Weldon Kennedy from London, UK",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Queen_Charlotte_Track_(3380053425).jpg",
+    "description": "View from the first hill of the Queen Charlotte track.",
+    "changes": "Resized by Wikimedia thumbnail service; displayed with responsive cropping.",
+    "checkedOn": "2026-10-03"
+  },
+  "kayak": {
+    "src": "/images/marlborough/kayak.jpg",
+    "title": "MarlboroughSounds-OceanKayakking.jpg",
+    "author": "en:User:PhiloVivero",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:MarlboroughSounds-OceanKayakking.jpg",
+    "description": "Description by PhiloVivero: Ocean kayaking on the Marlborough Sounds.\n\nI took this photograph when kayaking on the Marlborough Sounds. It was an adventure, and I won't ever do it again. The winds picked up, a storm came in, and I had to paddle for an hour against the wind to get back to our camp site. I've never been in so much pain.",
+    "changes": "Resized by Wikimedia thumbnail service; displayed with responsive cropping.",
+    "checkedOn": "2026-10-03"
+  },
+  "ngakuta": {
+    "src": "/images/marlborough/ngakuta.jpg",
+    "title": "View of Ngakuta Bay, Marlborough Sounds 20100122 1.jpg",
+    "author": "DXR",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:View_of_Ngakuta_Bay,_Marlborough_Sounds_20100122_1.jpg",
+    "description": "A view of Ngakuta Bay, Marlborough Sounds, South Island of New Zealand",
+    "changes": "Resized by Wikimedia thumbnail service; displayed with responsive cropping.",
+    "checkedOn": "2026-10-03"
+  }
+}

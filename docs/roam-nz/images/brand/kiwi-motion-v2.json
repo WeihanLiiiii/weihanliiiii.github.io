@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "width": 192,
+  "height": 240,
+  "fps": 25,
+  "hasAudio": false,
+  "totalBytes": 80092,
+  "clips": {
+    "spin": {
+      "source": "assets/brand/motion-v2/spin-source.mp4",
+      "sourceSHA256": "801506478d1cc29454296c2a3a3bb6ac2bb7c042482e14151fda0ab48a80405a",
+      "output": "/images/brand/kiwi-spin-v2.mp4",
+      "outputSHA256": "37f6123b6d31e662e355eca9ae8bdfeb32d72aa5179bba0f2d03b68213ca2a45",
+      "bytes": 32014
+    },
+    "flap": {
+      "source": "assets/brand/motion-v2/flap-source.mp4",
+      "sourceSHA256": "a1d8bfc6665a4e8503d25f2715040d32e18a04445311d058088118b282fad98c",
+      "output": "/images/brand/kiwi-flap-v2.mp4",
+      "outputSHA256": "27791496547ddbbc18bd590a81896f4864ca57858da30ba2ba1eedc4ab9d3942",
+      "bytes": 36323
+    },
+    "shake": {
+      "source": "assets/brand/kiwi-motion-v1.png",
+      "sourceSHA256": "1a2f682de07906f5ac63294583c6fafc8b3afea6d823a3219b7aa26b35f6e1eb",
+      "output": "/images/brand/kiwi-shake-v2.mp4",
+      "outputSHA256": "bcce055c39869b39fb58cc30f9d25fdc20efc41de5b81ce373d315b622781efe",
+      "bytes": 11755
+    }
+  },
+  "processing": "Spin/flap from approved GIF preview source videos, cropped with flight space preserved. Existing head-turn poses interpolated locally. Silent H.264 baseline MP4, CRF 23, faststart; no network or new generation."
+}

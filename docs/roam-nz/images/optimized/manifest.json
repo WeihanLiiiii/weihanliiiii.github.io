@@ -1,0 +1,41 @@
+{
+  "scope": "Local format conversion of existing assets; no crop, resizing, recoloring, generation or license claim. Originals retained.",
+  "encoder": {
+    "sharp": "0.35.5",
+    "webp": "1.6.0"
+  },
+  "images": [
+    {
+      "source": "/images/roam-nz-hero-v1.png",
+      "output": "/images/optimized/roam-nz-hero-v1.webp",
+      "width": 1912,
+      "height": 823,
+      "sourceBytes": 2444813,
+      "outputBytes": 311440,
+      "sourceSHA256": "7ffb08313c60ea1f094adc615f537a7e12116b88d86fcc0f81a09eaa6493ddae",
+      "outputSHA256": "820a4656e188438df739e2f665be68cb78c20e63e27e0d3a72870bb7e9ff9641",
+      "encoding": {
+        "quality": 90,
+        "effort": 6
+      },
+      "identicalDecodedPixels": false,
+      "psnrDB": 39.16
+    },
+    {
+      "source": "/images/nz-terrain-relief-v2.png",
+      "output": "/images/optimized/nz-terrain-relief-v2.webp",
+      "width": 1024,
+      "height": 1536,
+      "sourceBytes": 3414168,
+      "outputBytes": 2227190,
+      "sourceSHA256": "d7211b49480cc902830582457a2351862f0ff8ef14ec03b6ff64e3c3301e7063",
+      "outputSHA256": "bbbfdb1322298bb598ec67078961f8c7f53ea58b44a2d3af619bee4065cd3653",
+      "encoding": {
+        "lossless": true,
+        "effort": 6
+      },
+      "identicalDecodedPixels": true,
+      "psnrDB": null
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "matheson": {
+    "title": "File:Lake Matheson reflection of Mount Tasman and Aoraki Mount Cook.jpg",
+    "src": "/images/westcoast/matheson.jpg",
+    "author": "Pseudopanax at English Wikipedia",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:Lake_Matheson_reflection_of_Mount_Tasman_and_Aoraki_Mount_Cook.jpg",
+    "description": "Mount Tasman (left) and Aoraki / Mount Cook (right) reflecting in mirror-like Lake Matheson in the morning",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "checkedOn": "2026-10-29"
+  },
+  "glacier": {
+    "title": "File:View into valley of Franz Josef Glacier in spring.jpg",
+    "src": "/images/westcoast/glacier.jpg",
+    "author": "Pseudopanax at English Wikipedia",
+    "license": "Public domain",
+    "url": "https://commons.wikimedia.org/wiki/File:View_into_valley_of_Franz_Josef_Glacier_in_spring.jpg",
+    "description": "View into valley of Franz Josef Glacier in spring",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "checkedOn": "2026-10-29"
+  },
+  "heli": {
+    "title": "File:Looking down the Franz Josef Glacier from above the Melchior Glacier.jpg",
+    "src": "/images/westcoast/heli.jpg",
+    "author": "Avenue",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Looking_down_the_Franz_Josef_Glacier_from_above_the_Melchior_Glacier.jpg",
+    "description": "Aerial view of the Franz Josef Glacier, looking down its length from above the tributary Melchior Glacier. On the far side of the valley, the small glacier that does not quite meet the Franz Josef is the Almer Glacier.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "checkedOn": "2026-10-29"
+  },
+  "gorge": {
+    "title": "File:Hokitika Gorge MRD 03.jpg",
+    "src": "/images/westcoast/gorge.jpg",
+    "author": "Mike Dickison",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Hokitika_Gorge_MRD_03.jpg",
+    "description": "Hokitika Gorge is about 30 km south of Hokitika, and is famous for its turquoise water coloured by glacial rock flour. A one hour walking track crosses the gorge twice on suspension bridges.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "checkedOn": "2026-10-29"
+  },
+  "jade": {
+    "title": "File:Hokitika, travail du Jade art Maori NZ.JPG",
+    "src": "/images/westcoast/jade.jpg",
+    "author": "PIERRE ANDRE LECLERCQ",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Hokitika,_travail_du_Jade_art_Maori_NZ.JPG",
+    "description": "Fabrication d'un bijou en jade à Hokitika. Nouvelle-Zélande",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "checkedOn": "2026-10-29"
+  },
+  "pancake": {
+    "title": "File:Pancake Rocks 22.jpg",
+    "src": "/images/westcoast/pancake.jpg",
+    "author": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Pancake_Rocks_22.jpg",
+    "description": "Pancake Rocks near Punakaiki in Paparoa National Park, West Coast Region, South Island of New Zealand",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "checkedOn": "2026-10-29"
+  },
+  "blowhole": {
+    "title": "File:PancakeRocks MC.jpg",
+    "src": "/images/westcoast/blowhole.jpg",
+    "author": "Christian Mehlführer",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:PancakeRocks_MC.jpg",
+    "description": "The Pancake Rocks in Punakaiki (New Zealand) approximately one hour before high tide. The seawater bursts through one of the blowholes.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "checkedOn": "2026-10-29"
+  },
+  "pororari": {
+    "title": "File:Pororari River MRD 02.jpg",
+    "src": "/images/westcoast/pororari.jpg",
+    "author": "Mike Dickison",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Pororari_River_MRD_02.jpg",
+    "description": "Pororari River, Punakaiki, West Coast, New Zealand",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "checkedOn": "2026-10-29"
+  },
+  "truman": {
+    "title": "File:Viewing platforms at Truman Track MC 01.jpg",
+    "src": "/images/westcoast/truman.jpg",
+    "author": "Marshelec",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Viewing_platforms_at_Truman_Track_MC_01.jpg",
+    "description": "Viewing platforms at beach end of Truman Track",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "checkedOn": "2026-10-29"
+  },
+  "shantytown": {
+    "title": "File:00 1231 Shantytown, New Zealand - Steam train.jpg",
+    "src": "/images/westcoast/shantytown.jpg",
+    "author": "W. Bulach",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:00_1231_Shantytown,_New_Zealand_-_Steam_train.jpg",
+    "description": "Dampflokomotive in Shantytown. Der Shantytown Heritage Park ist eine als Freilichtmuseum nachgebaut Pionierstadt, wie sie anlässlich des Goldrausches der 1860er Jahre entstanden ist. Shantytown liegt etwa 10 Kilometer südlich von Greymouth in Region West Coast auf der Südinsel von Neuseeland. Die Lok L508 wurde im Jahre 1877 bei der Firma Avonside Engine Co. in Großbritannien gebaut.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "checkedOn": "2026-10-29"
+  }
+}

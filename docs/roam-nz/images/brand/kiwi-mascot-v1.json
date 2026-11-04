@@ -1,0 +1,12 @@
+{
+  "source": "assets/brand/kiwi-mascot-v1.png",
+  "sourceSHA256": "5cc29db6a409c3731a03932ce35c6f5d79ca0bb55e60ba65d71e4c28d6efd620",
+  "sourceBytes": 1173932,
+  "output": "/images/brand/kiwi-mascot-v1.webp",
+  "outputSHA256": "bae9d7202e4af96b3999be8b54b83f701d0123a5b1cf1524026ec9c8c016e9cc",
+  "outputBytes": 7500,
+  "width": 192,
+  "height": 192,
+  "hasAlpha": true,
+  "processing": "Resize to 192px, WebP quality 88; no crop, recoloring or new generation. Approved original retained outside public/."
+}
