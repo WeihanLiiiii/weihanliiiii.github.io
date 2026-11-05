@@ -1,0 +1,414 @@
+{
+  "images": [
+    {
+      "id": "milford",
+      "title": "米尔福德峡湾",
+      "english": "Milford Sound",
+      "island": "南岛",
+      "regionId": "southland",
+      "cityId": "milford",
+      "source": "/images/southland/milfordScale.jpg",
+      "widths": [
+        640,
+        1600
+      ],
+      "position": "55% 58%",
+      "mobilePosition": "55% 50%",
+      "author": "W. Bulach",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:00_1371_New_Zealand_-_Milford_Sound.jpg",
+      "sourceBytes": 848212,
+      "sourceSHA256": "82ddb4ef9fc486c53b1ee10f5c47784c717bbfdbffd36b8bd8d70dc84fa1f71c",
+      "outputs": [
+        {
+          "path": "/images/hero-photos/milford-640.webp",
+          "bytes": 47752,
+          "width": 640,
+          "height": 427,
+          "quality": 84,
+          "sha256": "03d05914df474197ee77c667bb3c8028dd8937bb35d41c76de8135b3b7e315da"
+        },
+        {
+          "path": "/images/hero-photos/milford-1600.webp",
+          "bytes": 310664,
+          "width": 1600,
+          "height": 1067,
+          "quality": 76,
+          "sha256": "7ada52d50ed6626c0c05dcdbce7909740fd58031aeb8142631d04f030f631cd9"
+        }
+      ],
+      "changes": "Existing local photograph resized and encoded as WebP; quality recorded per output. No upscaling, recoloring or generation. Responsive cropping in UI. Derivatives retain the source photo license.",
+      "derivativeLicense": "CC BY-SA 4.0"
+    },
+    {
+      "id": "cathedral",
+      "title": "教堂湾",
+      "english": "Cathedral Cove",
+      "island": "北岛",
+      "regionId": "waikato",
+      "cityId": "coromandel",
+      "source": "/images/attractions/cathedral-cove/cathedral-cove-beach.jpg",
+      "widths": [
+        640,
+        1280
+      ],
+      "position": "55% 55%",
+      "mobilePosition": "68% 50%",
+      "author": "Krzysztof Golik",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cathedral_Cove_03.jpg",
+      "sourceBytes": 374603,
+      "sourceSHA256": "9e0aa6d6cf00a39fdc3f90894a95facdd44bb05bc8e66284679f3de3758bdf81",
+      "outputs": [
+        {
+          "path": "/images/hero-photos/cathedral-640.webp",
+          "bytes": 65934,
+          "width": 640,
+          "height": 407,
+          "quality": 84,
+          "sha256": "b85367f8845c8fbce97c4a3d899446cc5128bea5456354e9d3ed153255f43753"
+        },
+        {
+          "path": "/images/hero-photos/cathedral-1280.webp",
+          "bytes": 222572,
+          "width": 1280,
+          "height": 813,
+          "quality": 84,
+          "sha256": "77bb8c83aaa1ae4d3e305a4868ea5459d43a407809486de32439a41b046c09cd"
+        }
+      ],
+      "changes": "Existing local photograph resized and encoded as WebP; quality recorded per output. No upscaling, recoloring or generation. Responsive cropping in UI. Derivatives retain the source photo license.",
+      "derivativeLicense": "CC BY-SA 4.0"
+    },
+    {
+      "id": "aoraki",
+      "title": "库克山与塔斯曼山",
+      "english": "Aoraki / Mount Cook & Mount Tasman",
+      "island": "南岛",
+      "regionId": "canterbury",
+      "cityId": "twizel",
+      "source": "/images/canterbury/flight.jpg",
+      "widths": [
+        640,
+        1280
+      ],
+      "position": "55% 42%",
+      "mobilePosition": "60% 45%",
+      "author": "Christoph Strässler",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Cook_and_Mount_Tasman.jpg",
+      "sourceBytes": 220692,
+      "sourceSHA256": "cbc231360888c74cb3c610244feb91a880409498a7cfcb747c00f5e6b3fdbf0c",
+      "outputs": [
+        {
+          "path": "/images/hero-photos/aoraki-640.webp",
+          "bytes": 39436,
+          "width": 640,
+          "height": 304,
+          "quality": 84,
+          "sha256": "3a63c2d9531d4953e3472d2a239626fa4f438c7027f64e1bc3297f7b54f5e0d9"
+        },
+        {
+          "path": "/images/hero-photos/aoraki-1280.webp",
+          "bytes": 156390,
+          "width": 1280,
+          "height": 607,
+          "quality": 84,
+          "sha256": "434c38edd38892f7137a508e2fd74f1d7fe5a71d836c0cabcd22799a0111dbe0"
+        }
+      ],
+      "changes": "Existing local photograph resized and encoded as WebP; quality recorded per output. No upscaling, recoloring or generation. Responsive cropping in UI. Derivatives retain the source photo license.",
+      "derivativeLicense": "CC BY-SA 2.0"
+    },
+    {
+      "id": "cape-reinga",
+      "title": "雷因加角",
+      "english": "Cape Reinga / Te Rerenga Wairua",
+      "island": "北岛",
+      "regionId": "northland",
+      "cityId": "capereinga",
+      "source": "/images/attractions/cape-reinga/lighthouse.jpg",
+      "widths": [
+        640,
+        1600
+      ],
+      "position": "60% 52%",
+      "mobilePosition": "66% 50%",
+      "author": "Or Hiltch",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_Reinga_Lighthouse_(by).jpg",
+      "sourceBytes": 403083,
+      "sourceSHA256": "69c0accd46ab4a99bf10a5564960e743eac5d415f4c56bbc36be0f9c80fc5ec9",
+      "outputs": [
+        {
+          "path": "/images/hero-photos/cape-reinga-640.webp",
+          "bytes": 29766,
+          "width": 640,
+          "height": 426,
+          "quality": 84,
+          "sha256": "e27c6c8655132156b81490a7099fcce62e38adeb72e983af18f2712a254160f6"
+        },
+        {
+          "path": "/images/hero-photos/cape-reinga-1600.webp",
+          "bytes": 182258,
+          "width": 1600,
+          "height": 1065,
+          "quality": 84,
+          "sha256": "eb408d6e467f5a013e0c395211ad201c7d6529db29ce049d9945e4da0ab7e397"
+        }
+      ],
+      "changes": "Existing local photograph resized and encoded as WebP; quality recorded per output. No upscaling, recoloring or generation. Responsive cropping in UI. Derivatives retain the source photo license.",
+      "derivativeLicense": "CC BY 2.0"
+    },
+    {
+      "id": "queenstown",
+      "title": "皇后镇 · 瓦卡蒂普湖",
+      "english": "Queenstown & Lake Wakatipu",
+      "island": "南岛",
+      "regionId": "otago",
+      "cityId": "queenstown",
+      "source": "/images/otago/skyline.jpg",
+      "widths": [
+        640,
+        1280
+      ],
+      "position": "55% 46%",
+      "mobilePosition": "55% 45%",
+      "author": "Danny William Wilson",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Queenstown_Skyline_Luge,_April_2026.jpg",
+      "sourceBytes": 220313,
+      "sourceSHA256": "48a2f3271303b8c9ce612d786a8675ba168023a0a9aada5fd6914f45ea8e843b",
+      "outputs": [
+        {
+          "path": "/images/hero-photos/queenstown-640.webp",
+          "bytes": 40216,
+          "width": 640,
+          "height": 480,
+          "quality": 84,
+          "sha256": "8ce9734e04d5923fe4bbae4d896ec8488ba535fe53fb9f70831abf1d3e405acd"
+        },
+        {
+          "path": "/images/hero-photos/queenstown-1280.webp",
+          "bytes": 129662,
+          "width": 1280,
+          "height": 960,
+          "quality": 84,
+          "sha256": "75b91a59e381e41d42165340add07cc1120595eb7adb4194c5480cadd4ec79dc"
+        }
+      ],
+      "changes": "Existing local photograph resized and encoded as WebP; quality recorded per output. No upscaling, recoloring or generation. Responsive cropping in UI. Derivatives retain the source photo license.",
+      "derivativeLicense": "CC BY-SA 4.0"
+    },
+    {
+      "id": "rotorua",
+      "title": "罗托鲁瓦 · 怀奥塔普",
+      "english": "Wai-O-Tapu, Rotorua",
+      "island": "北岛",
+      "regionId": "bayofplenty",
+      "cityId": "rotorua",
+      "source": "/images/activities/wai-o-tapu/champagne-pool.jpg",
+      "widths": [
+        640,
+        1600
+      ],
+      "position": "50% 58%",
+      "mobilePosition": "55% 50%",
+      "author": "Christian Mehlführer",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:ChampagnePool-Wai-O-Tapu_rotated_MC.jpg",
+      "sourceBytes": 481704,
+      "sourceSHA256": "f2f2ac45122df44ab1c66b411659bf7598256b730da479803f00db508a9ade15",
+      "outputs": [
+        {
+          "path": "/images/hero-photos/rotorua-640.webp",
+          "bytes": 43012,
+          "width": 640,
+          "height": 414,
+          "quality": 84,
+          "sha256": "205f8f664cabf985d04d315255193b59d4431a90fc4d757135d0b70cfc4beec2"
+        },
+        {
+          "path": "/images/hero-photos/rotorua-1600.webp",
+          "bytes": 232550,
+          "width": 1600,
+          "height": 1035,
+          "quality": 84,
+          "sha256": "c622f8e8972adea8ba6c494c0999ec5f340609ee2b54bbd6b1907e0afa63c4c1"
+        }
+      ],
+      "changes": "Existing local photograph resized and encoded as WebP; quality recorded per output. No upscaling, recoloring or generation. Responsive cropping in UI. Derivatives retain the source photo license.",
+      "derivativeLicense": "CC BY 2.5"
+    },
+    {
+      "id": "abel-tasman",
+      "title": "阿贝尔塔斯曼 · Anchorage 海湾",
+      "english": "Anchorage Bay, Abel Tasman",
+      "island": "南岛",
+      "regionId": "tasman",
+      "cityId": "kaiteriteri",
+      "source": "/images/activities/abel-tasman-day-walk/anchorage.jpg",
+      "widths": [
+        640,
+        1600
+      ],
+      "position": "55% 50%",
+      "mobilePosition": "60% 50%",
+      "author": "Christoph Strässler",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anchorage_Bay,_Abel_Tasman_National_Park_(16351895238).jpg",
+      "sourceBytes": 966131,
+      "sourceSHA256": "c8b37d948cb72c4f09f172550186eb825a32e86bc25a45b88460a121f5196345",
+      "outputs": [
+        {
+          "path": "/images/hero-photos/abel-tasman-640.webp",
+          "bytes": 71986,
+          "width": 640,
+          "height": 360,
+          "quality": 84,
+          "sha256": "02bf1cb4e7430635968f2e0cd48533da7bdcded37bcb5898f6d5112ba5a4de75"
+        },
+        {
+          "path": "/images/hero-photos/abel-tasman-1600.webp",
+          "bytes": 331670,
+          "width": 1600,
+          "height": 900,
+          "quality": 80,
+          "sha256": "99b9f14a41d2d50e0c8c15bba7deb0890c8bd12b9d52e702375532044abb0d13"
+        }
+      ],
+      "changes": "Existing local photograph resized and encoded as WebP; quality recorded per output. No upscaling, recoloring or generation. Responsive cropping in UI. Derivatives retain the source photo license.",
+      "derivativeLicense": "CC BY-SA 2.0"
+    },
+    {
+      "id": "auckland",
+      "title": "奥克兰海港",
+      "english": "Auckland waterfront",
+      "island": "北岛",
+      "regionId": "auckland",
+      "cityId": "aklcity",
+      "source": "/images/activities/sky-tower/tower.jpg",
+      "widths": [
+        640,
+        1600
+      ],
+      "position": "50% 52%",
+      "mobilePosition": "58% 50%",
+      "author": "Bernard Spragg",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:City_skyline_with_Skytower_(8114177896).jpg",
+      "sourceBytes": 521140,
+      "sourceSHA256": "603520b4c1ac9f485b9900f60ac327529b3ac4da6c67799a82caf12502c893be",
+      "outputs": [
+        {
+          "path": "/images/hero-photos/auckland-640.webp",
+          "bytes": 45428,
+          "width": 640,
+          "height": 389,
+          "quality": 84,
+          "sha256": "806827451307425e142e2eaa5c9cb17eabddb06d493ece67037920b9e865824b"
+        },
+        {
+          "path": "/images/hero-photos/auckland-1600.webp",
+          "bytes": 244306,
+          "width": 1600,
+          "height": 972,
+          "quality": 84,
+          "sha256": "6b551db6d8b5310cd6857409fc531a42d23957c7be00ff11d4dd91dce8ee8efe"
+        }
+      ],
+      "changes": "Existing local photograph resized and encoded as WebP; quality recorded per output. No upscaling, recoloring or generation. Responsive cropping in UI. Derivatives retain the source photo license.",
+      "derivativeLicense": "CC0"
+    },
+    {
+      "id": "tekapo",
+      "title": "蒂卡波湖 · 鲁冰花季",
+      "english": "Lake Tekapo · seasonal lupins",
+      "island": "南岛",
+      "regionId": "canterbury",
+      "cityId": "tekapo",
+      "source": "/images/canterbury/lupins.jpg",
+      "widths": [
+        640,
+        1280
+      ],
+      "position": "50% 60%",
+      "mobilePosition": "45% 50%",
+      "author": "Bernard Spragg. NZ",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Russell_Lupins_in_Lake_Tekapo.NZ_(10339185584).jpg",
+      "sourceBytes": 358245,
+      "sourceSHA256": "c479b2b5df9a45bf9b57d9486b8f2b6436a9c0d4b192f7578bab0d16fb308a15",
+      "outputs": [
+        {
+          "path": "/images/hero-photos/tekapo-640.webp",
+          "bytes": 61590,
+          "width": 640,
+          "height": 429,
+          "quality": 84,
+          "sha256": "379d9df988c2689e7444d53a856fda269cccf303c87131c452b77eff65d73330"
+        },
+        {
+          "path": "/images/hero-photos/tekapo-1280.webp",
+          "bytes": 289560,
+          "width": 1280,
+          "height": 857,
+          "quality": 84,
+          "sha256": "08dff744549bc3efd567c05617bce4c36e41024e21b788985641ebe53a366dd3"
+        }
+      ],
+      "changes": "Existing local photograph resized and encoded as WebP; quality recorded per output. No upscaling, recoloring or generation. Responsive cropping in UI. Derivatives retain the source photo license.",
+      "derivativeLicense": "CC0"
+    },
+    {
+      "id": "pancake",
+      "title": "普纳凯基 · 千层岩",
+      "english": "Pancake Rocks, Punakaiki",
+      "island": "南岛",
+      "regionId": "westcoast",
+      "cityId": "punakaiki",
+      "source": "/images/westcoast/pancake.jpg",
+      "widths": [
+        640,
+        1280
+      ],
+      "position": "55% 55%",
+      "mobilePosition": "55% 50%",
+      "author": "Krzysztof Golik",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pancake_Rocks_22.jpg",
+      "sourceBytes": 433491,
+      "sourceSHA256": "8a98e3644efed8aabc0cc04bc9ea390f224d0b56a97a8f9c115626512158c002",
+      "outputs": [
+        {
+          "path": "/images/hero-photos/pancake-640.webp",
+          "bytes": 89442,
+          "width": 640,
+          "height": 428,
+          "quality": 84,
+          "sha256": "3ce5f4f9503d59110305bd5c22c7101d45f7259c9a6c5d19da29361f71113367"
+        },
+        {
+          "path": "/images/hero-photos/pancake-1280.webp",
+          "bytes": 322184,
+          "width": 1280,
+          "height": 856,
+          "quality": 80,
+          "sha256": "86df5b731ac7684005a7b20aaf0cb943b16c3bffae33d9b1f7928b60a47881cd"
+        }
+      ],
+      "changes": "Existing local photograph resized and encoded as WebP; quality recorded per output. No upscaling, recoloring or generation. Responsive cropping in UI. Derivatives retain the source photo license.",
+      "derivativeLicense": "CC BY-SA 4.0"
+    }
+  ]
+}
