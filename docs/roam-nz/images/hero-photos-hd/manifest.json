@@ -1,0 +1,632 @@
+{
+  "images": [
+    {
+      "id": "milford",
+      "title": "米尔福德峡湾",
+      "source": "assets/sources/hero-hd/milford.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:00_1371_New_Zealand_-_Milford_Sound.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/00_1371_New_Zealand_-_Milford_Sound.jpg",
+      "author": "W. Bulach",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "checkedAt": "2026-11-05",
+      "sourceWidth": 3600,
+      "sourceHeight": 2400,
+      "sourceBytes": 10860359,
+      "sourceSHA256": "79a191f966e5f1bbef463fa167999f06676bbadaffe6352d6e9e1b099afd006a",
+      "outputs": [
+        {
+          "path": "/images/hero-photos-hd/milford-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 60546,
+          "quality": 90,
+          "sha256": "d7548555a03e520a6e3c9feb327cff6e0d89d3c989fe405431f8063871d7fe19"
+        },
+        {
+          "path": "/images/hero-photos-hd/milford-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 272904,
+          "quality": 90,
+          "sha256": "d7ab6501f46d9cc9860c4e09ec33a8357e2bcd637d832240e35c1a725b8c12c4"
+        },
+        {
+          "path": "/images/hero-photos-hd/milford-1920.webp",
+          "width": 1920,
+          "height": 1280,
+          "bytes": 744790,
+          "quality": 90,
+          "sha256": "1d0f9e1808e55e7dd02d95b766ad807d446b0c5253fbc2f4e3e571ca572c5b52"
+        },
+        {
+          "path": "/images/hero-photos-hd/milford-2560.webp",
+          "width": 2560,
+          "height": 1707,
+          "bytes": 1494332,
+          "quality": 90,
+          "sha256": "d442fd0df8d34419e899082cbff75384289ed30f2363bdaef1f430ada592e997"
+        },
+        {
+          "path": "/images/hero-photos-hd/milford-2880.webp",
+          "width": 2880,
+          "height": 1920,
+          "bytes": 1934604,
+          "quality": 90,
+          "sha256": "c5b065d438e061fe6753e83fe85ab84493f1b95917998e0b705d89f9e37de25d"
+        },
+        {
+          "path": "/images/hero-photos-hd/milford-3600.webp",
+          "width": 3600,
+          "height": 2400,
+          "bytes": 3228344,
+          "quality": 90,
+          "sha256": "4947e32bbc48658c2e08d76866707dc6e39288dfd29a8cd616dcaad549ca0e1b"
+        }
+      ],
+      "changes": "Same licensed photograph, resized from its full-size original and encoded as WebP. No enlargement, generation, sharpening or recoloring. Responsive cropping in UI; derivative retains original license."
+    },
+    {
+      "id": "cathedral",
+      "title": "教堂湾",
+      "source": "assets/sources/hero-hd/cathedral.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cathedral_Cove_03.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/05/Cathedral_Cove_03.jpg",
+      "author": "Krzysztof Golik",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "checkedAt": "2026-11-05",
+      "sourceWidth": 4935,
+      "sourceHeight": 3139,
+      "sourceBytes": 12326695,
+      "sourceSHA256": "c9dcb82a15627595ba8d584946d2e0eb2910e262bfb638142d1669d823e9b2a5",
+      "outputs": [
+        {
+          "path": "/images/hero-photos-hd/cathedral-640.webp",
+          "width": 640,
+          "height": 407,
+          "bytes": 87950,
+          "quality": 90,
+          "sha256": "62324b998604e0985dfe2e509f4ae3be6161d29eb1578b47845ca3452619fe28"
+        },
+        {
+          "path": "/images/hero-photos-hd/cathedral-1280.webp",
+          "width": 1280,
+          "height": 814,
+          "bytes": 328718,
+          "quality": 90,
+          "sha256": "e7838503be7e5a9bf3ce609580fd6d837d295f3835d12a6fc8ff400720e5d58b"
+        },
+        {
+          "path": "/images/hero-photos-hd/cathedral-1920.webp",
+          "width": 1920,
+          "height": 1221,
+          "bytes": 707754,
+          "quality": 90,
+          "sha256": "7bf8dc4ab26cd38550e10ec1da0df9c1e49b495e52e037fc754e2d8ad10427ff"
+        },
+        {
+          "path": "/images/hero-photos-hd/cathedral-2560.webp",
+          "width": 2560,
+          "height": 1628,
+          "bytes": 1243282,
+          "quality": 90,
+          "sha256": "be601e4b1ddae793627143e7212e2d95a70812264eb1f65908fd59c38be61408"
+        },
+        {
+          "path": "/images/hero-photos-hd/cathedral-2880.webp",
+          "width": 2880,
+          "height": 1832,
+          "bytes": 1558130,
+          "quality": 90,
+          "sha256": "64fd6547a7b4643569cb59d2d47276b5f1d72c2cdb68104d0a86ea9f9c5ffda2"
+        },
+        {
+          "path": "/images/hero-photos-hd/cathedral-3840.webp",
+          "width": 3840,
+          "height": 2443,
+          "bytes": 2645980,
+          "quality": 90,
+          "sha256": "979dc80e9f8e18e4be6af8f8149c1dd80565340ba7a9275f561b9c785d8c6d15"
+        }
+      ],
+      "changes": "Same licensed photograph, resized from its full-size original and encoded as WebP. No enlargement, generation, sharpening or recoloring. Responsive cropping in UI; derivative retains original license."
+    },
+    {
+      "id": "aoraki",
+      "title": "库克山与塔斯曼山",
+      "source": "assets/sources/hero-hd/aoraki.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Cook_and_Mount_Tasman.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/24/Mount_Cook_and_Mount_Tasman.jpg",
+      "author": "Christoph Strässler",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "checkedAt": "2026-11-05",
+      "sourceWidth": 5338,
+      "sourceHeight": 2533,
+      "sourceBytes": 6646378,
+      "sourceSHA256": "32130ae9b72b67bbbf84413c259957d32c372a8e23d938aaa72a3a1812602606",
+      "outputs": [
+        {
+          "path": "/images/hero-photos-hd/aoraki-640.webp",
+          "width": 640,
+          "height": 304,
+          "bytes": 45960,
+          "quality": 90,
+          "sha256": "1a6b84c87111588f27f9b268eb2c65167f42e534991e8aac5f920f295bc71f3f"
+        },
+        {
+          "path": "/images/hero-photos-hd/aoraki-1280.webp",
+          "width": 1280,
+          "height": 607,
+          "bytes": 162690,
+          "quality": 90,
+          "sha256": "45e8f8e24f64c413aa4d3464f9b49975215b7721abb7b2fc354a775fafeac0e8"
+        },
+        {
+          "path": "/images/hero-photos-hd/aoraki-1920.webp",
+          "width": 1920,
+          "height": 911,
+          "bytes": 377918,
+          "quality": 90,
+          "sha256": "52c3e3a72b591acec12f83dd6049aaf56434b09d067028c1a22926990daa8cf6"
+        },
+        {
+          "path": "/images/hero-photos-hd/aoraki-2560.webp",
+          "width": 2560,
+          "height": 1215,
+          "bytes": 657180,
+          "quality": 90,
+          "sha256": "6b88268ed8f06a4f1e720d6e6bfb882eff8d9dfbc2053e2fb22553a907b9c6a8"
+        },
+        {
+          "path": "/images/hero-photos-hd/aoraki-2880.webp",
+          "width": 2880,
+          "height": 1367,
+          "bytes": 842864,
+          "quality": 90,
+          "sha256": "cac745125ebc1b537a13e690a60896e900ef9019000ee5da1d30d0fe33a88c7c"
+        },
+        {
+          "path": "/images/hero-photos-hd/aoraki-3840.webp",
+          "width": 3840,
+          "height": 1822,
+          "bytes": 1437806,
+          "quality": 90,
+          "sha256": "42426bea767a1e23032c8fbe2b26ddd7b971c6e25d656b6f060d1dad48ffd051"
+        }
+      ],
+      "changes": "Same licensed photograph, resized from its full-size original and encoded as WebP. No enlargement, generation, sharpening or recoloring. Responsive cropping in UI; derivative retains original license."
+    },
+    {
+      "id": "cape-reinga",
+      "title": "雷因加角",
+      "source": "assets/sources/hero-hd/cape-reinga.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_Reinga_Lighthouse_(by).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Cape_Reinga_Lighthouse_%28by%29.jpg",
+      "author": "Or Hiltch",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "checkedAt": "2026-11-05",
+      "sourceWidth": 4256,
+      "sourceHeight": 2832,
+      "sourceBytes": 4492172,
+      "sourceSHA256": "2dbbbc8d577c882abf5f13ffda8efe82c8897d33ed4ea70d400d9f200486f772",
+      "outputs": [
+        {
+          "path": "/images/hero-photos-hd/cape-reinga-640.webp",
+          "width": 640,
+          "height": 426,
+          "bytes": 39090,
+          "quality": 90,
+          "sha256": "6f7c1263cfd130a6d4eac3b2e1acf3137f4c83d18ed09bf340f48c4f0f91d10d"
+        },
+        {
+          "path": "/images/hero-photos-hd/cape-reinga-1280.webp",
+          "width": 1280,
+          "height": 852,
+          "bytes": 133368,
+          "quality": 90,
+          "sha256": "fabceec4bd2df02202d7e3fe36c2c3270cf422640922b06afd4063bb00686a86"
+        },
+        {
+          "path": "/images/hero-photos-hd/cape-reinga-1920.webp",
+          "width": 1920,
+          "height": 1278,
+          "bytes": 265666,
+          "quality": 90,
+          "sha256": "7e404ab5125283ba4c8ca86e075ead2134ea7b1da9a04fc9cf4e9f6704a3304e"
+        },
+        {
+          "path": "/images/hero-photos-hd/cape-reinga-2560.webp",
+          "width": 2560,
+          "height": 1703,
+          "bytes": 403608,
+          "quality": 90,
+          "sha256": "e1ed0f1d8c10847799d534a3383d9b3aab54e892ca75705cd1086d6adc3e797b"
+        },
+        {
+          "path": "/images/hero-photos-hd/cape-reinga-2880.webp",
+          "width": 2880,
+          "height": 1916,
+          "bytes": 470386,
+          "quality": 90,
+          "sha256": "e03bc2e571e5dfd6ef7c6611927116c5ed5b51f88179541bd8b5d3494ca31bb4"
+        },
+        {
+          "path": "/images/hero-photos-hd/cape-reinga-3840.webp",
+          "width": 3840,
+          "height": 2555,
+          "bytes": 714568,
+          "quality": 90,
+          "sha256": "e5b82a1c727b07404421d752fddd9f190b281b6194a00acc516763d0c524ec8c"
+        }
+      ],
+      "changes": "Same licensed photograph, resized from its full-size original and encoded as WebP. No enlargement, generation, sharpening or recoloring. Responsive cropping in UI; derivative retains original license."
+    },
+    {
+      "id": "queenstown",
+      "title": "皇后镇 · 瓦卡蒂普湖",
+      "source": "assets/sources/hero-hd/queenstown.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Queenstown_Skyline_Luge,_April_2026.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Queenstown_Skyline_Luge%2C_April_2026.jpg",
+      "author": "Danny William Wilson",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "checkedAt": "2026-11-05",
+      "sourceWidth": 4080,
+      "sourceHeight": 3060,
+      "sourceBytes": 2408928,
+      "sourceSHA256": "151bb88eeac55275acc4b79b692f0512f4dab7219df0ab9ebdb8a10986b00a80",
+      "outputs": [
+        {
+          "path": "/images/hero-photos-hd/queenstown-640.webp",
+          "width": 640,
+          "height": 480,
+          "bytes": 48294,
+          "quality": 90,
+          "sha256": "e97b005ba34be61ea0bc820d3854074e20a4bebd1b89a9f9947f9c6b73b84ba6"
+        },
+        {
+          "path": "/images/hero-photos-hd/queenstown-1280.webp",
+          "width": 1280,
+          "height": 960,
+          "bytes": 130164,
+          "quality": 90,
+          "sha256": "addf13e0c19cf3e00f0b1104114dca69bbe697c8569e98869641084216bd4a80"
+        },
+        {
+          "path": "/images/hero-photos-hd/queenstown-1920.webp",
+          "width": 1920,
+          "height": 1440,
+          "bytes": 260678,
+          "quality": 90,
+          "sha256": "eb77ef70dc2af06947b00a37c9a02c16bd73b5e6e42e715f2e120fc518a9d7b5"
+        },
+        {
+          "path": "/images/hero-photos-hd/queenstown-2560.webp",
+          "width": 2560,
+          "height": 1920,
+          "bytes": 432468,
+          "quality": 90,
+          "sha256": "88e7ca99e630daf10cd4b16ac6707efa05b7dcd66ec162d6e11e3512d0333eb5"
+        },
+        {
+          "path": "/images/hero-photos-hd/queenstown-2880.webp",
+          "width": 2880,
+          "height": 2160,
+          "bytes": 522106,
+          "quality": 90,
+          "sha256": "d6ec68fe754e6f1c320eedb430d141b5e1e06e9536d648a9c76ea0eee75ee006"
+        },
+        {
+          "path": "/images/hero-photos-hd/queenstown-3840.webp",
+          "width": 3840,
+          "height": 2880,
+          "bytes": 832752,
+          "quality": 90,
+          "sha256": "5e901b3eaf5aa3826b8e29ff7db19efd5e2f74186e55920409f854da31f96125"
+        }
+      ],
+      "changes": "Same licensed photograph, resized from its full-size original and encoded as WebP. No enlargement, generation, sharpening or recoloring. Responsive cropping in UI; derivative retains original license."
+    },
+    {
+      "id": "rotorua",
+      "title": "罗托鲁瓦 · 怀奥塔普",
+      "source": "assets/sources/hero-hd/rotorua.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:ChampagnePool-Wai-O-Tapu_rotated_MC.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/ChampagnePool-Wai-O-Tapu_rotated_MC.jpg",
+      "author": "Christian Mehlführer",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5/",
+      "checkedAt": "2026-11-05",
+      "sourceWidth": 2199,
+      "sourceHeight": 1422,
+      "sourceBytes": 1378812,
+      "sourceSHA256": "3ba355276434aa3568e725d594d7c08e61756b6023e4cc15b854c5a08e9f0435",
+      "outputs": [
+        {
+          "path": "/images/hero-photos-hd/rotorua-640.webp",
+          "width": 640,
+          "height": 414,
+          "bytes": 60530,
+          "quality": 90,
+          "sha256": "aee5a1585a796781dad3384be2fcc5f83c0cde5c9882b6d609fc681df302d47c"
+        },
+        {
+          "path": "/images/hero-photos-hd/rotorua-1280.webp",
+          "width": 1280,
+          "height": 828,
+          "bytes": 231292,
+          "quality": 90,
+          "sha256": "f8ef75a46c199eed7f53a70ebafdc99158b88803cfd75ff107b19bce872a53f2"
+        },
+        {
+          "path": "/images/hero-photos-hd/rotorua-1920.webp",
+          "width": 1920,
+          "height": 1242,
+          "bytes": 460914,
+          "quality": 90,
+          "sha256": "999aa4c4ae7c77c1feaf7a0432e67ba967a241e6a10d301b03694214abe49259"
+        },
+        {
+          "path": "/images/hero-photos-hd/rotorua-2199.webp",
+          "width": 2199,
+          "height": 1422,
+          "bytes": 587724,
+          "quality": 90,
+          "sha256": "b2774ab64eb30a6745365516db9343ea1dfd3c0512ef0c371b889620772fc858"
+        }
+      ],
+      "changes": "Same licensed photograph, resized from its full-size original and encoded as WebP. No enlargement, generation, sharpening or recoloring. Responsive cropping in UI; derivative retains original license."
+    },
+    {
+      "id": "abel-tasman",
+      "title": "阿贝尔塔斯曼 · Anchorage 海湾",
+      "source": "assets/sources/hero-hd/abel-tasman.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anchorage_Bay,_Abel_Tasman_National_Park_(16351895238).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Anchorage_Bay%2C_Abel_Tasman_National_Park_%2816351895238%29.jpg",
+      "author": "Christoph Strässler",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "checkedAt": "2026-11-05",
+      "sourceWidth": 6000,
+      "sourceHeight": 3375,
+      "sourceBytes": 14239127,
+      "sourceSHA256": "dce3cbb0994a841261da77e7d01bfef51d98d9892f06fce345b1b75e8a8f358f",
+      "outputs": [
+        {
+          "path": "/images/hero-photos-hd/abel-tasman-640.webp",
+          "width": 640,
+          "height": 359,
+          "bytes": 94158,
+          "quality": 90,
+          "sha256": "8fa222dbbbc6ae4f6d7672659febbd5492ed4c2e6bdb232967e80d8e69e9835a"
+        },
+        {
+          "path": "/images/hero-photos-hd/abel-tasman-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 362590,
+          "quality": 90,
+          "sha256": "8e03ea4db1e83c6ad88f2d87873717bfc302b2b1a08f2323dda31ca7d7919fc7"
+        },
+        {
+          "path": "/images/hero-photos-hd/abel-tasman-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 766236,
+          "quality": 90,
+          "sha256": "3c2854660a608aa8be9323ac34eab73337447e03980e49cea3793936a83b5908"
+        },
+        {
+          "path": "/images/hero-photos-hd/abel-tasman-2560.webp",
+          "width": 2560,
+          "height": 1440,
+          "bytes": 1253560,
+          "quality": 90,
+          "sha256": "216d93778856ad607f1c0243d3a6dec2758f6f6172534c474dd6185b48f7f6ce"
+        },
+        {
+          "path": "/images/hero-photos-hd/abel-tasman-2880.webp",
+          "width": 2880,
+          "height": 1620,
+          "bytes": 1533096,
+          "quality": 90,
+          "sha256": "736028a8170bd76f2f8d80bdb8a61075b56af87ae92aebd232d59fe90d3fd1f2"
+        },
+        {
+          "path": "/images/hero-photos-hd/abel-tasman-3840.webp",
+          "width": 3840,
+          "height": 2160,
+          "bytes": 2400458,
+          "quality": 90,
+          "sha256": "8b23a5452c6e1810c15416c8270469068c9103b776e5639dab8388d384e2ce89"
+        }
+      ],
+      "changes": "Same licensed photograph, resized from its full-size original and encoded as WebP. No enlargement, generation, sharpening or recoloring. Responsive cropping in UI; derivative retains original license."
+    },
+    {
+      "id": "auckland",
+      "title": "奥克兰海港",
+      "source": "assets/sources/hero-hd/auckland.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:City_skyline_with_Skytower_(8114177896).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/City_skyline_with_Skytower_%288114177896%29.jpg",
+      "author": "Bernard Spragg",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "checkedAt": "2026-11-05",
+      "sourceWidth": 2400,
+      "sourceHeight": 1458,
+      "sourceBytes": 2608670,
+      "sourceSHA256": "d7db8ce6035dc0a86bbf091f59762282bd6df5ef21e8faea3393719e099c192c",
+      "outputs": [
+        {
+          "path": "/images/hero-photos-hd/auckland-640.webp",
+          "width": 640,
+          "height": 389,
+          "bytes": 57032,
+          "quality": 90,
+          "sha256": "299105fec6e49a60be970cebd3a78c8cf2e56ce1cdf304bf70212ccdaefa805a"
+        },
+        {
+          "path": "/images/hero-photos-hd/auckland-1280.webp",
+          "width": 1280,
+          "height": 778,
+          "bytes": 193200,
+          "quality": 90,
+          "sha256": "02b496a2161faa9a4805313b9493164dee2330e2b6ef3d92dab1e144003530fd"
+        },
+        {
+          "path": "/images/hero-photos-hd/auckland-1920.webp",
+          "width": 1920,
+          "height": 1166,
+          "bytes": 373116,
+          "quality": 90,
+          "sha256": "ade42730dad2b00e0836390cfea95295190497bd550e917f2681cf1815f9f4b4"
+        },
+        {
+          "path": "/images/hero-photos-hd/auckland-2400.webp",
+          "width": 2400,
+          "height": 1458,
+          "bytes": 535400,
+          "quality": 90,
+          "sha256": "047a32d3602e2f105de59b2dd1594eb8862be59b10228863ac44df4e2db42918"
+        }
+      ],
+      "changes": "Same licensed photograph, resized from its full-size original and encoded as WebP. No enlargement, generation, sharpening or recoloring. Responsive cropping in UI; derivative retains original license."
+    },
+    {
+      "id": "tekapo",
+      "title": "蒂卡波湖 · 鲁冰花季",
+      "source": "assets/sources/hero-hd/tekapo.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Russell_Lupins_in_Lake_Tekapo.NZ_(10339185584).jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Russell_Lupins_in_Lake_Tekapo.NZ_%2810339185584%29.jpg",
+      "author": "Bernard Spragg. NZ",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "checkedAt": "2026-11-05",
+      "sourceWidth": 3872,
+      "sourceHeight": 2592,
+      "sourceBytes": 9951843,
+      "sourceSHA256": "675fb14100e5ee40738f3c4dfa56327e484dc938239e949521c8b884bb63ec55",
+      "outputs": [
+        {
+          "path": "/images/hero-photos-hd/tekapo-640.webp",
+          "width": 640,
+          "height": 428,
+          "bytes": 71544,
+          "quality": 90,
+          "sha256": "829f06aebd1906e453017140dc709115a063f37d94000762ff35cfc8003dc52b"
+        },
+        {
+          "path": "/images/hero-photos-hd/tekapo-1280.webp",
+          "width": 1280,
+          "height": 857,
+          "bytes": 304418,
+          "quality": 90,
+          "sha256": "369a2e519eef864dece1d05863ee3c3ddbcf6a501afbc28266e8661e41fce3fd"
+        },
+        {
+          "path": "/images/hero-photos-hd/tekapo-1920.webp",
+          "width": 1920,
+          "height": 1285,
+          "bytes": 688532,
+          "quality": 90,
+          "sha256": "af07ab67654f94d898d581c95ce21939fb729503e7e6561faa669d115ad3efed"
+        },
+        {
+          "path": "/images/hero-photos-hd/tekapo-2560.webp",
+          "width": 2560,
+          "height": 1714,
+          "bytes": 1186478,
+          "quality": 90,
+          "sha256": "fffbadef1eb5fdc25516d8e8cb4e328373270db92b43a605796ca2bdf75c9711"
+        },
+        {
+          "path": "/images/hero-photos-hd/tekapo-2880.webp",
+          "width": 2880,
+          "height": 1928,
+          "bytes": 1470208,
+          "quality": 90,
+          "sha256": "325eadd594ef241add80ab5814b81e03d656246a07b9032ad1be24707487a224"
+        },
+        {
+          "path": "/images/hero-photos-hd/tekapo-3840.webp",
+          "width": 3840,
+          "height": 2571,
+          "bytes": 2437370,
+          "quality": 90,
+          "sha256": "8e98c6bf0f53862f2d0b513accb5cbff68ccbda81955662a76f81967df9837e3"
+        }
+      ],
+      "changes": "Same licensed photograph, resized from its full-size original and encoded as WebP. No enlargement, generation, sharpening or recoloring. Responsive cropping in UI; derivative retains original license."
+    },
+    {
+      "id": "pancake",
+      "title": "普纳凯基 · 千层岩",
+      "source": "assets/sources/hero-hd/pancake.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pancake_Rocks_22.jpg",
+      "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Pancake_Rocks_22.jpg",
+      "author": "Krzysztof Golik",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "checkedAt": "2026-11-05",
+      "sourceWidth": 4425,
+      "sourceHeight": 2960,
+      "sourceBytes": 11470194,
+      "sourceSHA256": "0c5925daf3e2a982aee5bb9342740b7251286da74af3bea95382d916164c4fc8",
+      "outputs": [
+        {
+          "path": "/images/hero-photos-hd/pancake-640.webp",
+          "width": 640,
+          "height": 428,
+          "bytes": 99534,
+          "quality": 90,
+          "sha256": "c21f89928cfd05a7ca4ad9c4bfddf633124067b191a4846155ba774af2108bd4"
+        },
+        {
+          "path": "/images/hero-photos-hd/pancake-1280.webp",
+          "width": 1280,
+          "height": 856,
+          "bytes": 365220,
+          "quality": 90,
+          "sha256": "3f6be0056528e8a1be914f341f620d08ea15b3cf742f746cbca81ec23040c3fc"
+        },
+        {
+          "path": "/images/hero-photos-hd/pancake-1920.webp",
+          "width": 1920,
+          "height": 1284,
+          "bytes": 793668,
+          "quality": 90,
+          "sha256": "05b174001f3a8ff1576dac35f9dcb8232fbad2fabd2ee88d5f6a7d81512d7cdb"
+        },
+        {
+          "path": "/images/hero-photos-hd/pancake-2560.webp",
+          "width": 2560,
+          "height": 1712,
+          "bytes": 1347732,
+          "quality": 90,
+          "sha256": "c6a9d615d3def1128b59962a31fc5e8276ea9e2ed625c3c421756f75299e3bd1"
+        },
+        {
+          "path": "/images/hero-photos-hd/pancake-2880.webp",
+          "width": 2880,
+          "height": 1927,
+          "bytes": 1676336,
+          "quality": 90,
+          "sha256": "c2738d7f886f292a981a1fc17cc541105ed8b8b105f61b3a111aa03ffd6769f0"
+        },
+        {
+          "path": "/images/hero-photos-hd/pancake-3840.webp",
+          "width": 3840,
+          "height": 2569,
+          "bytes": 2745290,
+          "quality": 90,
+          "sha256": "8809e2b26a94d14aa02f761fd72b3d480d3895602c90924af457994e0b8dc14c"
+        }
+      ],
+      "changes": "Same licensed photograph, resized from its full-size original and encoded as WebP. No enlargement, generation, sharpening or recoloring. Responsive cropping in UI; derivative retains original license."
+    }
+  ]
+}
