@@ -19,7 +19,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/attractions/kaiteriteri/main-beach.jpg"
     },
     {
       "regionId": "tasman",
@@ -40,7 +41,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/attractions/wharariki/arches.jpg"
     },
     {
       "regionId": "tasman",
@@ -124,7 +126,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/marlborough/vineyards.jpg"
     },
     {
       "regionId": "marlborough",
@@ -187,7 +190,8 @@
       "width": 640,
       "height": 400,
       "quality": 78,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/westcoast/gorge.jpg"
     },
     {
       "regionId": "westcoast",
@@ -250,7 +254,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/canterbury/garden.jpg"
     },
     {
       "regionId": "canterbury",
@@ -565,7 +570,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/attractions/whangarei-falls/falls-view.jpg"
     },
     {
       "regionId": "northland",
@@ -607,7 +613,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/activities/sky-tower/tower.jpg"
     },
     {
       "regionId": "auckland",
@@ -628,7 +635,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/activities/waiheke-wine/coastal-vineyard.jpg"
     },
     {
       "regionId": "waikato",
@@ -670,7 +678,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/activities/hobbiton-tour/hobbiton-set.jpg"
     },
     {
       "regionId": "waikato",
@@ -712,7 +721,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/activities/hamilton-gardens/italian-garden.jpg"
     },
     {
       "regionId": "waikato",
@@ -733,7 +743,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/attractions/lake-taupo/lake-taupo.jpg"
     },
     {
       "regionId": "bayofplenty",
@@ -775,7 +786,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/attractions/mount-main-beach/winter.jpg"
     },
     {
       "regionId": "bayofplenty",
@@ -796,7 +808,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/attractions/big-kiwifruit/giant.jpg"
     },
     {
       "regionId": "gisborne",
@@ -817,7 +830,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/attractions/titirangi-gisborne/view.jpg"
     },
     {
       "regionId": "gisborne",
@@ -838,7 +852,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/attractions/rere/falls.jpg"
     },
     {
       "regionId": "gisborne",
@@ -880,7 +895,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/attractions/napier-art-deco/architecture.jpg"
     },
     {
       "regionId": "hawkesbay",
@@ -901,7 +917,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/attractions/te-mata-peak/vista.jpg"
     },
     {
       "regionId": "taranaki",
@@ -1069,7 +1086,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/activities/zealandia/reservoir.jpg"
     },
     {
       "regionId": "wellington",
@@ -1090,7 +1108,8 @@
       "width": 640,
       "height": 400,
       "quality": 82,
-      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status."
+      "changes": "Existing local photograph resized, centre-cropped and encoded as WebP; responsive cropping in UI; no enlargement or recoloring. Derivative retains source license / public-domain status.",
+      "sourceOriginal": "assets/sources/photos-original/activities/martinborough-wine/vineyard.jpg"
     }
   ]
 }

@@ -38,7 +38,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "url": "https://commons.wikimedia.org/wiki/File:Hokitika_Gorge_MRD_03.jpg",
     "description": "Hokitika Gorge is about 30 km south of Hokitika, and is famous for its turquoise water coloured by glacial rock flour. A one hour walking track crosses the gorge twice on suspension bridges.",
-    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-29"
   },
   "jade": {
@@ -82,7 +82,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "url": "https://commons.wikimedia.org/wiki/File:Pororari_River_MRD_02.jpg",
     "description": "Pororari River, Punakaiki, West Coast, New Zealand",
-    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-29"
   },
   "truman": {
@@ -93,7 +93,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "url": "https://commons.wikimedia.org/wiki/File:Viewing_platforms_at_Truman_Track_MC_01.jpg",
     "description": "Viewing platforms at beach end of Truman Track",
-    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-29"
   },
   "shantytown": {

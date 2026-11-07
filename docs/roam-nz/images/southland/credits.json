@@ -17,7 +17,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "url": "https://commons.wikimedia.org/wiki/File:00_1371_New_Zealand_-_Milford_Sound.jpg",
     "description": "Neuseeland: Der Milford Sound, ein 14 km langer Fjord auf der Südinsel, ist Teil des Fiordlands National Parks und gehört mit zum Weltnaturerbe der UNESCO. Der Meeresarm ist umgeben von steil abfallenden Berge mit einer Höhe bis zu 1.6080 Meter NN und von zahlreichen Wasserfällen.",
-    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-29",
     "src": "/images/southland/milfordScale.jpg"
   },
@@ -50,7 +50,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "url": "https://commons.wikimedia.org/wiki/File:Surroundings_of_the_Te_Anau_Glowworm_Caves_02.jpg",
     "description": "Az új-zélandi Te Anau tó partján lévő barlangok környéke",
-    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-29",
     "src": "/images/southland/caves.jpg"
   },
@@ -81,7 +81,7 @@
     "license": "Public domain",
     "url": "https://commons.wikimedia.org/wiki/File:Entrance_of_the_Homer_Tunnel_from_Milford_Sound_2016-01-31.jpg",
     "description": "Entrance of the Homer Tunnel from Milford Soundlabel QS:Len,\"Entrance of the Homer Tunnel from Milford Sound\"label QS:Lhu,\"A Homer-alagút bejárata a Milford Sound felől\"",
-    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-29",
     "src": "/images/southland/homer.jpg"
   },
@@ -209,7 +209,7 @@
     "license": "Public domain",
     "url": "https://commons.wikimedia.org/wiki/File:Boxed_steps_on_Rakiura_Track_through_native_bush.jpg",
     "description": "Curved boxed steps on Rakiura Track through native bush (near Port William)",
-    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-29",
     "src": "/images/southland/forest.jpg"
   },
@@ -242,7 +242,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "url": "https://commons.wikimedia.org/wiki/File:Apteryx_australis_lawryi_-_Genevieve_Early_-_473849803.jpeg",
     "description": "Apteryx australis lawryi, Southland District, Southland, New Zealand, 2025-03-02 (iNaturalist).",
-    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-29",
     "src": "/images/southland/kiwiAlt.jpg"
   }

@@ -39,7 +39,8 @@
         }
       ],
       "changes": "Existing local photograph resized and encoded as WebP; quality recorded per output. No upscaling, recoloring or generation. Responsive cropping in UI. Derivatives retain the source photo license.",
-      "derivativeLicense": "CC BY-SA 4.0"
+      "derivativeLicense": "CC BY-SA 4.0",
+      "sourceOriginal": "assets/sources/photos-original/southland/milfordScale.jpg"
     },
     {
       "id": "cathedral",
@@ -285,7 +286,8 @@
         }
       ],
       "changes": "Existing local photograph resized and encoded as WebP; quality recorded per output. No upscaling, recoloring or generation. Responsive cropping in UI. Derivatives retain the source photo license.",
-      "derivativeLicense": "CC BY-SA 2.0"
+      "derivativeLicense": "CC BY-SA 2.0",
+      "sourceOriginal": "assets/sources/photos-original/activities/abel-tasman-day-walk/anchorage.jpg"
     },
     {
       "id": "auckland",
@@ -326,7 +328,8 @@
         }
       ],
       "changes": "Existing local photograph resized and encoded as WebP; quality recorded per output. No upscaling, recoloring or generation. Responsive cropping in UI. Derivatives retain the source photo license.",
-      "derivativeLicense": "CC0"
+      "derivativeLicense": "CC0",
+      "sourceOriginal": "assets/sources/photos-original/activities/sky-tower/tower.jpg"
     },
     {
       "id": "tekapo",

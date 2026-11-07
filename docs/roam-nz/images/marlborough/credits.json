@@ -7,7 +7,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "url": "https://commons.wikimedia.org/wiki/File:Wairau_Valley_vineyards_in_the_Marlborough_wine_region,_New_Zealand.jpg",
     "description": "Vineyards in the Wairau Valley, Marlborough wine region of New Zealand, January 2023. Looking south from Raupara Road, towards the Southern Valleys sub-region and the Wither Hills.",
-    "changes": "Resized by Wikimedia thumbnail service; displayed with responsive cropping.",
+    "changes": "Resized by Wikimedia thumbnail service; displayed with responsive cropping. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-03"
   },
   "valley": {

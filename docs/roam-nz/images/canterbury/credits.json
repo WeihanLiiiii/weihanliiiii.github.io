@@ -50,7 +50,7 @@
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "url": "https://commons.wikimedia.org/wiki/File:Rose_garden_-_Christchurch_Botanic_Gardens_-_Christchurch,_NZ_-_DSC02527.jpg",
     "description": "Christchurch Botanic Gardens - Christchurch, New Zealand.",
-    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-29",
     "src": "/images/canterbury/garden.jpg"
   },

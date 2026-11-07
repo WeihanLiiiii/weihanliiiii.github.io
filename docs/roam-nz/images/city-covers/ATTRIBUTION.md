@@ -1,6 +1,6 @@
 # 城市卡片照片
 
-来自项目现有素材；每张照片独立保留原许可，不并入代码许可。源文件未修改，逐图散列与编码参数见 manifest.json。
+来自项目现有素材；每张照片独立保留原许可，不并入代码许可。WebP 制作原图保留在原位置或 public 之外的归档（见 manifest.json 的 sourceOriginal）；逐图散列与编码参数见 manifest.json。
 
 ## tasman / kaiteriteri
 

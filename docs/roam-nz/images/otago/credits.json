@@ -17,7 +17,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "url": "https://commons.wikimedia.org/wiki/File:Photograph_of_Queenstown_Gardens_in_New_Zealand.jpg",
     "description": "Photograph of the lake in Queenstown Gardens, New Zealand. Taken on the 8th January 2020.",
-    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-29",
     "src": "/images/otago/gardens.jpg"
   },
@@ -28,7 +28,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "url": "https://commons.wikimedia.org/wiki/File:Kuwarau_Bridge_Bungy_Jumpers.jpg",
     "description": "Kuwarau Bridge Bungy Jumpers",
-    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-29",
     "src": "/images/otago/bungy.jpg"
   },
@@ -116,7 +116,7 @@
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "url": "https://commons.wikimedia.org/wiki/File:Arrowtown_Chinese_Settlement,_New_Zealand;_September_2014.jpg",
     "description": "Nestled above Arrowtown on the banks of Bush Creek lies the partially restored Arrowtown Chinese Settlement. The village is a lasting reminder and tribute to the contribution made by the Chinese goldminers and business people to the region’s culture, economy and history.",
-    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-29",
     "src": "/images/otago/chinese.jpg"
   },
@@ -127,7 +127,7 @@
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "url": "https://commons.wikimedia.org/wiki/File:Autumn_on_the_Arrow_River_NZ_(12202357824).jpg",
     "description": "The Arrow River is a short river in Otago, New Zealand. It is a tributary of the Kawarau River, which in turn feeds into the Clutha. The town of Arrowtown lies on the Arrow.",
-    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-29",
     "src": "/images/otago/autumn.jpg"
   },
@@ -138,7 +138,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "url": "https://commons.wikimedia.org/wiki/File:NZ230315_Arrowtown_02.jpg",
     "description": "The Arrow River flowing near Arrowtown",
-    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-29",
     "src": "/images/otago/gold.jpg"
   },
@@ -258,7 +258,7 @@
     "license": "Public domain",
     "url": "https://commons.wikimedia.org/wiki/File:Baldwin_Street_Dunedin_top.jpg",
     "description": "Baldwin Street in Dunedin, New Zealand.",
-    "changes": "Wikimedia thumbnail; responsive cropping in the interface.",
+    "changes": "Wikimedia thumbnail; responsive cropping in the interface. 缩小、JPEG 压缩：最长边不超过 1600px，不放大；mozjpeg 质量约 80；RGB 使用 4:2:0 色度采样；不裁切、不锐化、不调色，按原始方向与 ICC 配置保持显示外观。",
     "checkedOn": "2026-10-29",
     "src": "/images/otago/baldwin.jpg"
   },
